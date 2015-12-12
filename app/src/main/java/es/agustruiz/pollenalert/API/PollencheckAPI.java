@@ -1,36 +1,44 @@
 package es.agustruiz.pollenalert.API;
 
-
 import android.util.Log;
 
+import es.agustruiz.pollenalert.BuildConfig;
+import es.agustruiz.pollenalert.Models.Pollencheck.ForecastDailyFacade;
 import retrofit.Callback;
+import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
 public class PollencheckAPI {
     public static String LOG_TAG = PollencheckAPI.class.getName();
+    private static final String mashapeApiKey = BuildConfig.MASHAPE_API_KEY;
 
     public static void GetPollenForecast(String woeid){
-        RestAdapter adapter = new RestAdapter.Builder()
+        RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(PollencheckAPIInterface.POLLENCHECK_BASE_URL)
+                .setRequestInterceptor(new RequestInterceptor() {
+                    @Override
+                    public void intercept(RequestFacade request) {
+                        request.addHeader("X-Mashape-Key", mashapeApiKey);
+                        request.addHeader("Accept", "application/json");
+                    }
+                })
                 .build();
 
-        PollencheckAPIInterface api = adapter.create(PollencheckAPIInterface.class);
+        PollencheckAPIInterface pollencheckApi = restAdapter.create(PollencheckAPIInterface.class);
 
-        api.getTestForecast(new Callback<String>() {
+        pollencheckApi.getTestForecast(woeid, new Callback<ForecastDailyFacade>() {
             @Override
-            public void success(String s, Response response) {
+            public void success(ForecastDailyFacade s, Response response) {
                 Log.v(LOG_TAG, "AGUST_MSG: OK");
-                Log.v(LOG_TAG, "AGUST_MSG: " + s);
+                Log.v(LOG_TAG, "AGUST_MSG (WOEID): " + s.getWoeid());
+                Log.v(LOG_TAG, "AGUST_MSG (timestamp): " + s.getPeriods().get(0).getTimestamp());
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.v(LOG_TAG, "AGUST_MSG: CACAFUTI");
-                Log.v(LOG_TAG, "AGUST_MSG (Message): " + error.getMessage());
-                //Log.v(LOG_TAG, "AGUST_MSG (SuccessType): " + error.getSuccessType().toString());
-
+                Log.e(LOG_TAG, "AGUST_MSG (Message): " + error.getMessage());
             }
         });
     }
