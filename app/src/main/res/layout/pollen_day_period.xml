@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/abbr_average"
+            android:id="@+id/AvgLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/counterDefault"
+            android:id="@+id/AvgCounter"
+            android:padding="@dimen/abc_action_bar_default_padding_material"
+            android:textStyle="bold"
+            android:textColor="@color/ColorAvgCount" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/levelDefault"
+            android:id="@+id/AvgLevel"
+            android:padding="@dimen/abc_action_bar_default_padding_material"
+            android:textColor="@color/ColorAvgCount" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/abbr_minimum"
+            android:id="@+id/MinLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/counterDefault"
+            android:id="@+id/MinCounter"
+            android:padding="@dimen/abc_action_bar_default_padding_material"
+            android:textStyle="bold"
+            android:textColor="@color/ColorMinCount" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/levelDefault"
+            android:id="@+id/MinLevel"
+            android:padding="@dimen/abc_action_bar_default_padding_material"
+            android:textColor="@color/ColorMinCount" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/abbr_maximum"
+            android:id="@+id/MaxLabel" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/counterDefault"
+            android:id="@+id/MaxCounter"
+            android:padding="@dimen/abc_action_bar_default_padding_material"
+            android:textStyle="bold"
+            android:textColor="@color/ColorMaxCount" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/levelDefault"
+            android:id="@+id/MaxLevel"
+            android:padding="@dimen/abc_action_bar_default_padding_material"
+            android:textColor="@color/ColorMaxCount" />
+    </LinearLayout>
+
+</LinearLayout>
