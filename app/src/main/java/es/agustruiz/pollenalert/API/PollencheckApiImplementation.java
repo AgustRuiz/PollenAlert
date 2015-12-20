@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.API;
+package es.agustruiz.pollenalert.api;
 
 import android.util.Log;
 
@@ -10,13 +10,13 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
-public class PollencheckAPI {
-    public static String LOG_TAG = PollencheckAPI.class.getName();
+public class PollencheckApiImplementation {
+    public static String LOG_TAG = PollencheckApiImplementation.class.getName();
     private static final String mashapeApiKey = BuildConfig.MASHAPE_API_KEY;
 
     public static void GetPollenForecast(String woeid){
         RestAdapter restAdapter = new RestAdapter.Builder()
-                .setEndpoint(PollencheckAPIInterface.POLLENCHECK_BASE_URL)
+                .setEndpoint(PollencheckApiInterface.POLLENCHECK_BASE_URL)
                 .setRequestInterceptor(new RequestInterceptor() {
                     @Override
                     public void intercept(RequestFacade request) {
@@ -26,7 +26,7 @@ public class PollencheckAPI {
                 })
                 .build();
 
-        PollencheckAPIInterface pollencheckApi = restAdapter.create(PollencheckAPIInterface.class);
+        PollencheckApiInterface pollencheckApi = restAdapter.create(PollencheckApiInterface.class);
 
         pollencheckApi.getTestForecast(woeid, new Callback<ForecastDailyFacade>() {
             @Override
@@ -38,7 +38,7 @@ public class PollencheckAPI {
 
             @Override
             public void failure(RetrofitError error) {
-                Log.e(LOG_TAG, "AGUST_MSG (Message): " + error.getMessage());
+                Log.e(LOG_TAG, "AGUST_MSG: " + error.getMessage());
             }
         });
     }
