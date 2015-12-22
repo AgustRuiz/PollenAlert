@@ -1,6 +1,6 @@
 package es.agustruiz.pollenalert.api;
 
-import es.agustruiz.pollenalert.Models.Pollencheck.ForecastDailyFacade;
+import es.agustruiz.pollenalert.model.ForecastDailyFacade;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;

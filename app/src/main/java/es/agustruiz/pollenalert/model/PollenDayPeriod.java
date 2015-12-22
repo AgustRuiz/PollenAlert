@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.Models.Pollencheck;
+package es.agustruiz.pollenalert.model;
 
 /**
  * Pollen day period. From http://www.pollencheck.eu/docs/#!/forecasts
@@ -41,6 +41,18 @@ public class PollenDayPeriod {
      * Constructor
      */
     public PollenDayPeriod() {
+    }
+
+    /**
+     * Override constructor
+     */
+    public PollenDayPeriod(Float avgCounter, String avgLevel, Float minCounter, String minLevel, Float maxCounter, String maxLevel) {
+        this.avgCounter = avgCounter;
+        this.avgLevel = avgLevel;
+        this.minCounter = minCounter;
+        this.minLevel = minLevel;
+        this.maxCounter = maxCounter;
+        this.maxLevel = maxLevel;
     }
 
     /**

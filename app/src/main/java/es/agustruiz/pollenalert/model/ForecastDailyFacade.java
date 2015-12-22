@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.Models.Pollencheck;
+package es.agustruiz.pollenalert.model;
 
 import java.util.ArrayList;
 import java.util.List;

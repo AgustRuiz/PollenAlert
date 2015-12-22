@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content" android:weightSum="3">
 
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_weight="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/abbr_average"
-            android:id="@+id/AvgLabel" />
+            android:id="@+id/AvgLabel"
+            android:textAlignment="center" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/counterDefault"
             android:id="@+id/AvgCounter"
             android:padding="@dimen/abc_action_bar_default_padding_material"
             android:textStyle="bold"
-            android:textColor="@color/ColorAvgCount" />
+            android:textColor="@color/ColorAvgCount"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,31 +37,35 @@
             android:text="@string/levelDefault"
             android:id="@+id/AvgLevel"
             android:padding="@dimen/abc_action_bar_default_padding_material"
-            android:textColor="@color/ColorAvgCount" />
+            android:textColor="@color/ColorAvgCount"
+            android:textAlignment="center" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_weight="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/abbr_minimum"
-            android:id="@+id/MinLabel" />
+            android:id="@+id/MinLabel"
+            android:textAlignment="center" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/counterDefault"
             android:id="@+id/MinCounter"
             android:padding="@dimen/abc_action_bar_default_padding_material"
             android:textStyle="bold"
-            android:textColor="@color/ColorMinCount" />
+            android:textColor="@color/ColorMinCount"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -67,33 +74,37 @@
             android:text="@string/levelDefault"
             android:id="@+id/MinLevel"
             android:padding="@dimen/abc_action_bar_default_padding_material"
-            android:textColor="@color/ColorMinCount" />
+            android:textColor="@color/ColorMinCount"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_weight="1">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/abbr_maximum"
-            android:id="@+id/MaxLabel" />
+            android:id="@+id/MaxLabel"
+            android:textAlignment="center" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/counterDefault"
             android:id="@+id/MaxCounter"
             android:padding="@dimen/abc_action_bar_default_padding_material"
             android:textStyle="bold"
-            android:textColor="@color/ColorMaxCount" />
+            android:textColor="@color/ColorMaxCount"
+            android:textAlignment="center" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,7 +113,8 @@
             android:text="@string/levelDefault"
             android:id="@+id/MaxLevel"
             android:padding="@dimen/abc_action_bar_default_padding_material"
-            android:textColor="@color/ColorMaxCount" />
+            android:textColor="@color/ColorMaxCount"
+            android:textAlignment="center" />
     </LinearLayout>
 
 </LinearLayout>

@@ -3,7 +3,7 @@ package es.agustruiz.pollenalert.api;
 import android.util.Log;
 
 import es.agustruiz.pollenalert.BuildConfig;
-import es.agustruiz.pollenalert.Models.Pollencheck.ForecastDailyFacade;
+import es.agustruiz.pollenalert.model.ForecastDailyFacade;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
