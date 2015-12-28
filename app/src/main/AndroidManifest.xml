@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".presentation.MainActivity">
+        <activity android:name=".app.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,11 +22,11 @@
         <activity
             android:name=".app.ui.dailyForecast.DailyForecastActivity"
             android:label="@string/title_activity_daily_forecast"
-            android:parentActivityName=".presentation.MainActivity"
+            android:parentActivityName=".app.ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="es.agustruiz.pollenalert.presentation.MainActivity" />
+                android:value=".app.ui.MainActivity" />
         </activity>
     </application>
 

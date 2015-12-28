@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.presentation;
+package es.agustruiz.pollenalert.app.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
