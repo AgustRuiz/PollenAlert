@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.Models.Pollencheck;
+package es.agustruiz.pollenalert.domain.model;
 
 /**
  * Daily period. From http://www.pollencheck.eu/docs/#!/forecasts

@@ -1,11 +1,11 @@
-package es.agustruiz.pollenalert.API;
+package es.agustruiz.pollenalert.api;
 
-import es.agustruiz.pollenalert.Models.Pollencheck.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
 import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Path;
 
-public interface PollencheckAPIInterface {
+public interface PollencheckApiInterface {
 
     String POLLENCHECK_BASE_URL = "https://pollencheck.p.mashape.com/api/1/forecasts";
 

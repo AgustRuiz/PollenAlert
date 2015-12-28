@@ -1,11 +1,10 @@
-package es.agustruiz.pollenalert;
+package es.agustruiz.pollenalert.presentation;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
-import es.agustruiz.pollenalert.API.PollencheckAPI;
-import es.agustruiz.pollenalert.Models.Pollencheck.ForecastDailyFacade;
+import es.agustruiz.pollenalert.api.PollencheckApi;
+import es.agustruiz.pollenalert.R;
 
 public class MainActivity extends AppCompatActivity {
     static final String LOG_TAG = MainActivity.class.getName();
@@ -15,6 +14,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PollencheckAPI.GetPollenForecast("766273");
+        PollencheckApi.GetPollenForecast("766273");
     }
 }
