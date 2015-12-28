@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PollenAlert</string>
+    <string name="title_activity_daily_forecast">Daily forecast</string>
+    <string name="action_settings">Settings</string>
 </resources>
