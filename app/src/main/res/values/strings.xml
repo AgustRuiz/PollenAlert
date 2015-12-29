@@ -1,5 +1,25 @@
 <resources>
     <string name="app_name">PollenAlert</string>
+    <!-- Activities titles -->
     <string name="title_activity_daily_forecast">Daily forecast</string>
+    <!-- End activities titles -->
+
+    <!-- pollen_day_period -->
+    <string name="counterDefault">0.0</string>
+    <string name="levelDefault">very_low</string>
+    <!-- End pollen_day_period -->
+
+    <!-- Actions -->
     <string name="action_settings">Settings</string>
+    <!-- End actions -->
+
+    <!-- others -->
+    <string name="minimum">Minimum</string>
+    <string name="abbr_minimum">Min.</string>
+    <string name="average">Average</string>
+    <string name="abbr_average">Avg.</string>
+    <string name="maximum">Maximum</string>
+    <string name="abbr_maximum">Max.</string>
+    <string name="title_activity_test">TestActivity</string>
+    <!-- End others -->
 </resources>
