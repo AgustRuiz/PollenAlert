@@ -39,8 +39,20 @@ public class PollenDayPeriod {
 
     /**
      * Constructor
+     * @param avgCounter
+     * @param avgLevel
+     * @param minCounter
+     * @param minLevel
+     * @param maxCounter
+     * @param maxLevel
      */
-    public PollenDayPeriod() {
+    public PollenDayPeriod(float avgCounter, String avgLevel, float minCounter, String minLevel, float maxCounter, String maxLevel) {
+        this.avgCounter = avgCounter;
+        this.avgLevel = avgLevel;
+        this.minCounter = minCounter;
+        this.minLevel = minLevel;
+        this.maxCounter = maxCounter;
+        this.maxLevel = maxLevel;
     }
 
     /**

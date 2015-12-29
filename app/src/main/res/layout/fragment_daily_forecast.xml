@@ -9,5 +9,11 @@
     tools:context=".app.ui.dailyForecast.DailyForecastActivityFragment"
     tools:showIn="@layout/activity_daily_forecast">
 
+    <ListView
+        android:id="@+id/lvPollenDayPeriod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
 
 </RelativeLayout>
