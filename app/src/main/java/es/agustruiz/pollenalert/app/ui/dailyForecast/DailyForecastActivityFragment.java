@@ -17,16 +17,18 @@ import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.api.PollencheckApi;
 import es.agustruiz.pollenalert.app.ui.dailyForecast.adapter.PollenDayPeriodAdapter;
 import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
+import es.agustruiz.pollenalert.presentation.dailyForecast.DailyForecastView;
 
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DailyForecastActivityFragment extends Fragment {
+public class DailyForecastActivityFragment extends Fragment implements DailyForecastView {
 
     private static final String LOG_TAG = DailyForecastActivity.class.getName();
 
     View view;
-    @Bind(R.id.lvPollenDayPeriod) ListView lvPollenDayPeriod;
+    @Bind(R.id.lvPollenDayPeriod)
+    ListView lvPollenDayPeriod;
     PollenDayPeriodAdapter pollenDayPeriodAdapter = null;
 
     /**
@@ -41,12 +43,10 @@ public class DailyForecastActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         this.view = inflater.inflate(R.layout.fragment_daily_forecast, container, false);
         ButterKnife.bind(this, this.view);
-
-        this.testPopulateLvPollenDayPeriod();
-
         return this.view;
     }
 
+    // TODO: Remove after testing
     private void testPopulateLvPollenDayPeriod() {
         List<PollenDayPeriod> pollenDayPeriod_testData = new ArrayList<>();
         pollenDayPeriod_testData.add(new PollenDayPeriod(2f, "dos", 1f, "uno", 3f, "tres"));
@@ -59,6 +59,7 @@ public class DailyForecastActivityFragment extends Fragment {
         this.testPopulateLvPollenDayPeriod(pollenDayPeriod_testData);
     }
 
+    // TODO: Remove after testing
     private void testPopulateLvPollenDayPeriod(List<PollenDayPeriod> pollenDayPeriod_testData) {
         PollenDayPeriod pollenDayPeriod_data[] = pollenDayPeriod_testData
                 .toArray(new PollenDayPeriod[pollenDayPeriod_testData.size()]);
@@ -78,4 +79,34 @@ public class DailyForecastActivityFragment extends Fragment {
     }
 
 
+    // TODO: Remove after testing
+    @Override
+    public void updateForecast() {
+        this.testPopulateLvPollenDayPeriod();
+    }
+
+    @Override
+    public void updateForecast(List<PollenDayPeriod> pollenForecastList) {
+        this.testPopulateLvPollenDayPeriod();
+    }
+
+    @Override
+    public void showRefreshForecastError() {
+
+    }
+
+    @Override
+    public void showLoadForecastError() {
+
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
 }
