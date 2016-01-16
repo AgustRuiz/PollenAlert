@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".app.ui.MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,13 +20,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".app.ui.dailyForecast.DailyForecastActivity"
+            android:name=".ui.dailyForecast.DailyForecastActivity"
             android:label="@string/title_activity_daily_forecast"
-            android:parentActivityName=".app.ui.MainActivity"
+            android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".app.ui.MainActivity" />
+                android:value=".ui.MainActivity" />
         </activity>
     </application>
 

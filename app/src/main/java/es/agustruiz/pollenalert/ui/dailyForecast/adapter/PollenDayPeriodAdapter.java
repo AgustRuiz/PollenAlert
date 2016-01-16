@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.app.ui.dailyForecast.adapter;
+package es.agustruiz.pollenalert.ui.dailyForecast.adapter;
 
 import android.app.Activity;
 import android.content.Context;

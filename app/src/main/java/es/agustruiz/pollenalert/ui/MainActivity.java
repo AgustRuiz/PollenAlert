@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.app.ui;
+package es.agustruiz.pollenalert.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.app.ui.dailyForecast.DailyForecastActivity;
+import es.agustruiz.pollenalert.ui.dailyForecast.DailyForecastActivity;
 
 public class MainActivity extends AppCompatActivity {
     static final String LOG_TAG = MainActivity.class.getName();

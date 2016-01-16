@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.app.ui.dailyForecast;
+package es.agustruiz.pollenalert.ui.dailyForecast;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -10,6 +10,7 @@ import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.api.PollencheckApiClient;
 
 public class DailyForecastActivity extends AppCompatActivity {
 
@@ -41,7 +42,9 @@ public class DailyForecastActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try{
-                    dailyForecastActivityFragment.updateForecast(null);
+                    //PollencheckApiClient.GetPollenForecast("777597");
+                    dailyForecastActivityFragment.updateForecast();
+
                     Snackbar.make(view, "Here it is, my master!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }catch (Exception e){
