@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +29,11 @@ public class DailyForecastActivityFragment extends Fragment{
     @Bind(R.id.lvPollenDayPeriod)
     ListView lvPollenDayPeriod;
 
-    DailyForecastPresenter presenter;
-
+    @Bind(R.id.progressBar)
+    ProgressBar progressBar;
     private PollenDayPeriodAdapter adapter = null;
+
+    private DailyForecastPresenter presenter;
 
     /**
      * Constructor
@@ -40,13 +43,11 @@ public class DailyForecastActivityFragment extends Fragment{
         //PollencheckApiClient.GetPollenForecast("777597");
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setHasOptionsMenu(true);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,19 +55,6 @@ public class DailyForecastActivityFragment extends Fragment{
         View view = inflater.inflate(R.layout.fragment_daily_forecast, container, false);
         ButterKnife.bind(this, view);
         return view;
-    }
-
-    // TODO: Remove after testing
-    private void populateLvPollenDayPeriod() {
-        List<PollenDayPeriod> pollenDayPeriod_testData = new ArrayList<>();
-        pollenDayPeriod_testData.add(new PollenDayPeriod(2f, "dos", 1f, "uno", 3f, "tres"));
-        pollenDayPeriod_testData.add(new PollenDayPeriod(5f, "cinco", 4f, "cuatro", 6f, "seis"));
-        pollenDayPeriod_testData.add(new PollenDayPeriod(8f, "ocho", 7f, "siete", 9f, "nueve"));
-        pollenDayPeriod_testData.add(new PollenDayPeriod(11f, "once", 10f, "diez", 12f, "doce"));
-        pollenDayPeriod_testData.add(new PollenDayPeriod(14f, "catorce", 13f, "trece", 15f, "quince"));
-        pollenDayPeriod_testData.add(new PollenDayPeriod(17f, "diecisiete", 16f, "dieciseis", 18f, "dieciocho"));
-
-        this.populateLvPollenDayPeriod(pollenDayPeriod_testData);
     }
 
     public void populateLvPollenDayPeriod(List<PollenDayPeriod> pollenDayPeriod_testData) {
@@ -89,5 +77,13 @@ public class DailyForecastActivityFragment extends Fragment{
 
     public void updateForecast() {
         this.presenter.updateForecast();
+    }
+
+    public void showProgressBar(){
+        this.progressBar.setVisibility(View.VISIBLE);
+    }
+
+    public void hideProgressBar(){
+        this.progressBar.setVisibility(View.INVISIBLE);
     }
 }

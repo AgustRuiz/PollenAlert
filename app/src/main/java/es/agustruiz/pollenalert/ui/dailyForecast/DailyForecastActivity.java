@@ -43,13 +43,14 @@ public class DailyForecastActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try{
                     //PollencheckApiClient.GetPollenForecast("777597");
+                    dailyForecastActivityFragment.showProgressBar();
                     dailyForecastActivityFragment.updateForecast();
 
-                    Snackbar.make(view, "Here it is, my master!", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    /*Snackbar.make(view, "Here it is, my master!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();/**/
                 }catch (Exception e){
-                    Snackbar.make(view, "Can't refresh forecast!", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    /*Snackbar.make(view, "Can't refresh forecast!", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();/**/
                 }
             }
         });

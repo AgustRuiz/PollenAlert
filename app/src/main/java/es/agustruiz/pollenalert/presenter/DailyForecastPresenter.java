@@ -29,6 +29,7 @@ public class DailyForecastPresenter implements Presenter{
 
     public void updateViewForecast(List<PollenDayPeriod> forecast){
         this.fragment.populateLvPollenDayPeriod(forecast);
+        this.fragment.hideProgressBar();
     }
 
 
