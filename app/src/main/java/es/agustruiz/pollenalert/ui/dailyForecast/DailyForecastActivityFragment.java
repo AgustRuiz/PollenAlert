@@ -1,5 +1,6 @@
 package es.agustruiz.pollenalert.ui.dailyForecast;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +24,7 @@ import es.agustruiz.pollenalert.ui.dailyForecast.adapter.PollenDayPeriodAdapter;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class DailyForecastActivityFragment extends Fragment{
+public class DailyForecastActivityFragment extends Fragment {
 
     private static final String LOG_TAG = DailyForecastActivity.class.getName();
 
@@ -31,16 +33,16 @@ public class DailyForecastActivityFragment extends Fragment{
 
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
-    private PollenDayPeriodAdapter adapter = null;
 
+    private Context context;
+    private PollenDayPeriodAdapter adapter = null;
     private DailyForecastPresenter presenter;
 
     /**
      * Constructor
      */
     public DailyForecastActivityFragment() {
-        presenter = new DailyForecastPresenter(this);
-        //PollencheckApiClient.GetPollenForecast("777597");
+        this.presenter = new DailyForecastPresenter(this);
     }
 
     @Override
@@ -54,6 +56,7 @@ public class DailyForecastActivityFragment extends Fragment{
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_daily_forecast, container, false);
         ButterKnife.bind(this, view);
+        this.context = getActivity().getApplicationContext();
         return view;
     }
 
@@ -79,11 +82,15 @@ public class DailyForecastActivityFragment extends Fragment{
         this.presenter.updateForecast();
     }
 
-    public void showProgressBar(){
+    public void showProgressBar() {
         this.progressBar.setVisibility(View.VISIBLE);
     }
 
-    public void hideProgressBar(){
+    public void hideProgressBar() {
         this.progressBar.setVisibility(View.INVISIBLE);
+    }
+
+    public void showToast(String message, int length) {
+        Toast.makeText(this.context, message, length).show();
     }
 }

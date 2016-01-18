@@ -21,5 +21,6 @@
     <string name="maximum">Maximum</string>
     <string name="abbr_maximum">Max.</string>
     <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_forecast">Pollen forecast</string>
     <!-- End others -->
 </resources>

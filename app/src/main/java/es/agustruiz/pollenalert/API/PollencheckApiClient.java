@@ -60,12 +60,13 @@ public class PollencheckApiClient {
                 }
 
                 presenter.updateViewForecast(result);
-
             }
 
             @Override
             public void failure(RetrofitError error) {
                 Log.e(LOG_TAG, "AGUST_MSG (Message): " + error.getMessage());
+
+                presenter.errorUpdateViewForecast(error.getMessage());
             }
         });
 

@@ -1,6 +1,7 @@
 package es.agustruiz.pollenalert.presenter;
 
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -30,6 +31,12 @@ public class DailyForecastPresenter implements Presenter{
     public void updateViewForecast(List<PollenDayPeriod> forecast){
         this.fragment.populateLvPollenDayPeriod(forecast);
         this.fragment.hideProgressBar();
+        this.fragment.showToast("Here it is, my master!", Toast.LENGTH_SHORT);
+    }
+
+    public void errorUpdateViewForecast(String messageError){
+        this.fragment.hideProgressBar();
+        this.fragment.showToast("Error: " + messageError, Toast.LENGTH_LONG);
     }
 
 
