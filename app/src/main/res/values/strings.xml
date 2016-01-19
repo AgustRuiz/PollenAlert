@@ -27,6 +27,10 @@
     <string name="creationTime">Creation time</string>
     <string name="interval">Interval</string>
     <string name="active">Active</string>
+
+    <string name="time">Time</string>
+    <string name="timestamp">Timestamp</string>
+
     <string name="blankString">-</string>
     <!-- End others -->
 </resources>

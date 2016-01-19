@@ -6,19 +6,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.domain.model.DailyPeriod;
 import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
-import es.agustruiz.pollenalert.presenter.DailyForecastPresenter;
 import es.agustruiz.pollenalert.presenter.ForecastPresenter;
+import es.agustruiz.pollenalert.ui.adapter.DailyPeriodAdapter;
+import es.agustruiz.pollenalert.ui.adapter.PollenDayPeriodAdapter;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -27,14 +31,22 @@ public class ForecastActivityFragment extends Fragment {
 
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
-    @Bind(R.id.woeidValue)
+
+    @Bind(R.id.timeValue)
     TextView woeidValue;
+
     @Bind(R.id.creationTimeValue)
     TextView creationTimeValue;
+
     @Bind(R.id.intervalValue)
     TextView intervalValue;
+
     @Bind(R.id.activeValue)
-    TextView activeValue;/**/
+    TextView activeValue;
+
+    @Bind(R.id.lvDailyPeriod)
+    ListView lvDailyPeriod;
+    private DailyPeriodAdapter adapter = null;
 
     private Context context;
     private ForecastPresenter presenter;
@@ -52,11 +64,23 @@ public class ForecastActivityFragment extends Fragment {
         return view;
     }
 
+    public void populateLvDailyPeriod(ForecastDailyFacade forecast) {
+        DailyPeriod[] dailyPeriodArray =
+                forecast.getPeriods().toArray(new DailyPeriod[forecast.getPeriods().size()]);
+
+        if (this.adapter == null) {
+            this.adapter = new DailyPeriodAdapter(this.lvDailyPeriod.getContext(),
+                    R.layout.row_daily_period, dailyPeriodArray);
+        }
+        this.lvDailyPeriod.setAdapter(adapter);
+    }
+
     public void callPresenterForecast(ForecastDailyFacade forecast) {
         this.woeidValue.setText(forecast.getWoeid());
         this.creationTimeValue.setText(forecast.getCreationTime());
         this.intervalValue.setText(forecast.getInterval());
         this.activeValue.setText(forecast.getActive().toString());
+        this.populateLvDailyPeriod(forecast);
     }
 
     public void clearForecast() {

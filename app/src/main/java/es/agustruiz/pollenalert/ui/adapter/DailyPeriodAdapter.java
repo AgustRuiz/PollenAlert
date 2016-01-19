@@ -11,16 +11,17 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.domain.model.DailyPeriod;
 import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
 
-public class DailyPeriodAdapter extends ArrayAdapter<PollenDayPeriod> {
+public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
 
 
     Context context;
     int layoutResourceId;
-    PollenDayPeriod data[] = null;
+    DailyPeriod data[] = null;
 
-    public DailyPeriodAdapter(Context context, int layoutResourceId, PollenDayPeriod[] data){
+    public DailyPeriodAdapter(Context context, int layoutResourceId, DailyPeriod[] data){
         super(context, layoutResourceId, data);
         this.context = context;
         this.layoutResourceId = layoutResourceId;
@@ -30,40 +31,33 @@ public class DailyPeriodAdapter extends ArrayAdapter<PollenDayPeriod> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent){
         View row = convertView;
-        PollenDayPeriodHolder holder = null;
+        DailyPeriodHolder holder = null;
 
         if(row == null){
             LayoutInflater inflater = ((Activity)context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
 
-            holder = new PollenDayPeriodHolder(row);
+            holder = new DailyPeriodHolder(row);
 
             row.setTag(holder);
         }else{
-            holder = (PollenDayPeriodHolder) row.getTag();
+            holder = (DailyPeriodHolder) row.getTag();
         }
 
-        PollenDayPeriod pollenDayPeriod = data[position];
+        DailyPeriod dailyPeriod = data[position];
 
-        holder.avgCounter.setText(String.format("%d", pollenDayPeriod.getAvgCounter().intValue()));
-        holder.avgLevel.setText(pollenDayPeriod.getAvgLevel());
-        holder.minCounter.setText(String.format("%d", pollenDayPeriod.getMinCounter().intValue()));
-        holder.minLevel.setText(pollenDayPeriod.getMinLevel());
-        holder.maxCounter.setText(String.format("%d", pollenDayPeriod.getMaxCounter().intValue()));
-        holder.maxLevel.setText(pollenDayPeriod.getMaxLevel());
+        holder.time.setText(dailyPeriod.getTime());
+        holder.timestamp.setText(String.format("%d", dailyPeriod.getTimestamp()));
+
 
         return row;
     }
 
-    static class PollenDayPeriodHolder{
-        public PollenDayPeriodHolder(View view) {
+    static class DailyPeriodHolder {
+        public DailyPeriodHolder(View view) {
             ButterKnife.bind(this, view);
         }
-        @Bind(R.id.MinCounter) TextView minCounter;
-        @Bind(R.id.MinLevel) TextView minLevel;
-        @Bind(R.id.AvgCounter) TextView avgCounter;
-        @Bind(R.id.AvgLevel) TextView avgLevel;
-        @Bind(R.id.MaxCounter) TextView maxCounter;
-        @Bind(R.id.MaxLevel) TextView maxLevel;
+        @Bind(R.id.timeValue) TextView time;
+        @Bind(R.id.timestampValue) TextView timestamp;
     }
 }

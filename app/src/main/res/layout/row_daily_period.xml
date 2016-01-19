@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/time"
+            android:id="@+id/timeLabel"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/blankString"
+            android:id="@+id/timeValue"
+            android:layout_below="@+id/timeLabel"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/navigation_padding_bottom"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/timestamp"
+            android:id="@+id/timestampLabel"
+            android:layout_below="@+id/timeValue"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/blankString"
+            android:id="@+id/timestampValue"
+            android:layout_below="@+id/timestampLabel"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="@dimen/navigation_padding_bottom" />
+    </RelativeLayout>
+
+</RelativeLayout>

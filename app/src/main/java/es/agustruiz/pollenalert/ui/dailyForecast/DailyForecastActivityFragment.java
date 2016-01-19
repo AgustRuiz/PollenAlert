@@ -3,11 +3,9 @@ package es.agustruiz.pollenalert.ui.dailyForecast;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -22,7 +20,7 @@ import es.agustruiz.pollenalert.domain.model.DailyPeriod;
 import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
 import es.agustruiz.pollenalert.presenter.DailyForecastPresenter;
-import es.agustruiz.pollenalert.ui.dailyForecast.adapter.PollenDayPeriodAdapter;
+import es.agustruiz.pollenalert.ui.adapter.PollenDayPeriodAdapter;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -33,12 +31,12 @@ public class DailyForecastActivityFragment extends Fragment {
 
     @Bind(R.id.lvPollenDayPeriod)
     ListView lvPollenDayPeriod;
+    private PollenDayPeriodAdapter adapter = null;
 
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
 
     private Context context;
-    private PollenDayPeriodAdapter adapter = null;
     private DailyForecastPresenter presenter;
 
     /**
