@@ -10,6 +10,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.ui.dailyForecast.DailyForecastActivity;
+import es.agustruiz.pollenalert.ui.forecast.ForecastActivity;
 
 public class MainActivity extends AppCompatActivity {
     static final String LOG_TAG = MainActivity.class.getName();

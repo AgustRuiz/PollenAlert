@@ -22,7 +22,7 @@ public class PollencheckApiClient {
     public static String LOG_TAG = PollencheckApiClient.class.getName();
     private static final String mashapeApiKey = BuildConfig.MASHAPE_API_KEY;
 
-    public static List<ForecastDailyFacade> GetPollenForecast(String woeid, final DailyForecastPresenter presenter) {
+    public static List<ForecastDailyFacade> GetPollenForecast(String woeid, final Presenter presenter) {
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint(PollencheckApiInterface.POLLENCHECK_BASE_URL)
                 .setRequestInterceptor(new RequestInterceptor() {
@@ -45,21 +45,7 @@ public class PollencheckApiClient {
                 //Log.v(LOG_TAG, "AGUST_MSG (WOEID): " + s.getWoeid());
                 //Log.v(LOG_TAG, "AGUST_MSG (timestamp): " + s.getPeriods().get(0).getTimestamp());
 
-                List<DailyPeriod> dailyPeriods = s.getPeriods();
-                List<PollenDayPeriod> result = new ArrayList<>();
-
-                if (dailyPeriods != null && dailyPeriods.size() > 0) {
-                    DailyPeriod dailyPeriod = dailyPeriods.get(0);
-                    result.add(dailyPeriod.getCombined());
-                    result.add(dailyPeriod.getBirch());
-                    result.add(dailyPeriod.getGrass());
-                    result.add(dailyPeriod.getOlive());
-                    result.add(dailyPeriod.getRagweed());
-                } else {
-                    Log.v(LOG_TAG, "AGUST_MSG: DailyPeriod list empty");
-                }
-
-                presenter.updateViewForecast(result);
+                presenter.updateViewForecast(s);
             }
 
             @Override

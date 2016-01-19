@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -17,6 +18,8 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.domain.model.DailyPeriod;
+import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
 import es.agustruiz.pollenalert.presenter.DailyForecastPresenter;
 import es.agustruiz.pollenalert.ui.dailyForecast.adapter.PollenDayPeriodAdapter;
@@ -60,7 +63,16 @@ public class DailyForecastActivityFragment extends Fragment {
         return view;
     }
 
-    public void populateLvPollenDayPeriod(List<PollenDayPeriod> pollenDayPeriod_testData) {
+    public void populateLvPollenDayPeriod(ForecastDailyFacade forecast) {
+        DailyPeriod dailyPeriod = forecast.getPeriods().get(0);
+        List<PollenDayPeriod> pollenDayPeriod_testData = new ArrayList<>();
+        pollenDayPeriod_testData.add(dailyPeriod.getCombined());
+        pollenDayPeriod_testData.add(dailyPeriod.getBirch());
+        pollenDayPeriod_testData.add(dailyPeriod.getGrass());
+        pollenDayPeriod_testData.add(dailyPeriod.getOlive());
+        pollenDayPeriod_testData.add(dailyPeriod.getRagweed());
+
+
         PollenDayPeriod pollenDayPeriod_data[] = pollenDayPeriod_testData
                 .toArray(new PollenDayPeriod[pollenDayPeriod_testData.size()]);
 
@@ -68,14 +80,11 @@ public class DailyForecastActivityFragment extends Fragment {
             adapter = new PollenDayPeriodAdapter(lvPollenDayPeriod.getContext(),
                     R.layout.pollen_day_period, pollenDayPeriod_data);
         }
-
-        if (lvPollenDayPeriod.getAdapter() == null) {
-            Log.v(LOG_TAG, "AGUST_MSG: (1) IS NULL");
-        } else {
-            Log.v(LOG_TAG, "AGUST_MSG: (1) IS NOT NULL: " + lvPollenDayPeriod.getAdapter().toString());
-        }
-
         lvPollenDayPeriod.setAdapter(adapter);
+    }
+
+    public void clearForecast() {
+        lvPollenDayPeriod.setAdapter(null); // Empty adapter
     }
 
     public void updateForecast() {

@@ -29,7 +29,7 @@
                 android:value=".ui.MainActivity" />
         </activity>
         <activity
-            android:name=".ui.ForecastActivity"
+            android:name=".ui.forecast.ForecastActivity"
             android:label="@string/title_activity_forecast"
             android:parentActivityName=".ui.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">

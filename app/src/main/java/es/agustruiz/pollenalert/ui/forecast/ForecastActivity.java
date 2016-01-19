@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.ui.dailyForecast;
+package es.agustruiz.pollenalert.ui.forecast;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,24 +6,25 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.api.PollencheckApiClient;
 
-public class DailyForecastActivity extends AppCompatActivity {
+public class ForecastActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.refresh)
     FloatingActionButton mRefresh;
-    DailyForecastActivityFragment dailyForecastActivityFragment = null;
+
+    ForecastActivityFragment forecastActivityFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_daily_forecast);
+        setContentView(R.layout.activity_forecast);
         ButterKnife.bind(this);
         this.initialize();
     }
@@ -34,21 +35,21 @@ public class DailyForecastActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        this.dailyForecastActivityFragment =
-                (DailyForecastActivityFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.contentDailyForecast);
+        this.forecastActivityFragment = (ForecastActivityFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.contentForecast);
+
 
         this.mRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try{
-                    dailyForecastActivityFragment.showProgressBar();
-                    dailyForecastActivityFragment.clearForecast();
-                    dailyForecastActivityFragment.updateForecast();
-                    /*Snackbar.make(view, "Here it is, my master!", Snackbar.LENGTH_LONG)
+                try {
+                    forecastActivityFragment.showProgressBar();
+                    forecastActivityFragment.clearForecast();
+                    forecastActivityFragment.callPresenterForecast();
+                    /*Snackbar.make(view, "Here I am!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();/**/
-                }catch (Exception e){
-                    dailyForecastActivityFragment.hideProgressBar();
+                } catch (Exception e) {
+                    forecastActivityFragment.hideProgressBar();
                     Snackbar.make(view, "Can't refresh forecast!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }

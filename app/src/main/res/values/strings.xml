@@ -2,6 +2,8 @@
     <string name="app_name">PollenAlert</string>
     <!-- Activities titles -->
     <string name="title_activity_daily_forecast">Daily forecast</string>
+    <string name="title_activity_test">TestActivity</string>
+    <string name="title_activity_forecast">Pollen forecast</string>
     <!-- End activities titles -->
 
     <!-- pollen_day_period -->
@@ -20,7 +22,11 @@
     <string name="abbr_average">Avg.</string>
     <string name="maximum">Maximum</string>
     <string name="abbr_maximum">Max.</string>
-    <string name="title_activity_test">TestActivity</string>
-    <string name="title_activity_forecast">Pollen forecast</string>
+
+    <string name="woeid">WOEID</string>
+    <string name="creationTime">Creation time</string>
+    <string name="interval">Interval</string>
+    <string name="active">Active</string>
+    <string name="blankString">-</string>
     <!-- End others -->
 </resources>
