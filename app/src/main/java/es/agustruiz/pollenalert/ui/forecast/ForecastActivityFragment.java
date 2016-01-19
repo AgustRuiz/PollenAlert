@@ -23,6 +23,7 @@ import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
 import es.agustruiz.pollenalert.presenter.ForecastPresenter;
 import es.agustruiz.pollenalert.ui.adapter.DailyPeriodAdapter;
 import es.agustruiz.pollenalert.ui.adapter.PollenDayPeriodAdapter;
+import es.agustruiz.pollenalert.ui.customViews.NoScrollListView;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -45,7 +46,7 @@ public class ForecastActivityFragment extends Fragment {
     TextView activeValue;
 
     @Bind(R.id.lvDailyPeriod)
-    ListView lvDailyPeriod;
+    NoScrollListView lvDailyPeriod;
     private DailyPeriodAdapter adapter = null;
 
     private Context context;
