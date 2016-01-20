@@ -6,23 +6,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.domain.model.DailyPeriod;
 import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
-import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
+import es.agustruiz.pollenalert.domain.model.LocationFacade;
 import es.agustruiz.pollenalert.presenter.ForecastPresenter;
 import es.agustruiz.pollenalert.ui.adapter.DailyPeriodAdapter;
-import es.agustruiz.pollenalert.ui.adapter.PollenDayPeriodAdapter;
 import es.agustruiz.pollenalert.ui.customViews.NoScrollListView;
 
 /**
@@ -33,7 +28,16 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
 
-    @Bind(R.id.timeValue)
+    @Bind(R.id.locationNameValue)
+    TextView locationNameValue;
+
+    @Bind(R.id.locationRegionValue)
+    TextView locationRegionValue;
+
+    @Bind(R.id.locationCountryValue)
+    TextView locationCountryValue;
+
+    @Bind(R.id.woeidValue)
     TextView woeidValue;
 
     @Bind(R.id.creationTimeValue)
@@ -77,6 +81,11 @@ public class ForecastActivityFragment extends Fragment {
     }
 
     public void callPresenterForecast(ForecastDailyFacade forecast) {
+        LocationFacade location = forecast.getLocation();
+        this.locationNameValue.setText(location.getName());
+        this.locationRegionValue.setText(location.getRegion());
+        this.locationCountryValue.setText(location.getCountry());
+
         this.woeidValue.setText(forecast.getWoeid());
         this.creationTimeValue.setText(forecast.getCreationTime());
         this.intervalValue.setText(forecast.getInterval());
@@ -85,6 +94,10 @@ public class ForecastActivityFragment extends Fragment {
     }
 
     public void clearForecast() {
+        this.locationNameValue.setText(getResources().getString(R.string.blankString));
+        this.locationRegionValue.setText(getResources().getString(R.string.blankString));
+        this.locationCountryValue.setText(getResources().getString(R.string.blankString));
+
         this.woeidValue.setText(getResources().getString(R.string.blankString));
         this.creationTimeValue.setText(getResources().getString(R.string.blankString));
         this.intervalValue.setText(getResources().getString(R.string.blankString));

@@ -1,55 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
-
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:baselineAligned="false">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/time"
-            android:id="@+id/timeLabel"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Day"
+            android:id="@+id/dayName" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/blankString"
-            android:id="@+id/timeValue"
-            android:layout_below="@+id/timeLabel"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="@dimen/navigation_padding_bottom"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="@string/timestamp"
-            android:id="@+id/timestampLabel"
-            android:layout_below="@+id/timeValue"
-            android:layout_alignParentStart="true" />
+            android:text="@string/blankSpace"
+            android:id="@+id/blankSpace" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="@string/blankString"
-            android:id="@+id/timestampValue"
-            android:layout_below="@+id/timestampLabel"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="@dimen/navigation_padding_bottom" />
-    </RelativeLayout>
+            android:text="99"
+            android:id="@+id/dayNumber" />
+    </LinearLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:weightSum="9"
+        android:layout_gravity="bottom">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pollenIcon"
+            android:src="@drawable/combined"
+            android:layout_weight="1"
+            android:layout_gravity="left|bottom" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/blankString"
+                android:id="@+id/avgCounter"
+                android:layout_gravity="bottom|center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/blankString"
+                android:id="@+id/avgLevel"
+                android:layout_gravity="bottom|center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/blankString"
+                android:id="@+id/maxCounter"
+                android:layout_gravity="bottom|center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/blankString"
+                android:id="@+id/maxLevel"
+                android:layout_gravity="bottom|center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:layout_gravity="bottom">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="@string/blankString"
+                android:id="@+id/minCounter"
+                android:layout_gravity="bottom|center_horizontal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:text="@string/blankString"
+                android:id="@+id/minLevel"
+                android:layout_gravity="bottom|center_horizontal" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

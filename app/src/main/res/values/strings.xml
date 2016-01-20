@@ -32,5 +32,36 @@
     <string name="timestamp">Timestamp</string>
 
     <string name="blankString">-</string>
-    <!-- End others -->
+    <string name="blankSpace">" "</string>
+    <string name="bracketOpen">" ("</string>
+    <string name="bracketClose">") "</string>
+
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+
+    <string-array name="daysOfTheWeek">
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>Dicember</item>
+    </string-array>
+
 </resources>

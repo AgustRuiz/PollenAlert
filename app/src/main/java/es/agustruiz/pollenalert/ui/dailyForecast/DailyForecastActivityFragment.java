@@ -74,15 +74,15 @@ public class DailyForecastActivityFragment extends Fragment {
         PollenDayPeriod pollenDayPeriod_data[] = pollenDayPeriod_testData
                 .toArray(new PollenDayPeriod[pollenDayPeriod_testData.size()]);
 
-        if (adapter == null) {
-            adapter = new PollenDayPeriodAdapter(lvPollenDayPeriod.getContext(),
+        if (this.adapter == null) {
+            this.adapter = new PollenDayPeriodAdapter(lvPollenDayPeriod.getContext(),
                     R.layout.row_pollen_day_period, pollenDayPeriod_data);
         }
         lvPollenDayPeriod.setAdapter(adapter);
     }
 
     public void clearForecast() {
-        lvPollenDayPeriod.setAdapter(null); // Empty adapter
+        this.lvPollenDayPeriod.setAdapter(null); // Empty adapter
     }
 
     public void updateForecast() {
