@@ -40,6 +40,7 @@
     <string name="tomorrow">Tomorrow</string>
 
     <string-array name="daysOfTheWeek">
+        <item>NotADay</item> <!-- Position 0 -->
         <item>Sunday</item>
         <item>Monday</item>
         <item>Tuesday</item>

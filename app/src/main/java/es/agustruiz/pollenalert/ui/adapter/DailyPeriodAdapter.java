@@ -56,7 +56,7 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(dailyPeriod.getTimestamp()));
         String dayOfWeek = getContext().getResources()
-                .getStringArray(R.array.daysOfTheWeek)[calendar.get(Calendar.DAY_OF_WEEK) % 7];
+                .getStringArray(R.array.daysOfTheWeek)[calendar.get(Calendar.DAY_OF_WEEK)];
         String day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
         holder.dayName.setText(dayOfWeek);
         holder.dayNumber.setText(day);
