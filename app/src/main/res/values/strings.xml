@@ -6,10 +6,10 @@
     <string name="title_activity_forecast">Pollen forecast</string>
     <!-- End activities titles -->
 
-    <!-- pollen_day_period -->
+    <!-- row_pollen_day_period -->
     <string name="counterDefault">0.0</string>
     <string name="levelDefault">very_low</string>
-    <!-- End pollen_day_period -->
+    <!-- End row_pollen_day_period -->
 
     <!-- Actions -->
     <string name="action_settings">Settings</string>
