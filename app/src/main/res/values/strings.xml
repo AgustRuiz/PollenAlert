@@ -39,6 +39,9 @@
     <string name="today">Today</string>
     <string name="tomorrow">Tomorrow</string>
 
+    <string name="arrowUp">▲</string>
+    <string name="arrowDown">▼</string>
+
     <string-array name="daysOfTheWeek">
         <item>NotADay</item> <!-- Position 0 -->
         <item>Sunday</item>

@@ -1,127 +1,174 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:baselineAligned="false">
+    android:baselineAligned="false"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/dayName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Day"
-            android:id="@+id/dayName" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:id="@+id/blankSpace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/blankSpace"
-            android:id="@+id/blankSpace" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:id="@+id/dayNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="99"
-            android:id="@+id/dayNumber" />
+            android:textAppearance="?android:attr/textAppearanceMedium" />
     </LinearLayout>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="bottom"
         android:gravity="center"
-        android:weightSum="9"
-        android:layout_gravity="bottom">
+        android:orientation="horizontal"
+        android:weightSum="9">
 
         <ImageView
+            android:id="@+id/pollenIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/pollenIcon"
-            android:src="@drawable/combined"
+            android:layout_gravity="left|bottom|center"
             android:layout_weight="1"
-            android:layout_gravity="left|bottom" />
+            android:src="@drawable/combined" />
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:layout_gravity="bottom"
-            android:gravity="bottom">
+            android:orientation="vertical"
+            android:gravity="center_vertical|center|center_horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/blankString"
                 android:id="@+id/avgCounter"
-                android:layout_gravity="bottom|center_horizontal" />
-
-            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_gravity="bottom|center"
                 android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:textColor="@color/ColorAvgCount" />
+
+            <TextView
                 android:id="@+id/avgLevel"
-                android:layout_gravity="bottom|center_horizontal" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:gravity="center_vertical|center|center_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="bottom">
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center_vertical|center|center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal">
+
+                <TextView
+                    android:id="@+id/maxArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/arrowUp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:textColor="@color/ColorMaxCount" />
+
+                <TextView
+                    android:id="@+id/maxCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:textColor="@color/ColorMaxCount" />
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/blankString"
-                android:id="@+id/maxCounter"
-                android:layout_gravity="bottom|center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/blankString"
                 android:id="@+id/maxLevel"
-                android:layout_gravity="bottom|center_horizontal" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center_vertical|center|center_horizontal" />
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:layout_gravity="bottom"
-            android:gravity="bottom">
+            android:orientation="vertical"
+            android:gravity="center_vertical|center|center_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal">
+
+                <TextView
+                    android:id="@+id/minArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/arrowDown"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:textColor="@color/ColorMinCount" />
+
+                <TextView
+                    android:id="@+id/minCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:textColor="@color/ColorMinCount" />
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text="@string/blankString"
-                android:id="@+id/minCounter"
-                android:layout_gravity="bottom|center_horizontal" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text="@string/blankString"
                 android:id="@+id/minLevel"
-                android:layout_gravity="bottom|center_horizontal" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:gravity="center_vertical|center|center_horizontal" />
         </LinearLayout>
 
     </LinearLayout>
