@@ -25,11 +25,13 @@ public class ForecastPresenter implements Presenter{
     public void updateViewForecast(ForecastDailyFacade forecast){
         this.fragment.callPresenterForecast(forecast);
         this.fragment.hideProgressBar();
+        this.fragment.showMainView();
         this.fragment.showToast("Here it is, my master!", Toast.LENGTH_SHORT);
     }
 
     public void errorUpdateViewForecast(String messageError){
         this.fragment.hideProgressBar();
-        this.fragment.showToast("Error: " + messageError, Toast.LENGTH_LONG);
+        this.fragment.hideMainView();
+        this.fragment.showErrorView("Error: " + messageError);
     }
 }

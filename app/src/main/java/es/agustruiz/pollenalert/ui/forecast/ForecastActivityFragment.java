@@ -28,6 +28,9 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
 
+    @Bind(R.id.mainView)
+    View mainView;
+
     @Bind(R.id.locationNameValue)
     TextView locationNameValue;
 
@@ -53,6 +56,12 @@ public class ForecastActivityFragment extends Fragment {
     NoScrollListView lvDailyPeriod;
     private DailyPeriodAdapter adapter = null;
 
+    @Bind(R.id.errorView)
+    View errorView;
+
+    @Bind(R.id.errorText)
+    TextView errorText;
+
     private Context context;
     private ForecastPresenter presenter;
 
@@ -66,6 +75,7 @@ public class ForecastActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
         this.context = getActivity().getApplicationContext();
+        this.hideMainView();
         return view;
     }
 
@@ -116,7 +126,24 @@ public class ForecastActivityFragment extends Fragment {
         this.progressBar.setVisibility(View.INVISIBLE);
     }
 
+    public void showMainView(){
+        this.mainView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideMainView(){
+        this.mainView.setVisibility(View.INVISIBLE);
+    }
+
     public void showToast(String message, int length) {
         Toast.makeText(this.context, message, length).show();
+    }
+
+    public void showErrorView(String errorText){
+        this.errorText.setText(errorText);
+        this.errorView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideErrorView(){
+        this.errorView.setVisibility(View.INVISIBLE);
     }
 }

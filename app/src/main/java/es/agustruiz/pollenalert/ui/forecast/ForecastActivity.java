@@ -6,7 +6,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,14 +43,16 @@ public class ForecastActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     forecastActivityFragment.showProgressBar();
+                    forecastActivityFragment.hideMainView();
+                    forecastActivityFragment.hideErrorView();
                     forecastActivityFragment.clearForecast();
                     forecastActivityFragment.callPresenterForecast();
                     /*Snackbar.make(view, "Here I am!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();/**/
                 } catch (Exception e) {
                     forecastActivityFragment.hideProgressBar();
-                    Snackbar.make(view, "Can't refresh forecast!", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+                    forecastActivityFragment.hideMainView();
+                    forecastActivityFragment.showErrorView("Can't refresh forecast!");
                 }
             }
         });

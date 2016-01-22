@@ -41,6 +41,7 @@
 
     <string name="arrowUp">▲</string>
     <string name="arrowDown">▼</string>
+    <string name="sadFace">:(</string>
 
     <string-array name="daysOfTheWeek">
         <item>NotADay</item> <!-- Position 0 -->
