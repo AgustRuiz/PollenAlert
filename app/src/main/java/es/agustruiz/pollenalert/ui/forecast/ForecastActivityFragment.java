@@ -65,8 +65,13 @@ public class ForecastActivityFragment extends Fragment {
     private Context context;
     private ForecastPresenter presenter;
 
+    private Boolean isOk;
+    private Boolean isError;
+
     public ForecastActivityFragment() {
         this.presenter = new ForecastPresenter(this);
+        this.isOk = false;
+        this.isError = false;
     }
 
     @Override
@@ -75,8 +80,45 @@ public class ForecastActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
         this.context = getActivity().getApplicationContext();
-        this.hideMainView();
+        if (this.isOk) this.showMainView(); else this.hideMainView();
+        if (this.isError) this.showErrorView(); else this.hideErrorView();
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if (savedInstanceState != null) {
+            this.locationNameValue.setText(savedInstanceState.getString("locationNameValue"));
+            this.locationRegionValue.setText(savedInstanceState.getString("locationRegionValue"));
+            this.locationCountryValue.setText(savedInstanceState.getString("locationCountryValue"));
+            this.woeidValue.setText(savedInstanceState.getString("woeidValue"));
+            this.creationTimeValue.setText(savedInstanceState.getString("creationTimeValue"));
+            this.intervalValue.setText(savedInstanceState.getString("intervalValue"));
+            this.activeValue.setText(savedInstanceState.getString("activeValue"));
+            this.errorText.setText(savedInstanceState.getString("errorText"));
+            this.isOk = savedInstanceState.getBoolean("isOk");
+            this.isError = savedInstanceState.getBoolean("isError");
+
+            if (this.isOk) this.showMainView();
+            if (this.isError) this.showErrorView();
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("locationNameValue", this.locationNameValue.getText().toString());
+        outState.putString("locationRegionValue", this.locationRegionValue.getText().toString());
+        outState.putString("locationCountryValue", this.locationCountryValue.getText().toString());
+        outState.putString("woeidValue", this.woeidValue.getText().toString());
+        outState.putString("creationTimeValue", this.creationTimeValue.getText().toString());
+        outState.putString("intervalValue", this.intervalValue.getText().toString());
+        outState.putString("activeValue", this.activeValue.getText().toString());
+        outState.putString("errorText", this.errorText.getText().toString());
+
+        outState.putBoolean("isOk", this.isOk);
+        outState.putBoolean("isError", this.isError);
     }
 
     public void populateLvDailyPeriod(ForecastDailyFacade forecast) {
@@ -101,6 +143,9 @@ public class ForecastActivityFragment extends Fragment {
         this.intervalValue.setText(forecast.getInterval());
         this.activeValue.setText(forecast.getActive().toString());
         this.populateLvDailyPeriod(forecast);
+
+        this.isOk = true;
+        this.isError = false;
     }
 
     public void clearForecast() {
@@ -126,11 +171,11 @@ public class ForecastActivityFragment extends Fragment {
         this.progressBar.setVisibility(View.INVISIBLE);
     }
 
-    public void showMainView(){
+    public void showMainView() {
         this.mainView.setVisibility(View.VISIBLE);
     }
 
-    public void hideMainView(){
+    public void hideMainView() {
         this.mainView.setVisibility(View.INVISIBLE);
     }
 
@@ -138,12 +183,18 @@ public class ForecastActivityFragment extends Fragment {
         Toast.makeText(this.context, message, length).show();
     }
 
-    public void showErrorView(String errorText){
-        this.errorText.setText(errorText);
+    public void showErrorView() {
         this.errorView.setVisibility(View.VISIBLE);
+        this.isError = true;
+        this.isOk = false;
     }
 
-    public void hideErrorView(){
+    public void showErrorView(String errorText) {
+        this.errorText.setText(errorText);
+        this.showErrorView();
+    }
+
+    public void hideErrorView() {
         this.errorView.setVisibility(View.INVISIBLE);
     }
 }

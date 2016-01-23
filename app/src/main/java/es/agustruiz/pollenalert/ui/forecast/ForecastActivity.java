@@ -2,7 +2,6 @@ package es.agustruiz.pollenalert.ui.forecast;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -13,19 +12,36 @@ import es.agustruiz.pollenalert.R;
 
 public class ForecastActivity extends AppCompatActivity {
 
+    final String FORECAST_FRAGMENT_TAG = "forecastFragment";
+
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.refresh)
     FloatingActionButton mRefresh;
 
-    ForecastActivityFragment forecastActivityFragment = null;
+    ForecastActivityFragment forecastFragment = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forecast);
         ButterKnife.bind(this);
+        if (savedInstanceState != null) {
+            this.forecastFragment =
+                    (ForecastActivityFragment) getSupportFragmentManager()
+                            .getFragment(savedInstanceState, this.FORECAST_FRAGMENT_TAG);
+        } else {
+            this.forecastFragment = (ForecastActivityFragment) getSupportFragmentManager()
+                    .findFragmentById(R.id.contentForecast);
+        }
         this.initialize();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        getSupportFragmentManager()
+                .putFragment(outState, this.FORECAST_FRAGMENT_TAG, this.forecastFragment);
     }
 
     private void initialize() {
@@ -34,25 +50,21 @@ public class ForecastActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        this.forecastActivityFragment = (ForecastActivityFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.contentForecast);
-
-
         this.mRefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    forecastActivityFragment.showProgressBar();
-                    forecastActivityFragment.hideMainView();
-                    forecastActivityFragment.hideErrorView();
-                    forecastActivityFragment.clearForecast();
-                    forecastActivityFragment.callPresenterForecast();
+                    forecastFragment.showProgressBar();
+                    forecastFragment.hideMainView();
+                    forecastFragment.hideErrorView();
+                    forecastFragment.clearForecast();
+                    forecastFragment.callPresenterForecast();
                     /*Snackbar.make(view, "Here I am!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();/**/
                 } catch (Exception e) {
-                    forecastActivityFragment.hideProgressBar();
-                    forecastActivityFragment.hideMainView();
-                    forecastActivityFragment.showErrorView("Can't refresh forecast!");
+                    forecastFragment.hideProgressBar();
+                    forecastFragment.hideMainView();
+                    forecastFragment.showErrorView("Can't refresh forecast!");
                 }
             }
         });
