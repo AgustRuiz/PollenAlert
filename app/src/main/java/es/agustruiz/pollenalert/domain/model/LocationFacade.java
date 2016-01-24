@@ -1,10 +1,12 @@
 package es.agustruiz.pollenalert.domain.model;
 
 
+import java.io.Serializable;
+
 /**
  * Location facade. From http://www.pollencheck.eu/docs/#!/forecasts
  */
-public class LocationFacade {
+public class LocationFacade implements Serializable {
     /**
      * Name of the forecast location (city or town)
      */
@@ -34,6 +36,7 @@ public class LocationFacade {
 
     /**
      * Name getter
+     *
      * @return Name
      */
     public String getName() {
@@ -42,6 +45,7 @@ public class LocationFacade {
 
     /**
      * Name setter
+     *
      * @param name Name
      */
     public void setName(String name) {
@@ -50,6 +54,7 @@ public class LocationFacade {
 
     /**
      * Region getter
+     *
      * @return Region
      */
     public String getRegion() {
@@ -58,6 +63,7 @@ public class LocationFacade {
 
     /**
      * Region setter
+     *
      * @param region Region
      */
     public void setRegion(String region) {
@@ -66,6 +72,7 @@ public class LocationFacade {
 
     /**
      * Country getter
+     *
      * @return Country
      */
     public String getCountry() {
@@ -74,6 +81,7 @@ public class LocationFacade {
 
     /**
      * Country setter
+     *
      * @param country Country
      */
     public void setCountry(String country) {
@@ -82,6 +90,7 @@ public class LocationFacade {
 
     /**
      * Time zone getter
+     *
      * @return Time zone
      */
     public String getTimeZone() {
@@ -90,6 +99,7 @@ public class LocationFacade {
 
     /**
      * Time zone setter
+     *
      * @param timeZone Time zone
      */
     public void setTimeZone(String timeZone) {

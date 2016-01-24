@@ -23,7 +23,7 @@ public class ForecastPresenter implements Presenter{
     }
 
     public void updateViewForecast(ForecastDailyFacade forecast){
-        this.fragment.callPresenterForecast(forecast);
+        this.fragment.receiveForecastData(forecast);
         this.fragment.hideProgressBar();
         this.fragment.showMainView();
         this.fragment.showToast("Here it is, my master!", Toast.LENGTH_SHORT);

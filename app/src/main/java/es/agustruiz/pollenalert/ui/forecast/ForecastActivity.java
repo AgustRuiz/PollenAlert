@@ -57,8 +57,7 @@ public class ForecastActivity extends AppCompatActivity {
                     forecastFragment.showProgressBar();
                     forecastFragment.hideMainView();
                     forecastFragment.hideErrorView();
-                    forecastFragment.clearForecast();
-                    forecastFragment.callPresenterForecast();
+                    forecastFragment.refreshForecast();
                     /*Snackbar.make(view, "Here I am!", Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();/**/
                 } catch (Exception e) {

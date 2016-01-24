@@ -1,9 +1,11 @@
 package es.agustruiz.pollenalert.domain.model;
 
+import java.io.Serializable;
+
 /**
  * Pollen day period. From http://www.pollencheck.eu/docs/#!/forecasts
  */
-public class PollenDayPeriod {
+public class PollenDayPeriod implements Serializable {
     /**
      * Average count of pollen grains in this period
      */
@@ -21,8 +23,8 @@ public class PollenDayPeriod {
     Float minCounter;
 
     /**
-     *  ['very_low' or 'low' or 'medium' or 'high']: Minimum level of pollen from count of grains
-     *  and allergenic power of pollen
+     * ['very_low' or 'low' or 'medium' or 'high']: Minimum level of pollen from count of grains
+     * and allergenic power of pollen
      */
     String minLevel;
 
@@ -39,6 +41,7 @@ public class PollenDayPeriod {
 
     /**
      * Constructor
+     *
      * @param avgCounter
      * @param avgLevel
      * @param minCounter
@@ -57,6 +60,7 @@ public class PollenDayPeriod {
 
     /**
      * Average counter getter
+     *
      * @return Average counter
      */
     public Float getAvgCounter() {
@@ -65,6 +69,7 @@ public class PollenDayPeriod {
 
     /**
      * Average counter setter
+     *
      * @param avgCounter Average counter
      */
     public void setAvgCounter(Float avgCounter) {
@@ -73,6 +78,7 @@ public class PollenDayPeriod {
 
     /**
      * Average level getter
+     *
      * @return Average level
      */
     public String getAvgLevel() {
@@ -81,6 +87,7 @@ public class PollenDayPeriod {
 
     /**
      * Average level setter
+     *
      * @param avgLevel Average level
      */
     public void setAvgLevel(String avgLevel) {
@@ -89,6 +96,7 @@ public class PollenDayPeriod {
 
     /**
      * Minimun counter getter
+     *
      * @return Minimun counter
      */
     public Float getMinCounter() {
@@ -97,6 +105,7 @@ public class PollenDayPeriod {
 
     /**
      * Minimun counter setter
+     *
      * @param minCounter Minimun counter
      */
     public void setMinCounter(Float minCounter) {
@@ -105,6 +114,7 @@ public class PollenDayPeriod {
 
     /**
      * Minimun level getter
+     *
      * @return Minimun level
      */
     public String getMinLevel() {
@@ -113,6 +123,7 @@ public class PollenDayPeriod {
 
     /**
      * Minimun level setter
+     *
      * @param minLevel Minimun level
      */
     public void setMinLevel(String minLevel) {
@@ -121,6 +132,7 @@ public class PollenDayPeriod {
 
     /**
      * Maximun counter getter
+     *
      * @return Maximun counter
      */
     public Float getMaxCounter() {
@@ -129,6 +141,7 @@ public class PollenDayPeriod {
 
     /**
      * Maximun counter setter
+     *
      * @param maxCounter Maximun counter
      */
     public void setMaxCounter(Float maxCounter) {
@@ -137,6 +150,7 @@ public class PollenDayPeriod {
 
     /**
      * Maximun level getter
+     *
      * @return Maximun level
      */
     public String getMaxLevel() {
@@ -145,6 +159,7 @@ public class PollenDayPeriod {
 
     /**
      * Maximun level setter
+     *
      * @param maxLevel Maximun level
      */
     public void setMaxLevel(String maxLevel) {

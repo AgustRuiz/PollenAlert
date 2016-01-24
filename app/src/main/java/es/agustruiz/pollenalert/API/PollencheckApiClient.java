@@ -40,18 +40,11 @@ public class PollencheckApiClient {
             @Override
             public void success(ForecastDailyFacade s, Response response) {
                 TypedInput body = response.getBody();
-
-                Log.v(LOG_TAG, "AGUST_MSG: OK");
-                //Log.v(LOG_TAG, "AGUST_MSG (WOEID): " + s.getWoeid());
-                //Log.v(LOG_TAG, "AGUST_MSG (timestamp): " + s.getPeriods().get(0).getTimestamp());
-
                 presenter.updateViewForecast(s);
             }
 
             @Override
             public void failure(RetrofitError error) {
-                Log.e(LOG_TAG, "AGUST_MSG (Message): " + error.getMessage());
-
                 presenter.errorUpdateViewForecast(error.getMessage());
             }
         });

@@ -1,9 +1,11 @@
 package es.agustruiz.pollenalert.domain.model;
 
+import java.io.Serializable;
+
 /**
  * Daily period. From http://www.pollencheck.eu/docs/#!/forecasts
  */
-public class DailyPeriod {
+public class DailyPeriod implements Serializable {
     /**
      * Initial time of this forecast period (day)
      */
@@ -32,22 +34,22 @@ public class DailyPeriod {
     /**
      * Average counts of olive pollen along this day and level of pollen calculated from counts
      */
-    PollenDayPeriod  olive;
+    PollenDayPeriod olive;
 
     /**
      * Average counts of grass pollen along this day and level of pollen calculated from counts
      */
-    PollenDayPeriod  grass;
+    PollenDayPeriod grass;
 
     /**
      * Average counts of birch pollen along this day and level of pollen calculated from counts
      */
-    PollenDayPeriod  birch;
+    PollenDayPeriod birch;
 
     /**
      * Average counts of ragweed pollen along this day and level of pollen calculated from counts
      */
-    PollenDayPeriod  ragweed;
+    PollenDayPeriod ragweed;
 
     /**
      * Constructor
@@ -57,6 +59,7 @@ public class DailyPeriod {
 
     /**
      * Time getter
+     *
      * @return Time
      */
     public String getTime() {
@@ -65,6 +68,7 @@ public class DailyPeriod {
 
     /**
      * Time setter
+     *
      * @param time Time
      */
     public void setTime(String time) {
@@ -73,6 +77,7 @@ public class DailyPeriod {
 
     /**
      * Timestamp getter
+     *
      * @return Timestamp
      */
     public long getTimestamp() {
@@ -81,6 +86,7 @@ public class DailyPeriod {
 
     /**
      * Timestamp setter
+     *
      * @param timestamp Timestamp
      */
     public void setTimestamp(long timestamp) {
@@ -89,6 +95,7 @@ public class DailyPeriod {
 
     /**
      * Day getter
+     *
      * @return Day
      */
     public String getDay() {
@@ -97,6 +104,7 @@ public class DailyPeriod {
 
     /**
      * Day setter
+     *
      * @param day Day
      */
     public void setDay(String day) {
@@ -105,6 +113,7 @@ public class DailyPeriod {
 
     /**
      * Link getter
+     *
      * @return Link
      */
     public String getLink() {
@@ -113,6 +122,7 @@ public class DailyPeriod {
 
     /**
      * Link setter
+     *
      * @param link Link
      */
     public void setLink(String link) {
@@ -121,6 +131,7 @@ public class DailyPeriod {
 
     /**
      * Combined getter
+     *
      * @return Combined pollen day period
      */
     public PollenDayPeriod getCombined() {
@@ -129,6 +140,7 @@ public class DailyPeriod {
 
     /**
      * Combined setter
+     *
      * @param combined Combined pollen day period
      */
     public void setCombined(PollenDayPeriod combined) {
@@ -137,6 +149,7 @@ public class DailyPeriod {
 
     /**
      * Olive getter
+     *
      * @return Olive pollen day period
      */
     public PollenDayPeriod getOlive() {
@@ -145,6 +158,7 @@ public class DailyPeriod {
 
     /**
      * Olive setter
+     *
      * @param olive Olive pollen day period
      */
     public void setOlive(PollenDayPeriod olive) {
@@ -153,6 +167,7 @@ public class DailyPeriod {
 
     /**
      * Grass getter
+     *
      * @return Grass pollen day period
      */
     public PollenDayPeriod getGrass() {
@@ -161,6 +176,7 @@ public class DailyPeriod {
 
     /**
      * Grass setter
+     *
      * @param grass Grass pollen day period
      */
     public void setGrass(PollenDayPeriod grass) {
@@ -169,6 +185,7 @@ public class DailyPeriod {
 
     /**
      * Birch getter
+     *
      * @return Birch pollen day period
      */
     public PollenDayPeriod getBirch() {
@@ -177,6 +194,7 @@ public class DailyPeriod {
 
     /**
      * Birch setter
+     *
      * @param ragweed Birch pollen day period
      */
     public void setBirch(PollenDayPeriod birch) {
@@ -185,6 +203,7 @@ public class DailyPeriod {
 
     /**
      * Ragweed getter
+     *
      * @return Ragweed pollen day period
      */
     public PollenDayPeriod getRagweed() {
@@ -193,6 +212,7 @@ public class DailyPeriod {
 
     /**
      * Ragweed setter
+     *
      * @param ragweed Ragweed pollen day period
      */
     public void setRagweed(PollenDayPeriod ragweed) {

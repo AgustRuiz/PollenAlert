@@ -1,6 +1,7 @@
 package es.agustruiz.pollenalert.ui.forecast;
 
 import android.content.Context;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -54,7 +55,8 @@ public class ForecastActivityFragment extends Fragment {
 
     @Bind(R.id.lvDailyPeriod)
     NoScrollListView lvDailyPeriod;
-    private DailyPeriodAdapter adapter = null;
+    DailyPeriodAdapter adapter = null;
+    Parcelable lvDailyPeriodState;
 
     @Bind(R.id.errorView)
     View errorView;
@@ -68,6 +70,8 @@ public class ForecastActivityFragment extends Fragment {
     private Boolean isOk;
     private Boolean isError;
 
+    private ForecastDailyFacade forecastDailyFacade = null;
+
     public ForecastActivityFragment() {
         this.presenter = new ForecastPresenter(this);
         this.isOk = false;
@@ -80,8 +84,10 @@ public class ForecastActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
         this.context = getActivity().getApplicationContext();
-        if (this.isOk) this.showMainView(); else this.hideMainView();
-        if (this.isError) this.showErrorView(); else this.hideErrorView();
+        if (this.isOk) this.showMainView();
+        else this.hideMainView();
+        if (this.isError) this.showErrorView();
+        else this.hideErrorView();
         return view;
     }
 
@@ -97,11 +103,17 @@ public class ForecastActivityFragment extends Fragment {
             this.intervalValue.setText(savedInstanceState.getString("intervalValue"));
             this.activeValue.setText(savedInstanceState.getString("activeValue"));
             this.errorText.setText(savedInstanceState.getString("errorText"));
+
+            try {
+                this.forecastDailyFacade =
+                        (ForecastDailyFacade) savedInstanceState.getSerializable("forecastDailyFacade");
+                this.populateLvDailyPeriod(this.forecastDailyFacade);
+            } catch (Exception ignored) {}
+
             this.isOk = savedInstanceState.getBoolean("isOk");
             this.isError = savedInstanceState.getBoolean("isError");
-
             if (this.isOk) this.showMainView();
-            if (this.isError) this.showErrorView();
+            else if (this.isError) this.showErrorView();
         }
     }
 
@@ -117,11 +129,13 @@ public class ForecastActivityFragment extends Fragment {
         outState.putString("activeValue", this.activeValue.getText().toString());
         outState.putString("errorText", this.errorText.getText().toString());
 
+        outState.putSerializable("forecastDailyFacade", this.forecastDailyFacade);
+
         outState.putBoolean("isOk", this.isOk);
         outState.putBoolean("isError", this.isError);
     }
 
-    public void populateLvDailyPeriod(ForecastDailyFacade forecast) {
+    private void populateLvDailyPeriod(ForecastDailyFacade forecast) {
         DailyPeriod[] dailyPeriodArray =
                 forecast.getPeriods().toArray(new DailyPeriod[forecast.getPeriods().size()]);
 
@@ -129,10 +143,12 @@ public class ForecastActivityFragment extends Fragment {
             this.adapter = new DailyPeriodAdapter(this.lvDailyPeriod.getContext(),
                     R.layout.row_daily_period, dailyPeriodArray);
         }
+        this.lvDailyPeriodState = this.lvDailyPeriod.onSaveInstanceState();
         this.lvDailyPeriod.setAdapter(adapter);
+        this.lvDailyPeriod.onRestoreInstanceState(this.lvDailyPeriodState);
     }
 
-    public void callPresenterForecast(ForecastDailyFacade forecast) {
+    public void receiveForecastData(ForecastDailyFacade forecast) {
         LocationFacade location = forecast.getLocation();
         this.locationNameValue.setText(location.getName());
         this.locationRegionValue.setText(location.getRegion());
@@ -142,24 +158,15 @@ public class ForecastActivityFragment extends Fragment {
         this.creationTimeValue.setText(forecast.getCreationTime());
         this.intervalValue.setText(forecast.getInterval());
         this.activeValue.setText(forecast.getActive().toString());
+
         this.populateLvDailyPeriod(forecast);
+        this.forecastDailyFacade = forecast;
 
         this.isOk = true;
         this.isError = false;
     }
 
-    public void clearForecast() {
-        this.locationNameValue.setText(getResources().getString(R.string.blankString));
-        this.locationRegionValue.setText(getResources().getString(R.string.blankString));
-        this.locationCountryValue.setText(getResources().getString(R.string.blankString));
-
-        this.woeidValue.setText(getResources().getString(R.string.blankString));
-        this.creationTimeValue.setText(getResources().getString(R.string.blankString));
-        this.intervalValue.setText(getResources().getString(R.string.blankString));
-        this.activeValue.setText(getResources().getString(R.string.blankString));
-    }
-
-    public void callPresenterForecast() {
+    public void refreshForecast() {
         this.presenter.updateForecast();
     }
 

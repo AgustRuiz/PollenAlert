@@ -1,12 +1,14 @@
 package es.agustruiz.pollenalert.domain.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Forecast daily facade. From http://www.pollencheck.eu/docs/#!/forecasts
  */
-public class ForecastDailyFacade {
+public class ForecastDailyFacade implements Serializable {
+
     /**
      * Where On Earth ID (WOEID) as defined by Yahoo
      * [https://developer.yahoo.com/geo/geoplanet/guide/concepts.html#woeids]
@@ -47,6 +49,7 @@ public class ForecastDailyFacade {
 
     /**
      * WOEID getter
+     *
      * @return WOEID
      */
     public String getWoeid() {
@@ -55,6 +58,7 @@ public class ForecastDailyFacade {
 
     /**
      * WOEID setter
+     *
      * @param woeid WOEID
      */
     public void setWoeid(String woeid) {
@@ -63,6 +67,7 @@ public class ForecastDailyFacade {
 
     /**
      * Creation time getter
+     *
      * @return Creation time
      */
     public String getCreationTime() {
@@ -71,6 +76,7 @@ public class ForecastDailyFacade {
 
     /**
      * Creation time setter
+     *
      * @param creationTime Creation time
      */
     public void setCreationTime(String creationTime) {
@@ -79,6 +85,7 @@ public class ForecastDailyFacade {
 
     /**
      * Location getter
+     *
      * @return Location
      */
     public LocationFacade getLocation() {
@@ -87,6 +94,7 @@ public class ForecastDailyFacade {
 
     /**
      * Location setter
+     *
      * @param location Location
      */
     public void setLocation(LocationFacade location) {
@@ -95,6 +103,7 @@ public class ForecastDailyFacade {
 
     /**
      * Interval getter
+     *
      * @return Interval
      */
     public String getInterval() {
@@ -103,6 +112,7 @@ public class ForecastDailyFacade {
 
     /**
      * Interval setter
+     *
      * @param interval Interval
      */
     public void setInterval(String interval) {
@@ -111,6 +121,7 @@ public class ForecastDailyFacade {
 
     /**
      * Active getter
+     *
      * @return Active variable
      */
     public Boolean getActive() {
@@ -119,6 +130,7 @@ public class ForecastDailyFacade {
 
     /**
      * Active setter
+     *
      * @param active Active variable
      */
     public void setActive(Boolean active) {
@@ -127,6 +139,7 @@ public class ForecastDailyFacade {
 
     /**
      * Periods getter
+     *
      * @return List of periods (DailyPeriod)
      */
     public List<DailyPeriod> getPeriods() {
@@ -135,6 +148,7 @@ public class ForecastDailyFacade {
 
     /**
      * Periods setter
+     *
      * @param periods List of Periods (DailyPeriod)
      */
     public void setPeriods(List<DailyPeriod> periods) {
