@@ -28,6 +28,10 @@
     <string name="interval">Interval</string>
     <string name="active">Active</string>
 
+    <string name="forecastCreationTime">Forecast creation time</string>
+
+    <string name="colonPunctuationMark">": "</string>
+
     <string name="time">Time</string>
     <string name="timestamp">Timestamp</string>
 

@@ -11,6 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
@@ -41,21 +44,12 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.locationCountryValue)
     TextView locationCountryValue;
 
-    @Bind(R.id.woeidValue)
-    TextView woeidValue;
-
     @Bind(R.id.creationTimeValue)
     TextView creationTimeValue;
 
-    @Bind(R.id.intervalValue)
-    TextView intervalValue;
-
-    @Bind(R.id.activeValue)
-    TextView activeValue;
-
     @Bind(R.id.lvDailyPeriod)
     NoScrollListView lvDailyPeriod;
-    DailyPeriodAdapter adapter = null;
+    DailyPeriodAdapter dailyPeriodAdapter = null;
     Parcelable lvDailyPeriodState;
 
     @Bind(R.id.errorView)
@@ -98,10 +92,7 @@ public class ForecastActivityFragment extends Fragment {
             this.locationNameValue.setText(savedInstanceState.getString("locationNameValue"));
             this.locationRegionValue.setText(savedInstanceState.getString("locationRegionValue"));
             this.locationCountryValue.setText(savedInstanceState.getString("locationCountryValue"));
-            this.woeidValue.setText(savedInstanceState.getString("woeidValue"));
             this.creationTimeValue.setText(savedInstanceState.getString("creationTimeValue"));
-            this.intervalValue.setText(savedInstanceState.getString("intervalValue"));
-            this.activeValue.setText(savedInstanceState.getString("activeValue"));
             this.errorText.setText(savedInstanceState.getString("errorText"));
 
             try {
@@ -123,10 +114,7 @@ public class ForecastActivityFragment extends Fragment {
         outState.putString("locationNameValue", this.locationNameValue.getText().toString());
         outState.putString("locationRegionValue", this.locationRegionValue.getText().toString());
         outState.putString("locationCountryValue", this.locationCountryValue.getText().toString());
-        outState.putString("woeidValue", this.woeidValue.getText().toString());
         outState.putString("creationTimeValue", this.creationTimeValue.getText().toString());
-        outState.putString("intervalValue", this.intervalValue.getText().toString());
-        outState.putString("activeValue", this.activeValue.getText().toString());
         outState.putString("errorText", this.errorText.getText().toString());
 
         outState.putSerializable("forecastDailyFacade", this.forecastDailyFacade);
@@ -139,12 +127,12 @@ public class ForecastActivityFragment extends Fragment {
         DailyPeriod[] dailyPeriodArray =
                 forecast.getPeriods().toArray(new DailyPeriod[forecast.getPeriods().size()]);
 
-        if (this.adapter == null) {
-            this.adapter = new DailyPeriodAdapter(this.lvDailyPeriod.getContext(),
+        if (this.dailyPeriodAdapter == null) {
+            this.dailyPeriodAdapter = new DailyPeriodAdapter(this.lvDailyPeriod.getContext(),
                     R.layout.row_daily_period, dailyPeriodArray);
         }
         this.lvDailyPeriodState = this.lvDailyPeriod.onSaveInstanceState();
-        this.lvDailyPeriod.setAdapter(adapter);
+        this.lvDailyPeriod.setAdapter(dailyPeriodAdapter);
         this.lvDailyPeriod.onRestoreInstanceState(this.lvDailyPeriodState);
     }
 
@@ -154,10 +142,11 @@ public class ForecastActivityFragment extends Fragment {
         this.locationRegionValue.setText(location.getRegion());
         this.locationCountryValue.setText(location.getCountry());
 
-        this.woeidValue.setText(forecast.getWoeid());
-        this.creationTimeValue.setText(forecast.getCreationTime());
-        this.intervalValue.setText(forecast.getInterval());
-        this.activeValue.setText(forecast.getActive().toString());
+
+        Date date = new Date(forecast.getCreationTime());
+        this.creationTimeValue.setText(date.toString());
+
+
 
         this.populateLvDailyPeriod(forecast);
         this.forecastDailyFacade = forecast;

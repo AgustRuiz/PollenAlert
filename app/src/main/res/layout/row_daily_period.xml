@@ -4,7 +4,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:baselineAligned="false"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,17 +56,17 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:orientation="vertical"
-            android:gravity="center_vertical|center|center_horizontal">
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/avgCounter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
                 android:text="@string/blankString"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:gravity="center_vertical|center|center_horizontal"
                 android:textColor="@color/ColorAvgCount" />
 
             <TextView
@@ -72,34 +74,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
                 android:text="@string/blankString"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:gravity="center_vertical|center|center_horizontal" />
+                android:textAppearance="?android:attr/textAppearanceMedium" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            android:gravity="center_vertical|center|center_horizontal">
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:gravity="center_vertical|center|center_horizontal">
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/maxArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
                     android:text="@string/arrowUp"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center|center_horizontal"
                     android:textColor="@color/ColorMaxCount" />
 
                 <TextView
@@ -107,9 +109,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
                     android:text="@string/blankString"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center|center_horizontal"
                     android:textColor="@color/ColorMaxCount" />
 
             </LinearLayout>
@@ -119,9 +121,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
                 android:text="@string/blankString"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:gravity="center_vertical|center|center_horizontal" />
+                android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
 
         <LinearLayout
@@ -129,24 +131,24 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:orientation="vertical"
-            android:gravity="center_vertical|center|center_horizontal">
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:gravity="center_vertical|center|center_horizontal">
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/minArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
                     android:text="@string/arrowDown"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center|center_horizontal"
                     android:textColor="@color/ColorMinCount" />
 
                 <TextView
@@ -154,9 +156,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
                     android:text="@string/blankString"
                     android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:gravity="center_vertical|center|center_horizontal"
                     android:textColor="@color/ColorMinCount" />
 
             </LinearLayout>
@@ -166,9 +168,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
                 android:text="@string/blankString"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:gravity="center_vertical|center|center_horizontal" />
+                android:textAppearance="?android:attr/textAppearanceSmall" />
         </LinearLayout>
 
     </LinearLayout>
