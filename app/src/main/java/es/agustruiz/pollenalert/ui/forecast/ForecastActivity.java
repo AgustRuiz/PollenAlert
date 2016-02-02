@@ -1,14 +1,19 @@
 package es.agustruiz.pollenalert.ui.forecast;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.SettingsActivity;
 
 public class ForecastActivity extends AppCompatActivity {
 
@@ -35,6 +40,24 @@ public class ForecastActivity extends AppCompatActivity {
                     .findFragmentById(R.id.contentForecast);
         }
         this.initialize();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //return super.onOptionsItemSelected(item);
+        switch (item.getItemId()){
+            case R.id.action_settings:
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+        }
+        return false;
     }
 
     @Override
