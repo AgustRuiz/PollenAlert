@@ -11,6 +11,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -99,7 +102,8 @@ public class ForecastActivityFragment extends Fragment {
                 this.forecastDailyFacade =
                         (ForecastDailyFacade) savedInstanceState.getSerializable("forecastDailyFacade");
                 this.populateLvDailyPeriod(this.forecastDailyFacade);
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
 
             this.isOk = savedInstanceState.getBoolean("isOk");
             this.isError = savedInstanceState.getBoolean("isError");
@@ -142,11 +146,17 @@ public class ForecastActivityFragment extends Fragment {
         this.locationRegionValue.setText(location.getRegion());
         this.locationCountryValue.setText(location.getCountry());
 
-
-        Date date = new Date(forecast.getCreationTime());
-        this.creationTimeValue.setText(date.toString());
-
-
+        try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            cal.setTime(sdf.parse(forecast.getCreationTime()));
+            sdf.setCalendar(cal);
+            Date creationDate = cal.getTime();
+            SimpleDateFormat formatter = new SimpleDateFormat("HH:mm, MM/dd/yyy");
+            this.creationTimeValue.setText(formatter.format(creationDate));
+        } catch (ParseException e) {
+            this.creationTimeValue.setText("???");
+        }
 
         this.populateLvDailyPeriod(forecast);
         this.forecastDailyFacade = forecast;
