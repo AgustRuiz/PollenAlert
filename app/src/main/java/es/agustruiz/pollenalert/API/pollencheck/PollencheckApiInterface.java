@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.api;
+package es.agustruiz.pollenalert.api.pollencheck;
 
 import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
 import retrofit.Callback;

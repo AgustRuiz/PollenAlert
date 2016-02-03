@@ -1,15 +1,9 @@
-package es.agustruiz.pollenalert.api;
+package es.agustruiz.pollenalert.api.pollencheck;
 
-import android.util.Log;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import es.agustruiz.pollenalert.BuildConfig;
-import es.agustruiz.pollenalert.domain.model.DailyPeriod;
 import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
-import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
-import es.agustruiz.pollenalert.presenter.DailyForecastPresenter;
 import es.agustruiz.pollenalert.presenter.Presenter;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;

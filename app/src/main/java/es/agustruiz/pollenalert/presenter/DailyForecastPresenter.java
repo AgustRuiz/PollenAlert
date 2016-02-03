@@ -1,13 +1,9 @@
 package es.agustruiz.pollenalert.presenter;
 
-import android.view.View;
 import android.widget.Toast;
 
-import java.util.List;
-
-import es.agustruiz.pollenalert.api.PollencheckApiClient;
+import es.agustruiz.pollenalert.api.pollencheck.PollencheckApiClient;
 import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
-import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
 import es.agustruiz.pollenalert.ui.dailyForecast.DailyForecastActivityFragment;
 
 public class DailyForecastPresenter implements Presenter{
