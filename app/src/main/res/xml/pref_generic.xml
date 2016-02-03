@@ -1,0 +1,80 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/pref_searching_settings_title">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="pref_forecast_by_location"
+            android:title="@string/pref_forecast_by_location_title" />
+
+        <EditTextPreference
+            android:defaultValue="-1"
+            android:inputType="number"
+            android:key="pref_woeid"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_woeid_title" />
+
+        <EditTextPreference
+            android:defaultValue="-1"
+            android:inputType="text"
+            android:key="pref_location_string"
+            android:maxLines="1"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:title="@string/pref_location_search_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/pref_pollen_details_title">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="pref_combined"
+            android:title="@string/pref_combined_title" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_olive"
+            android:title="@string/pref_olive_title" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_grass"
+            android:title="@string/pref_grass_title" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_birch"
+            android:title="@string/pref_birch_title" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="pref_ragweed"
+            android:title="@string/pref_ragweed_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/pref_others_title">
+
+        <ListPreference
+            android:defaultValue="180"
+            android:entries="@array/pref_sync_frequency_titles"
+            android:entryValues="@array/pref_sync_frequency_values"
+            android:key="pref_sync_frequency"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:summary="%s"
+            android:title="@string/pref_sync_frequency_title" />
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="pref_show_notifications"
+            android:title="@string/pref_show_notifications_title" />
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>
