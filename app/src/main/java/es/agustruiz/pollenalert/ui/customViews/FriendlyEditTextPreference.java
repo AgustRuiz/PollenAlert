@@ -38,10 +38,6 @@ public class FriendlyEditTextPreference extends EditTextPreference {
         }
     }
 
-    protected void updateFriendlySummary(CharSequence newValue) {
-        this.setSummary(newValue);
-    }
-
     @Override
     protected boolean callChangeListener(Object newValue) {
         boolean result = super.callChangeListener(newValue);
@@ -49,5 +45,9 @@ public class FriendlyEditTextPreference extends EditTextPreference {
             this.updateFriendlySummary((CharSequence) newValue);
         }
         return result;
+    }
+
+    protected void updateFriendlySummary(CharSequence newValue) {
+        this.setSummary(newValue);
     }
 }

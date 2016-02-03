@@ -12,7 +12,7 @@ import android.widget.Button;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.SettingsActivity;
+import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
 import es.agustruiz.pollenalert.ui.dailyForecast.DailyForecastActivity;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivity;
 

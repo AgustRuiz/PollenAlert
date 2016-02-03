@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert;
+package es.agustruiz.pollenalert.ui.settings;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import es.agustruiz.pollenalert.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

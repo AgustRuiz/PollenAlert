@@ -13,7 +13,7 @@ import android.view.View;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.SettingsActivity;
+import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
 
 public class ForecastActivity extends AppCompatActivity {
 
