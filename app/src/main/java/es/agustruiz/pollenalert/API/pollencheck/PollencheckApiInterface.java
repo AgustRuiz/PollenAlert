@@ -10,5 +10,5 @@ public interface PollencheckApiInterface {
     String POLLENCHECK_BASE_URL = "https://pollencheck.p.mashape.com/api/1/forecasts";
 
     @GET("/{woeid}") // woeid=766273
-    void getTestForecast(@Path("woeid") String woeid, Callback<ForecastDailyFacade> response);
+    void getDailyForecastByWoeid(@Path("woeid") String woeid, Callback<ForecastDailyFacade> response);
 }

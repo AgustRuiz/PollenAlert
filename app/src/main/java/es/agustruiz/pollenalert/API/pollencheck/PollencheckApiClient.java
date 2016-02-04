@@ -29,7 +29,7 @@ public class PollencheckApiClient {
 
         PollencheckApiInterface service = restAdapter.create(PollencheckApiInterface.class);
 
-        service.getTestForecast(woeid, new Callback<ForecastDailyFacade>() {
+        service.getDailyForecastByWoeid(woeid, new Callback<ForecastDailyFacade>() {
             @Override
             public void success(ForecastDailyFacade s, Response response) {
                 presenter.updateViewForecast(s);
