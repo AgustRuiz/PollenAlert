@@ -3,14 +3,13 @@ package es.agustruiz.pollenalert.api.pollencheck;
 import java.util.List;
 
 import es.agustruiz.pollenalert.BuildConfig;
-import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.ForecastDailyFacade;
 import es.agustruiz.pollenalert.presenter.Presenter;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-import retrofit.mime.TypedInput;
 
 public class PollencheckApiClient {
     public static String LOG_TAG = PollencheckApiClient.class.getName();
@@ -33,12 +32,12 @@ public class PollencheckApiClient {
         service.getTestForecast(woeid, new Callback<ForecastDailyFacade>() {
             @Override
             public void success(ForecastDailyFacade s, Response response) {
-                TypedInput body = response.getBody();
                 presenter.updateViewForecast(s);
             }
 
             @Override
             public void failure(RetrofitError error) {
+                // TODO manage different error types
                 presenter.errorUpdateViewForecast(error.getMessage());
             }
         });

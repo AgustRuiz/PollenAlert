@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.domain.model;
+package es.agustruiz.pollenalert.domain.pollencheck;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ public class ForecastDailyFacade implements Serializable {
     String creationTime;
 
     /**
-     * Location
+     * LocationYahoo
      */
     LocationFacade location;
 
@@ -84,18 +84,18 @@ public class ForecastDailyFacade implements Serializable {
     }
 
     /**
-     * Location getter
+     * LocationYahoo getter
      *
-     * @return Location
+     * @return LocationYahoo
      */
     public LocationFacade getLocation() {
         return location;
     }
 
     /**
-     * Location setter
+     * LocationYahoo setter
      *
-     * @param location Location
+     * @param location LocationYahoo
      */
     public void setLocation(LocationFacade location) {
         this.location = location;

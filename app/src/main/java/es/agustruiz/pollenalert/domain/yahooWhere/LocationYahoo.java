@@ -1,12 +1,12 @@
-package es.agustruiz.pollenalert.domain.model;
+package es.agustruiz.pollenalert.domain.yahooWhere;
 
+public class LocationYahoo {
 
-import java.io.Serializable;
+    /**
+     * Woeid of location
+     */
+    String woeid;
 
-/**
- * Location facade. From http://www.pollencheck.eu/docs/#!/forecasts
- */
-public class LocationFacade implements Serializable {
     /**
      * Name of the forecast location (city or town)
      */
@@ -22,16 +22,30 @@ public class LocationFacade implements Serializable {
      */
     String country;
 
-    /**
-     * Time zone of this forecast location as show in
-     * [http://en.wikipedia.org/wiki/List_of_tz_database_time_zones]
-     */
-    String timeZone;
+
 
     /**
      * Constructor
      */
-    public LocationFacade() {
+    public LocationYahoo() {
+    }
+
+    /**
+     * Woeid getter
+     *
+     * @return Woeid value
+     */
+    public String getWoeid() {
+        return woeid;
+    }
+
+    /**
+     * Woeid setter
+     *
+     * @param woeid Woeid value
+     */
+    public void setWoeid(String woeid) {
+        this.woeid = woeid;
     }
 
     /**
@@ -86,23 +100,5 @@ public class LocationFacade implements Serializable {
      */
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    /**
-     * Time zone getter
-     *
-     * @return Time zone
-     */
-    public String getTimeZone() {
-        return timeZone;
-    }
-
-    /**
-     * Time zone setter
-     *
-     * @param timeZone Time zone
-     */
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
     }
 }

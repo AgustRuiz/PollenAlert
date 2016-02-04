@@ -1,6 +1,6 @@
 package es.agustruiz.pollenalert.presenter;
 
-import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.ForecastDailyFacade;
 
 public interface Presenter {
 

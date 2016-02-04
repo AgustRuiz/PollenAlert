@@ -2,7 +2,6 @@ package es.agustruiz.pollenalert.ui.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +15,9 @@ import java.util.Date;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.domain.model.Constants;
-import es.agustruiz.pollenalert.domain.model.DailyPeriod;
-import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.Constants;
+import es.agustruiz.pollenalert.domain.pollencheck.DailyPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.PollenDayPeriod;
 
 public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
 

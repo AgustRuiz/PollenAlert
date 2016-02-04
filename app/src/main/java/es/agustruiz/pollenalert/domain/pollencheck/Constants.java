@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.domain.model;
+package es.agustruiz.pollenalert.domain.pollencheck;
 
 public class Constants {
 

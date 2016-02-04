@@ -11,7 +11,7 @@ import android.widget.TextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.domain.model.PollenDayPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.PollenDayPeriod;
 
 public class PollenDayPeriodAdapter extends ArrayAdapter<PollenDayPeriod> {
 

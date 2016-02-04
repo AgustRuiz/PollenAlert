@@ -3,7 +3,7 @@ package es.agustruiz.pollenalert.presenter;
 import android.widget.Toast;
 
 import es.agustruiz.pollenalert.api.pollencheck.PollencheckApiClient;
-import es.agustruiz.pollenalert.domain.model.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.ForecastDailyFacade;
 import es.agustruiz.pollenalert.ui.dailyForecast.DailyForecastActivityFragment;
 
 public class DailyForecastPresenter implements Presenter{
