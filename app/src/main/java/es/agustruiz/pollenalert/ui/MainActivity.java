@@ -17,14 +17,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
-import es.agustruiz.pollenalert.ui.dailyForecast.DailyForecastActivity;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivity;
 
 public class MainActivity extends AppCompatActivity {
     static final String LOG_TAG = MainActivity.class.getName();
-
-    @Bind(R.id.btnLaunchDailyForecast)
-    Button btnLaunchDailyForecast;
 
     @Bind(R.id.btnLaunchForecastActivity)
     Button btnLaunchForecastActivity;
@@ -34,14 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        this.btnLaunchDailyForecast.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DailyForecastActivity.class);
-                startActivity(intent);
-            }
-        });
 
         this.btnLaunchForecastActivity.setOnClickListener(new View.OnClickListener() {
             @Override

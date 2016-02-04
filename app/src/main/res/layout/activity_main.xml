@@ -13,15 +13,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Launch Daily Forecast"
-        android:id="@+id/btnLaunchDailyForecast"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Launch Forecast Activity"
         android:id="@+id/btnLaunchForecastActivity"
         android:layout_below="@+id/btnLaunchDailyForecast"
