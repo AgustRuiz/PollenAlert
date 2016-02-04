@@ -3,7 +3,7 @@ package es.agustruiz.pollenalert.api.pollencheck;
 import java.util.List;
 
 import es.agustruiz.pollenalert.BuildConfig;
-import es.agustruiz.pollenalert.domain.pollencheck.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.presenter.Presenter;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;

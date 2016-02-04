@@ -16,9 +16,9 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.domain.pollencheck.DailyPeriod;
-import es.agustruiz.pollenalert.domain.pollencheck.ForecastDailyFacade;
-import es.agustruiz.pollenalert.domain.pollencheck.PollenDayPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.DailyPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.PollenDayPeriod;
 import es.agustruiz.pollenalert.presenter.DailyForecastPresenter;
 import es.agustruiz.pollenalert.ui.adapter.PollenDayPeriodAdapter;
 

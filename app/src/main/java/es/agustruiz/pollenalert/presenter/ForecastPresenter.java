@@ -4,7 +4,7 @@ package es.agustruiz.pollenalert.presenter;
 import android.widget.Toast;
 
 import es.agustruiz.pollenalert.api.pollencheck.PollencheckApiClient;
-import es.agustruiz.pollenalert.domain.pollencheck.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivityFragment;
 
 public class ForecastPresenter implements Presenter{

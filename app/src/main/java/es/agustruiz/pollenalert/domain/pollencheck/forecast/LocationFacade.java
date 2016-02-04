@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.domain.pollencheck;
+package es.agustruiz.pollenalert.domain.pollencheck.forecast;
 
 
 import java.io.Serializable;

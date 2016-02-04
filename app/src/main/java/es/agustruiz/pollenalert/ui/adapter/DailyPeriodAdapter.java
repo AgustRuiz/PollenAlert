@@ -16,8 +16,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.domain.pollencheck.Constants;
-import es.agustruiz.pollenalert.domain.pollencheck.DailyPeriod;
-import es.agustruiz.pollenalert.domain.pollencheck.PollenDayPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.DailyPeriod;
+import es.agustruiz.pollenalert.domain.pollencheck.forecast.PollenDayPeriod;
 
 public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
 
