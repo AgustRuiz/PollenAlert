@@ -58,6 +58,9 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.errorView)
     View errorView;
 
+    @Bind(R.id.searchView)
+    View searchView;
+
     @Bind(R.id.errorText)
     TextView errorText;
 
@@ -192,6 +195,14 @@ public class ForecastActivityFragment extends Fragment {
 
     public void hideMainView() {
         this.mainView.setVisibility(View.INVISIBLE);
+    }
+
+    public void showSearchView(){
+        this.searchView.setVisibility(View.VISIBLE);
+    }
+
+    public void hideSearchView(){
+        this.searchView.setVisibility(View.INVISIBLE);
     }
 
     public void showToast(String message, int length) {
