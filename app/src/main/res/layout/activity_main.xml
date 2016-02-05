@@ -11,10 +11,16 @@
     tools:context=".ui.MainActivity">
 
     <Button
+        android:id="@+id/btnLaunchForecastActivity"
+        android:text="Launch Forecast Activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Launch Forecast Activity"
-        android:id="@+id/btnLaunchForecastActivity"
-        android:layout_below="@+id/btnLaunchDailyForecast"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnLaunchSearchActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search Activity"
+        android:layout_below="@id/btnLaunchForecastActivity"/>
 </RelativeLayout>

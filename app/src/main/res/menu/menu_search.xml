@@ -4,11 +4,13 @@
     tools:context=".ui.forecast.ForecastActivity">
 
 
-    <item android:id="@+id/action_search"
+    <item
+        android:id="@+id/action_search"
         android:title="@string/search_hint"
         android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
-        app:showAsAction="always|collapseActionView"
-        app:actionViewClass="android.support.v7.widget.SearchView" />
+        app:showAsAction="collapseActionView|ifRoom"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        />
 
     <item
         android:id="@+id/action_settings"

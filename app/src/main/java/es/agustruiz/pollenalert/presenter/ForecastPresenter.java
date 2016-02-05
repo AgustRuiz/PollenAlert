@@ -1,8 +1,11 @@
 package es.agustruiz.pollenalert.presenter;
 
 
+import android.content.Context;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
+import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.api.pollencheck.PollencheckApiClient;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivityFragment;
@@ -18,8 +21,14 @@ public class ForecastPresenter implements Presenter{
         this.fragment = fragment;
     }
 
-    public void updateForecast(){
-        PollencheckApiClient.GetPollenForecast("777597", this);
+    public void updateForecast(Context context){
+        String woeid = PreferenceManager.getDefaultSharedPreferences(context)
+                .getString(context.getResources().getString(R.string.pref_woeid), null);
+        if(woeid!=null){
+            PollencheckApiClient.GetPollenForecast(woeid, this);
+        }else{
+            this.errorUpdateViewForecast("Erró");
+        }
     }
 
     public void updateViewForecast(ForecastDailyFacade forecast){

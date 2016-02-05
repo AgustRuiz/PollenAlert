@@ -88,6 +88,12 @@ public class ForecastActivityFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        this.refreshForecast();
+        super.onResume();
+    }
+
+    @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null) {
@@ -165,7 +171,10 @@ public class ForecastActivityFragment extends Fragment {
     }
 
     public void refreshForecast() {
-        this.presenter.updateForecast();
+        this.showProgressBar();
+        this.hideMainView();
+        this.hideErrorView();
+        this.presenter.updateForecast(this.context);
     }
 
     public void showProgressBar() {

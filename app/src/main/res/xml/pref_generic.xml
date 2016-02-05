@@ -10,7 +10,7 @@
         <es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
             android:defaultValue="-1"
             android:inputType="number"
-            android:key="pref_woeid"
+            android:key="@string/pref_woeid"
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"

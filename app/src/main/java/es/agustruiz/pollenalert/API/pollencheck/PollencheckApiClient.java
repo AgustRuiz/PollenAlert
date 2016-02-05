@@ -16,7 +16,7 @@ public class PollencheckApiClient {
 
     public static void GetPollenForecast(String woeid, final Presenter presenter) {
         PrepareService();
-        service.getDailyForecastByWoeid(woeid, new Callback<ForecastDailyFacade>() {
+        service.getDailyForecast(woeid, new Callback<ForecastDailyFacade>() {
             @Override
             public void success(ForecastDailyFacade s, Response response) {
                 presenter.updateViewForecast(s);

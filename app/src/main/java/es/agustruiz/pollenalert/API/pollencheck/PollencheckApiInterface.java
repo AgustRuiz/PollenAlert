@@ -13,7 +13,7 @@ public interface PollencheckApiInterface {
     String POLLENCHECK_BASE_URL = "https://pollencheck.p.mashape.com/api/1/forecasts";
 
     @GET("/{woeid}")
-    void getDailyForecastByWoeid(
+    void getDailyForecast(
             @Path("woeid") String woeid,
             Callback<ForecastDailyFacade> response
     );

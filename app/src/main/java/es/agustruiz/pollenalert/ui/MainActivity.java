@@ -16,6 +16,7 @@ import android.widget.Button;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.ui.search.SearchActivity;
 import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivity;
 
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.btnLaunchForecastActivity)
     Button btnLaunchForecastActivity;
+
+    @Bind(R.id.btnLaunchSearchActivity)
+    Button btnLaunchSearchActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +39,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ForecastActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        this.btnLaunchSearchActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
                 startActivity(intent);
             }
         });
