@@ -1,5 +1,7 @@
 package es.agustruiz.pollenalert.ui.forecast;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -10,9 +12,11 @@ import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 
 import java.text.SimpleDateFormat;
@@ -34,10 +38,10 @@ public class ForecastActivity extends AppCompatActivity {
     FloatingActionButton mRefresh;
 
     SearchView searchView;
+    MenuItem searchMenuItem;
+    Activity activity;
 
     ForecastActivityFragment forecastFragment = null;
-
-    private List<String> searchItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,53 +62,30 @@ public class ForecastActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search, menu);
-
-        //SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-        searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        //SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
-
-        //searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchMenuItem = menu.findItem(R.id.action_search);
+        searchView = (SearchView) searchMenuItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                //Toast.makeText(getApplicationContext(), "SUBMIT: " + query, Toast.LENGTH_SHORT).show();
-                // TODO Dismiss searchView
+                colapseSearchView();
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String query) {
-                //Toast.makeText(getApplicationContext(), "onQueryTextChange: " + query, Toast.LENGTH_SHORT).show();
-
-
-                loadHistory(query);
+                // TODO Search every second here...
+                forecastFragment.searchLocations(query);
                 return false;
             }
         });
         return true;
     }
 
-    // TODO Move to other place...
-    private void loadHistory(String query) {
-
-        List<String> locationList = new ArrayList<>();
-        locationList.add("one");
-        locationList.add("two");
-        locationList.add("three");
-        locationList.add("four");
-        locationList.add("five");
-        String[] locationArray = locationList.toArray(new String[locationList.size()]);
-
-        //ArrayAdapter<String> locationAdapter = new ArrayAdapter<String>(getApplicationContext(),
-        //        android.R.layout.simple_list_item_1);
-
-        // TODO Cursor to where?
-        CursorAdapter cursorAdapter = null;
-
-        searchView.setSuggestionsAdapter(cursorAdapter);
+    private void colapseSearchView() {
+        searchMenuItem.collapseActionView();
+        ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
+                .hideSoftInputFromWindow(searchView.getWindowToken(), 0);
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -144,6 +125,7 @@ public class ForecastActivity extends AppCompatActivity {
                 }
             }
         });
+        this.activity = this;
     }
 
 }

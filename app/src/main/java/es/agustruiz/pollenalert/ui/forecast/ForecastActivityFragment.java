@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -210,5 +211,9 @@ public class ForecastActivityFragment extends Fragment {
 
     public void hideErrorView() {
         this.errorView.setVisibility(View.INVISIBLE);
+    }
+
+    public void searchLocations(String query) {
+        this.presenter.queryLocations(query);
     }
 }

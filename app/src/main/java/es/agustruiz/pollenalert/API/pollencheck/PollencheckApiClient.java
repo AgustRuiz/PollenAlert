@@ -1,7 +1,12 @@
 package es.agustruiz.pollenalert.api.pollencheck;
 
+import android.util.Log;
+
+import java.util.List;
+
 import es.agustruiz.pollenalert.BuildConfig;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
 import es.agustruiz.pollenalert.presenter.Presenter;
 import retrofit.Callback;
 import retrofit.RequestInterceptor;
@@ -25,6 +30,22 @@ public class PollencheckApiClient {
             @Override
             public void failure(RetrofitError error) {
                 // TODO manage different error types
+                presenter.errorUpdateViewForecast(error.getMessage());
+            }
+        });
+    }
+
+    public static void GetLocationsWoeid(String query, final Presenter presenter) {
+        PrepareService();
+        service.getLocationByName(query, new Callback<List<Location>>() {
+            @Override
+            public void success(List<Location> locations, Response response) {
+                presenter.updateViewLocations(locations);
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                // TODO modify error message
                 presenter.errorUpdateViewForecast(error.getMessage());
             }
         });
