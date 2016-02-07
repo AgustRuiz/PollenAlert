@@ -1,13 +1,17 @@
 package es.agustruiz.pollenalert.ui.forecast;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Parcelable;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +20,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,8 +28,10 @@ import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.DailyPeriod;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.LocationFacade;
+import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
 import es.agustruiz.pollenalert.presenter.ForecastPresenter;
 import es.agustruiz.pollenalert.ui.adapter.DailyPeriodAdapter;
+import es.agustruiz.pollenalert.ui.adapter.LocationAdapter;
 import es.agustruiz.pollenalert.ui.customViews.NoScrollListView;
 
 /**
@@ -54,6 +61,11 @@ public class ForecastActivityFragment extends Fragment {
     NoScrollListView lvDailyPeriod;
     DailyPeriodAdapter dailyPeriodAdapter = null;
     Parcelable lvDailyPeriodState;
+
+    @Bind(R.id.mSearchListView)
+    ListView mSearchListView;
+    LocationAdapter searchLocationAdapter = null;
+    Parcelable searchLocationState;
 
     @Bind(R.id.errorView)
     View errorView;
@@ -108,8 +120,8 @@ public class ForecastActivityFragment extends Fragment {
             this.errorText.setText(savedInstanceState.getString("errorText"));
 
             try {
-                this.forecastDailyFacade =
-                        (ForecastDailyFacade) savedInstanceState.getSerializable("forecastDailyFacade");
+                this.forecastDailyFacade = (ForecastDailyFacade) savedInstanceState
+                        .getSerializable("forecastDailyFacade");
                 this.populateLvDailyPeriod(this.forecastDailyFacade);
             } catch (Exception ignored) {
             }
@@ -130,7 +142,7 @@ public class ForecastActivityFragment extends Fragment {
         outState.putString("creationTimeValue", this.creationTimeValue.getText().toString());
         outState.putString("errorText", this.errorText.getText().toString());
 
-        outState.putSerializable("forecastDailyFacade", this.forecastDailyFacade);
+        outState.putSerializable("forecastsDailyFacade", this.forecastDailyFacade);
 
         outState.putBoolean("isOk", this.isOk);
         outState.putBoolean("isError", this.isError);
@@ -197,11 +209,11 @@ public class ForecastActivityFragment extends Fragment {
         this.mainView.setVisibility(View.INVISIBLE);
     }
 
-    public void showSearchView(){
+    public void showSearchView() {
         this.searchView.setVisibility(View.VISIBLE);
     }
 
-    public void hideSearchView(){
+    public void hideSearchView() {
         this.searchView.setVisibility(View.INVISIBLE);
     }
 
@@ -224,7 +236,33 @@ public class ForecastActivityFragment extends Fragment {
         this.errorView.setVisibility(View.INVISIBLE);
     }
 
-    public void searchLocations(String query) {
+    public void searchLocation(String query) {
         this.presenter.queryLocations(query);
+    }
+
+    public void receiveSearchLocation(final List<Location> location) {
+        Location[] locationArray =
+                location.toArray(new Location[location.size()]);
+
+        this.searchLocationAdapter = new LocationAdapter(this.mSearchListView.getContext(),
+                R.layout.row_location, locationArray);
+        this.searchLocationState = this.mSearchListView.onSaveInstanceState();
+        this.mSearchListView.setAdapter(searchLocationAdapter);
+        this.mSearchListView.onRestoreInstanceState(this.searchLocationState);
+        this.hideProgressBar();
+
+        // TODO Reubicate
+        this.mSearchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String woeid = location.get(position).getWoeid();
+                PreferenceManager
+                        .getDefaultSharedPreferences(context).edit()
+                        .putString(context.getResources().getString(R.string.pref_woeid), woeid)
+                        .commit();
+                ((ForecastActivity) getActivity()).colapseSearchView();
+                refreshForecast();
+            }
+        });
     }
 }

@@ -3,12 +3,10 @@ package es.agustruiz.pollenalert.ui.forecast;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.MatrixCursor;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.CursorAdapter;
-import android.support.v4.widget.SimpleCursorAdapter;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -17,15 +15,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.ArrayAdapter;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
 import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
 
 public class ForecastActivity extends AppCompatActivity {
@@ -42,6 +40,10 @@ public class ForecastActivity extends AppCompatActivity {
     Activity activity;
 
     ForecastActivityFragment forecastFragment = null;
+
+    Timer timerSearch = null;
+    final static long SHEARCH_TIMEOUT = 300;
+    final static long SHEARCH_MIN_CHARS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,24 +66,56 @@ public class ForecastActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_search, menu);
         searchMenuItem = menu.findItem(R.id.action_search);
         searchView = (SearchView) searchMenuItem.getActionView();
+
+        MenuItemCompat.setOnActionExpandListener(searchMenuItem,
+                new MenuItemCompat.OnActionExpandListener() {
+                    @Override
+                    public boolean onMenuItemActionExpand(MenuItem item) {
+                        forecastFragment.showSearchView();
+                        startTimerSearch();
+                        return true;
+                    }
+
+                    @Override
+                    public boolean onMenuItemActionCollapse(MenuItem item) {
+                        forecastFragment.hideSearchView();
+                        stopTimerSearch();
+                        return true;
+                    }
+                }
+        );
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 colapseSearchView();
+                forecastFragment.hideProgressBar();
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String query) {
-                // TODO Search every second here...
-                forecastFragment.searchLocations(query);
-                return false;
+                forecastFragment.showProgressBar();
+                final String trimQuery = query.trim();
+                restartTimerSearch();
+                if (trimQuery.length() >= SHEARCH_MIN_CHARS) {
+                    timerSearch.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            Log.v("AGUST_LOG", "Searching \"" + trimQuery + "\"");
+                            forecastFragment.searchLocation(trimQuery);
+                        }
+                    }, SHEARCH_TIMEOUT);
+                }else{
+                    forecastFragment.hideProgressBar();
+                }
+                return true;
             }
         });
         return true;
     }
 
-    private void colapseSearchView() {
+    public void colapseSearchView() {
         searchMenuItem.collapseActionView();
         ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE))
                 .hideSoftInputFromWindow(searchView.getWindowToken(), 0);
@@ -103,6 +137,25 @@ public class ForecastActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         getSupportFragmentManager()
                 .putFragment(outState, this.FORECAST_FRAGMENT_TAG, this.forecastFragment);
+    }
+
+    private void startTimerSearch() {
+        this.timerSearch = new Timer();
+    }
+
+    private void stopTimerSearch() {
+        if (this.timerSearch != null) {
+            this.timerSearch.cancel();
+            this.timerSearch.purge();
+        }
+    }
+
+    private void restartTimerSearch() {
+        if (this.timerSearch != null) {
+            this.timerSearch.cancel();
+            this.timerSearch.purge();
+        }
+        this.timerSearch = new Timer();
     }
 
     private void initialize() {
@@ -127,5 +180,4 @@ public class ForecastActivity extends AppCompatActivity {
         });
         this.activity = this;
     }
-
 }

@@ -3,7 +3,6 @@ package es.agustruiz.pollenalert.presenter;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;
@@ -63,14 +62,6 @@ public class ForecastPresenter implements Presenter {
 
     @Override
     public void updateViewLocations(List<Location> locations) {
-        Log.v(LOG_TAG + " " + AGUST_TAG , "updateViewLocations");
-        if (locations.size()==0){
-            Log.v(LOG_TAG + " " + AGUST_TAG , "No locations found");
-        }else{
-            for (int i = 0 ; i < locations.size() ; ++i){
-                Location l = locations.get(i);
-                Log.v(LOG_TAG + " " + AGUST_TAG, l.getName() + "("+ l.getRegion() + ", " + l.getCountry() + ")");
-            }
-        }
+        this.fragment.receiveSearchLocation(locations);
     }
 }

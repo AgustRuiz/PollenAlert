@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="@dimen/row_location_height"
+    android:gravity="center_vertical">
+
+    <ImageView
+        android:layout_width="@dimen/row_location_icon"
+        android:layout_height="@dimen/row_location_icon"
+        android:id="@+id/mImageView"
+        android:layout_margin="@dimen/row_location_icon_padding"
+        android:src="@android:drawable/ic_menu_mylocation" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/mLocationTextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/mWoeidTextView" />
+</LinearLayout>
