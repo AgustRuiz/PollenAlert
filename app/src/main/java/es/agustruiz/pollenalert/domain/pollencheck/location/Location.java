@@ -2,6 +2,8 @@ package es.agustruiz.pollenalert.domain.pollencheck.location;
 
 import java.io.Serializable;
 
+import es.agustruiz.pollenalert.ui.adapter.LocationAdapter;
+
 public class Location implements Serializable {
 
     /**
@@ -48,6 +50,18 @@ public class Location implements Serializable {
      * RESERVED
      */
     Boolean active;
+
+    /**
+     * INTERNAL
+     * Tag for location icon
+     */
+    int icon = LocationAdapter.ICON_PLACE;
+
+    /**
+     * INTERNAL
+     * Tag for geoposition location
+     */
+    boolean geoposition = false;
 
     /**
      * Constructor
@@ -125,5 +139,21 @@ public class Location implements Serializable {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public int getIcon(){
+        return icon;
+    }
+
+    public void setIcon(int icon){
+        this.icon = icon;
+    }
+
+    public boolean isGeoposition(){
+        return geoposition;
+    }
+
+    public void setGeoposition(boolean geoposition){
+        this.geoposition = geoposition;
     }
 }

@@ -46,11 +46,17 @@ public class LocationAdapter extends ArrayAdapter<Location> {
 
         Location location = data[position];
 
-        holder.mImageView.setImageDrawable(context.getDrawable(ICON_PLACE));
-        holder.mLocationTextView.setText(location.getName()
-                + " (" + location.getRegion()
-                + ", " + location.getCountry() + ")");
-        holder.mWoeidTextView.setText(location.getWoeid());
+
+        holder.mImageView.setImageDrawable(context.getDrawable(location.getIcon()));
+        if(location.isGeoposition()){
+            holder.mLocationTextView.setText(R.string.myCurrentPosition);
+            holder.mWoeidTextView.setText("-1");
+        }else {
+            holder.mLocationTextView.setText(location.getName()
+                    + " (" + location.getRegion()
+                    + ", " + location.getCountry() + ")");
+            holder.mWoeidTextView.setText(location.getWoeid());
+        }
         return row;
     }
 

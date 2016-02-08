@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -240,28 +241,42 @@ public class ForecastActivityFragment extends Fragment {
         this.presenter.queryLocations(query);
     }
 
-    public void receiveSearchLocation(final List<Location> location) {
-        Location[] locationArray =
-                location.toArray(new Location[location.size()]);
+    public void receiveSearchLocation(final List<Location> locList) {
+        final List<Location> location = (locList == null ? new ArrayList<Location>():locList);
 
+        // My position location
+        Location myPositionLocation = new Location();
+        myPositionLocation.setIcon(LocationAdapter.ICON_MY_LOCATION);
+        myPositionLocation.setGeoposition(true);
+        location.add(0, myPositionLocation);
+
+        // Set adapter
+        Location[] locationArray = location.toArray(new Location[location.size()]);
         this.searchLocationAdapter = new LocationAdapter(this.mSearchListView.getContext(),
                 R.layout.row_location, locationArray);
-        this.searchLocationState = this.mSearchListView.onSaveInstanceState();
         this.mSearchListView.setAdapter(searchLocationAdapter);
-        this.mSearchListView.onRestoreInstanceState(this.searchLocationState);
+
         this.hideProgressBar();
 
-        // TODO Reubicate
+        // OnClick listener
         this.mSearchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String woeid = location.get(position).getWoeid();
-                PreferenceManager
-                        .getDefaultSharedPreferences(context).edit()
-                        .putString(context.getResources().getString(R.string.pref_woeid), woeid)
-                        .commit();
-                ((ForecastActivity) getActivity()).colapseSearchView();
-                refreshForecast();
+                //String woeid = location.get(position).getWoeid();
+                String woeid = ((TextView)view.findViewById(R.id.mWoeidTextView))
+                        .getText().toString();
+                if (woeid != "-1") {
+                    // Normal location
+                    PreferenceManager
+                            .getDefaultSharedPreferences(context).edit()
+                            .putString(context.getResources().getString(R.string.pref_woeid), woeid)
+                            .commit();
+                    ((ForecastActivity) getActivity()).colapseSearchView();
+                    refreshForecast();
+                } else {
+                    // Mi position location
+                    Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
