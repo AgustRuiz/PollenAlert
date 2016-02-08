@@ -111,4 +111,5 @@
     <string name="search_hint">Enter location</string>
     <string name="pref_woeid">pref_woeid</string>
     <string name="myCurrentPosition">My current position</string>
+    <string name="msg_combinedPollenCompulsory">Combined pollen must be checked at least</string>
 </resources>
