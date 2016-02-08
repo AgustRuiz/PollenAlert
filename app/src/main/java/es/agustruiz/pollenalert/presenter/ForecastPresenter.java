@@ -16,7 +16,6 @@ import es.agustruiz.pollenalert.ui.forecast.ForecastActivityFragment;
 public class ForecastPresenter implements Presenter {
 
     public final static String LOG_TAG = "ForecastPresenter";
-    public final static String AGUST_TAG = "AGUST_TAG";
 
     ForecastActivityFragment fragment;
 
@@ -36,6 +35,7 @@ public class ForecastPresenter implements Presenter {
         if (woeid != null) {
             PollencheckApiClient.GetPollenForecast(woeid, this);
         } else {
+            // TODO Change message
             this.errorUpdateViewForecast("Erró");
         }
     }
@@ -45,7 +45,6 @@ public class ForecastPresenter implements Presenter {
         this.fragment.receiveForecastData(forecast);
         this.fragment.hideProgressBar();
         this.fragment.showMainView();
-        this.fragment.showToast("Here it is, my master!", Toast.LENGTH_SHORT);
     }
 
     @Override
