@@ -245,7 +245,7 @@ public class ForecastActivityFragment extends Fragment {
     }
 
     public void receiveSearchLocation(final List<Location> locList) {
-        final List<Location> location = (locList == null ? new ArrayList<Location>():locList);
+        final List<Location> location = (locList == null ? new ArrayList<Location>() : locList);
 
         // My position location
         Location myPositionLocation = new Location();
@@ -253,8 +253,16 @@ public class ForecastActivityFragment extends Fragment {
         myPositionLocation.setGeoposition(true);
         location.add(0, myPositionLocation);
 
-        // Set adapter
+        if (location.size() == 1) {
+            // TODO make sort of geoposition but with "zero results"
+            Location noLocationFound = new Location();
+            noLocationFound.setIcon(LocationAdapter.ICON_NOT_FOUND);
+            noLocationFound.setLocationNotFound(true);
+            location.add(noLocationFound);
+        }
         Location[] locationArray = location.toArray(new Location[location.size()]);
+
+        // Set adapter
         this.searchLocationAdapter = new LocationAdapter(this.mSearchListView.getContext(),
                 R.layout.row_location, locationArray);
         this.mSearchListView.setAdapter(searchLocationAdapter);
@@ -266,19 +274,23 @@ public class ForecastActivityFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 //String woeid = location.get(position).getWoeid();
-                String woeid = ((TextView)view.findViewById(R.id.mWoeidTextView))
+                String woeid = ((TextView) view.findViewById(R.id.mWoeidTextView))
                         .getText().toString();
-                if (woeid != "-1") {
-                    // Normal location
-                    PreferenceManager
-                            .getDefaultSharedPreferences(context).edit()
-                            .putString(context.getResources().getString(R.string.prefKey_woeid), woeid)
-                            .commit();
-                    ((ForecastActivity) getActivity()).colapseSearchView();
-                    refreshForecast();
-                } else {
-                    // Mi position location
-                    Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+                switch (woeid) {
+                    case LocationAdapter.TAG_LOCATION_NOT_FOUND:
+                        // Nothing
+                        break;
+                    case LocationAdapter.TAG_GEOPOSITION:
+                        Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        PreferenceManager
+                                .getDefaultSharedPreferences(context).edit()
+                                .putString(context.getResources().getString(R.string.prefKey_woeid), woeid)
+                                .commit();
+                        ((ForecastActivity) getActivity()).colapseSearchView();
+                        refreshForecast();
+                        break;
                 }
             }
         });

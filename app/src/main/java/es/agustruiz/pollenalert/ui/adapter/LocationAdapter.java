@@ -18,6 +18,10 @@ public class LocationAdapter extends ArrayAdapter<Location> {
 
     public static final int ICON_MY_LOCATION = android.R.drawable.ic_menu_mylocation;
     public static final int ICON_PLACE = android.R.drawable.ic_menu_myplaces;
+    public static final int ICON_NOT_FOUND = android.R.drawable.ic_menu_close_clear_cancel;
+
+    public static final String TAG_LOCATION_NOT_FOUND = "TAG_LOCATION_NOT_FOUND";
+    public static final String TAG_GEOPOSITION = "TAG_GEOPOSITION";
 
     Context context;
     int layoutResourceId;
@@ -48,10 +52,13 @@ public class LocationAdapter extends ArrayAdapter<Location> {
 
 
         holder.mImageView.setImageDrawable(context.getDrawable(location.getIcon()));
-        if(location.isGeoposition()){
+        if (location.isGeoposition()) {
             holder.mLocationTextView.setText(R.string.myCurrentPosition);
-            holder.mWoeidTextView.setText("-1");
-        }else {
+            holder.mWoeidTextView.setText(this.TAG_GEOPOSITION);
+        } else if(location.isLocationNotFound()){
+            holder.mLocationTextView.setText(R.string.noResults);
+            holder.mWoeidTextView.setText(this.TAG_LOCATION_NOT_FOUND);
+        } else {
             holder.mLocationTextView.setText(location.getName()
                     + " (" + location.getRegion()
                     + ", " + location.getCountry() + ")");

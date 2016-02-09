@@ -121,6 +121,7 @@
     <string name="msg_combinedPollenCompulsory">Combined pollen must be checked at least</string>
     <string name="msg_locationNotFound">Location not found</string>
     <string name="msg_search_hint">Enter location...</string>
+    <string name="noResults">No results...</string>
     <!-- End messages -->
 
     <!-- Punctuation and ASCII-->

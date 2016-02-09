@@ -64,6 +64,12 @@ public class Location implements Serializable {
     boolean geoposition = false;
 
     /**
+     * INTERNAL
+     * Tag for location not found
+     */
+    private boolean locationNotFound;
+
+    /**
      * Constructor
      */
     public Location() {
@@ -155,5 +161,13 @@ public class Location implements Serializable {
 
     public void setGeoposition(boolean geoposition){
         this.geoposition = geoposition;
+    }
+
+    public boolean isLocationNotFound() {
+        return locationNotFound;
+    }
+
+    public void setLocationNotFound(boolean locationNotFound){
+        this.locationNotFound = locationNotFound;
     }
 }
