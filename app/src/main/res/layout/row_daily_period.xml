@@ -11,28 +11,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:id="@+id/dayView">
 
         <TextView
             android:id="@+id/dayName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Day"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/blankSpace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/blankSpace"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/dayNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="99"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -41,10 +48,11 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9">
+        android:weightSum="9"
+        android:id="@+id/combinedView">
 
         <ImageView
-            android:id="@+id/pollenIcon"
+            android:id="@+id/combinedIcon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom|center"
@@ -60,7 +68,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/avgCounter"
+                android:id="@+id/combinedAvgCounter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
@@ -70,7 +78,7 @@
                 android:textColor="@color/ColorAvgCount" />
 
             <TextView
-                android:id="@+id/avgLevel"
+                android:id="@+id/combinedAvgLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
@@ -95,7 +103,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/maxArrow"
+                    android:id="@+id/combinedMaxArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
@@ -105,7 +113,7 @@
                     android:textColor="@color/ColorMaxCount" />
 
                 <TextView
-                    android:id="@+id/maxCounter"
+                    android:id="@+id/combinedMaxCounter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
@@ -117,7 +125,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/maxLevel"
+                android:id="@+id/combinedMaxLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
@@ -142,7 +150,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/minArrow"
+                    android:id="@+id/combinedMinArrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
@@ -152,7 +160,7 @@
                     android:textColor="@color/ColorMinCount" />
 
                 <TextView
-                    android:id="@+id/minCounter"
+                    android:id="@+id/combinedMinCounter"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|center"
@@ -164,7 +172,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/minLevel"
+                android:id="@+id/combinedMinLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center"
@@ -174,4 +182,569 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:id="@+id/oliveView">
+
+        <ImageView
+            android:id="@+id/oliveIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom|center"
+            android:layout_weight="1"
+            android:src="@drawable/olive" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="4"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/oliveAvgCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/ColorAvgCount" />
+
+            <TextView
+                android:id="@+id/oliveAvgLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/oliveMaxArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowUp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+                <TextView
+                    android:id="@+id/oliveMaxCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/oliveMaxLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/oliveMinArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowDown"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+                <TextView
+                    android:id="@+id/oliveMinCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/oliveMinLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:id="@+id/grassView">
+
+        <ImageView
+            android:id="@+id/grassIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom|center"
+            android:layout_weight="1"
+            android:src="@drawable/grass" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="4"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/grassAvgCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/ColorAvgCount" />
+
+            <TextView
+                android:id="@+id/grassAvgLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/grassMaxArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowUp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+                <TextView
+                    android:id="@+id/grassMaxCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/grassMaxLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/grassMinArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowDown"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+                <TextView
+                    android:id="@+id/grassMinCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/grassMinLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:id="@+id/birchView">
+
+        <ImageView
+            android:id="@+id/birchIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom|center"
+            android:layout_weight="1"
+            android:src="@drawable/birch" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="4"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/birchAvgCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/ColorAvgCount" />
+
+            <TextView
+                android:id="@+id/birchAvgLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/birchMaxArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowUp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+                <TextView
+                    android:id="@+id/birchMaxCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/birchMaxLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/birchMinArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowDown"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+                <TextView
+                    android:id="@+id/birchMinCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/birchMinLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="9"
+        android:id="@+id/ragweedView">
+
+        <ImageView
+            android:id="@+id/ragweedIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom|center"
+            android:layout_weight="1"
+            android:src="@drawable/ragweed" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="4"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/ragweedAvgCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/ColorAvgCount" />
+
+            <TextView
+                android:id="@+id/ragweedAvgLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ragweedMaxArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowUp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+                <TextView
+                    android:id="@+id/ragweedMaxCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMaxCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ragweedMaxLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
+            android:layout_weight="2"
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/ragweedMinArrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/arrowDown"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+                <TextView
+                    android:id="@+id/ragweedMinCounter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:gravity="center_vertical|center|center_horizontal"
+                    android:text="@string/blankString"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/ColorMinCount" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/ragweedMinLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/blankString"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+        </LinearLayout>
+
+    </LinearLayout>
+
 </LinearLayout>
