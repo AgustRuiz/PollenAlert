@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Toast;
 
 import java.util.List;
 import java.util.Timer;
@@ -35,6 +37,7 @@ public class ForecastActivity extends AppCompatActivity {
     @Bind(R.id.refresh)
     FloatingActionButton mRefresh;
 
+    //@Bind(R.id.action_search)
     SearchView searchView;
     MenuItem searchMenuItem;
     Activity activity;
@@ -66,6 +69,7 @@ public class ForecastActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_search, menu);
         searchMenuItem = menu.findItem(R.id.action_search);
         searchView = (SearchView) searchMenuItem.getActionView();
+        searchView.setQueryHint(getResources().getString(R.string.msg_search_hint));
 
         MenuItemCompat.setOnActionExpandListener(searchMenuItem,
                 new MenuItemCompat.OnActionExpandListener() {
@@ -95,23 +99,23 @@ public class ForecastActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String query) {
-                forecastFragment.showProgressBar();
                 final String trimQuery = query.trim();
-                restartTimerSearch();
                 if (trimQuery.length() >= SHEARCH_MIN_CHARS) {
+                    forecastFragment.showProgressBar();
+                    restartTimerSearch();
                     timerSearch.schedule(new TimerTask() {
                         @Override
                         public void run() {
-                            Log.v("AGUST_LOG", "Searching \"" + trimQuery + "\"");
                             forecastFragment.searchLocation(trimQuery);
                         }
                     }, SHEARCH_TIMEOUT);
-                }else{
+                } else {
                     forecastFragment.hideProgressBar();
                 }
                 return true;
             }
         });
+        
         return true;
     }
 
@@ -178,6 +182,7 @@ public class ForecastActivity extends AppCompatActivity {
                 }
             }
         });
+
         this.activity = this;
     }
 }

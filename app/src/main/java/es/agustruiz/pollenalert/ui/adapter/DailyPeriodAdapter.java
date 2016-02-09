@@ -3,6 +3,7 @@ package es.agustruiz.pollenalert.ui.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,9 +62,10 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
         holder.dayNumber.setText(day);
 
         // Preferences
-        SharedPreferences preferences =PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        Resources resources = context.getResources();
 
-        if(preferences.getBoolean("pref_combined", false)){
+        if(preferences.getBoolean(resources.getString(R.string.prefKey_combined), false)){
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getCombined();
             holder.combinedIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.combinedAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
@@ -76,7 +78,7 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             holder.combinedView.setVisibility(View.GONE);
         }
 
-        if(preferences.getBoolean("pref_olive", false)){
+        if(preferences.getBoolean(resources.getString(R.string.prefKey_olive), false)){
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getOlive();
             holder.oliveIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.oliveAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
@@ -89,7 +91,7 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             holder.oliveView.setVisibility(View.GONE);
         }
 
-        if(preferences.getBoolean("pref_grass", false)){
+        if(preferences.getBoolean(resources.getString(R.string.prefKey_grass), false)){
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getGrass();
             holder.grassIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.grassAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
@@ -102,7 +104,7 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             holder.grassView.setVisibility(View.GONE);
         }
 
-        if(preferences.getBoolean("pref_birch", false)){
+        if(preferences.getBoolean(resources.getString(R.string.prefKey_birch), false)){
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getBirch();
             holder.birchIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.birchAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
@@ -115,7 +117,7 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             holder.birchView.setVisibility(View.GONE);
         }
 
-        if(preferences.getBoolean("pref_ragweed", false)){
+        if(preferences.getBoolean(resources.getString(R.string.prefKey_ragweed), false)){
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getRagweed();
             holder.ragweedIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.ragweedAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
@@ -127,9 +129,6 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
         }else{
             holder.ragweedView.setVisibility(View.GONE);
         }
-
-
-
 
         return row;
     }

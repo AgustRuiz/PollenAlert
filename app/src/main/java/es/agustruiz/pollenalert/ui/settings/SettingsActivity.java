@@ -1,7 +1,6 @@
 package es.agustruiz.pollenalert.ui.settings;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
@@ -9,11 +8,13 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
 
 /**
@@ -30,9 +31,15 @@ import es.agustruiz.pollenalert.R;
 public class SettingsActivity extends AppCompatActivity {
 
     PreferenceFragment preferenceFragment = null;
+    Context context = null;
+    SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener = null;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
+
+        context = getApplicationContext();
         preferenceFragment = new MyPreferenceFragment();
         getFragmentManager().beginTransaction()
                 .replace(android.R.id.content, this.preferenceFragment).commit();
@@ -43,26 +50,32 @@ public class SettingsActivity extends AppCompatActivity {
         }
 
         // Capture preferences change
-        PreferenceManager.getDefaultSharedPreferences(getBaseContext())
-                .registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
-                    @Override
-                    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                        // Combined pollen checked at least
-                        if (!checkPollenVarietiesPrefs()) {
-                            Context context = getApplicationContext();
-                            PreferenceManager.getDefaultSharedPreferences(context).edit()
-                                    .putBoolean("pref_combined", true).commit();
-                            SwitchPreference prefCombined = (SwitchPreference)
-                                    preferenceFragment.findPreference("pref_combined");
-                            prefCombined.setChecked(true);
-                            Toast.makeText(
-                                    context,
-                                    R.string.msg_combinedPollenCompulsory,
-                                    Toast.LENGTH_LONG
-                            ).show();
-                        }
+        if (onSharedPreferenceChangeListener == null) {
+            onSharedPreferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                @Override
+                public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                    //Toast.makeText(context, "Change!", Toast.LENGTH_SHORT).show();
+                    // Combined pollen checked at least
+                    if (!isOkPollenVarietiesPrefs()) {
+                        PreferenceManager.getDefaultSharedPreferences(context).edit()
+                                .putBoolean("pref_combined", true).commit();
+                        SwitchPreference prefCombined = (SwitchPreference)
+                                preferenceFragment.findPreference(getResources()
+                                                .getString(R.string.prefKey_combined)
+                                );
+                        prefCombined.setChecked(true);
+
+                        Toast.makeText(
+                                context,
+                                R.string.msg_combinedPollenCompulsory,
+                                Toast.LENGTH_LONG
+                        ).show();
                     }
-                });
+                }
+            };
+        }
+        PreferenceManager.getDefaultSharedPreferences(context)
+                .registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
     }
 
     @Override
@@ -75,28 +88,17 @@ public class SettingsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private boolean checkPollenVarietiesPrefs() {
-        Context context = getApplicationContext();
+    private boolean isOkPollenVarietiesPrefs() {
         boolean combinedPref = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean("pref_combined", false);
+                .getBoolean(getResources().getString(R.string.prefKey_combined), false);
         boolean olivePref = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean("pref_olive", false);
+                .getBoolean(getResources().getString(R.string.prefKey_olive), false);
         boolean grassPref = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean("pref_grass", false);
+                .getBoolean(getResources().getString(R.string.prefKey_grass), false);
         boolean birchPref = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean("pref_birch", false);
+                .getBoolean(getResources().getString(R.string.prefKey_birch), false);
         boolean ragweedPref = PreferenceManager.getDefaultSharedPreferences(context)
-                .getBoolean("pref_ragweed", false);
-
-        /*Toast.makeText(
-                context,
-                "Combined:\t" + combinedPref + "\n"
-                        + "Olive:\t" + olivePref + "\n"
-                        + "Grass:\t" + grassPref + "\n"
-                        + "Birch:\t" + birchPref + "\n"
-                        + "Ragweed:\t" + ragweedPref,
-                Toast.LENGTH_LONG
-        ).show();/**/
+                .getBoolean(getResources().getString(R.string.prefKey_ragweed), false);
 
         return !(!combinedPref && !olivePref && !grassPref && !birchPref && !ragweedPref);
     }

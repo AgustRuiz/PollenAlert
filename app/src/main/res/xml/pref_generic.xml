@@ -4,28 +4,28 @@
 
         <SwitchPreference
             android:defaultValue="true"
-            android:key="pref_forecast_by_location"
+            android:key="@string/prefKey_forecast_by_location"
             android:title="@string/pref_forecast_by_location_title" />
 
-        <es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
-            android:defaultValue="-1"
+        <!--es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
+            android:defaultValue="@string/prefKey_woeid_default"
             android:inputType="number"
-            android:key="@string/pref_woeid"
+            android:key="@string/prefKey_woeid"
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_woeid_title"
-            android:summary="%s"/>
+            android:summary="%s"/-->
 
-        <es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
-            android:defaultValue="-1"
+        <!--es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
+            android:defaultValue="@string/prefKey_location_search_default"
             android:inputType="text"
-            android:key="pref_location_string"
+            android:key="@string/prefKey_location_search"
             android:maxLines="1"
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_location_search_title"
-            android:summary="%s"/>
+            android:summary="%s"/-->
 
     </PreferenceCategory>
 
@@ -33,27 +33,27 @@
 
         <SwitchPreference
             android:defaultValue="true"
-            android:key="pref_combined"
+            android:key="@string/prefKey_combined"
             android:title="@string/pref_combined_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="pref_olive"
+            android:key="@string/prefKey_olive"
             android:title="@string/pref_olive_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="pref_grass"
+            android:key="@string/prefKey_grass"
             android:title="@string/pref_grass_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="pref_birch"
+            android:key="@string/prefKey_birch"
             android:title="@string/pref_birch_title" />
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="pref_ragweed"
+            android:key="@string/prefKey_ragweed"
             android:title="@string/pref_ragweed_title" />
 
     </PreferenceCategory>
@@ -62,18 +62,18 @@
         android:title="@string/pref_others_title">
 
         <ListPreference
-            android:defaultValue="180"
+            android:key="@string/prefKey_sync_frequency"
             android:entries="@array/pref_sync_frequency_titles"
             android:entryValues="@array/pref_sync_frequency_values"
-            android:key="pref_sync_frequency"
+            android:defaultValue="180"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
             android:summary="%s"
             android:title="@string/pref_sync_frequency_title" />
 
         <SwitchPreference
-            android:defaultValue="true"
-            android:key="pref_show_notifications"
+            android:key="@string/prefKey_notifications"
+            android:defaultValue="@string/prefKey_notifications_default"
             android:title="@string/pref_show_notifications_title" />
 
     </PreferenceCategory>

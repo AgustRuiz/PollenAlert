@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.forecast.ForecastActivity">
 
-
     <item
         android:id="@+id/action_search"
-        android:title="@string/search_hint"
+        android:title="@string/search"
+        android:hint="@string/msg_search_hint"
         android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="android.support.v7.widget.SearchView"

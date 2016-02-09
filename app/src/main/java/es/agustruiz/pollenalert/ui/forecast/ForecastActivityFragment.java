@@ -106,9 +106,9 @@ public class ForecastActivityFragment extends Fragment {
 
     @Override
     public void onResume() {
+        super.onResume();
         this.refreshForecast();
         this.receiveSearchLocation(new ArrayList<Location>());
-        super.onResume();
     }
 
     @Override
@@ -197,6 +197,7 @@ public class ForecastActivityFragment extends Fragment {
 
     public void showProgressBar() {
         this.progressBar.setVisibility(View.VISIBLE);
+        this.progressBar.bringToFront();
     }
 
     public void hideProgressBar() {
@@ -270,7 +271,7 @@ public class ForecastActivityFragment extends Fragment {
                     // Normal location
                     PreferenceManager
                             .getDefaultSharedPreferences(context).edit()
-                            .putString(context.getResources().getString(R.string.pref_woeid), woeid)
+                            .putString(context.getResources().getString(R.string.prefKey_woeid), woeid)
                             .commit();
                     ((ForecastActivity) getActivity()).colapseSearchView();
                     refreshForecast();

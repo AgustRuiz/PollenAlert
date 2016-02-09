@@ -9,10 +9,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin">
 
     <LinearLayout
+        android:id="@+id/dayView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:id="@+id/dayView">
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/dayName"
@@ -43,28 +43,49 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/combinedView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9"
-        android:id="@+id/combinedView">
+        android:weightSum="9">
 
-        <ImageView
-            android:id="@+id/combinedIcon"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|bottom|center"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="1"
-            android:src="@drawable/combined" />
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/combinedIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/combined"
+                android:src="@drawable/combined" />
+
+            <TextView
+                android:id="@+id/combinedDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/combined"
+                android:textColor="@color/colorAccent"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -92,7 +113,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -139,7 +160,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -184,28 +205,49 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/oliveView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9"
-        android:id="@+id/oliveView">
+        android:weightSum="9">
 
-        <ImageView
-            android:id="@+id/oliveIcon"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|bottom|center"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="1"
-            android:src="@drawable/olive" />
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/oliveIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/olive"
+                android:src="@drawable/olive" />
+
+            <TextView
+                android:id="@+id/oliveDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/olive"
+                android:textColor="@color/colorAccent"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -233,7 +275,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -280,7 +322,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -325,28 +367,49 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/grassView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9"
-        android:id="@+id/grassView">
+        android:weightSum="9">
 
-        <ImageView
-            android:id="@+id/grassIcon"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|bottom|center"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="1"
-            android:src="@drawable/grass" />
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/grassIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/grass"
+                android:src="@drawable/grass" />
+
+            <TextView
+                android:id="@+id/grassDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/grass"
+                android:textColor="@color/colorAccent"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -374,7 +437,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -421,7 +484,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -466,28 +529,49 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/birchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9"
-        android:id="@+id/birchView">
+        android:weightSum="9">
 
-        <ImageView
-            android:id="@+id/birchIcon"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|bottom|center"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="1"
-            android:src="@drawable/birch" />
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/birchIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/birch"
+                android:src="@drawable/birch" />
+
+            <TextView
+                android:id="@+id/combinedDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/birch"
+                android:textColor="@color/colorAccent"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -515,7 +599,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -562,7 +646,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -607,28 +691,49 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ragweedView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:baselineAligned="false"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="9"
-        android:id="@+id/ragweedView">
+        android:weightSum="9">
 
-        <ImageView
-            android:id="@+id/ragweedIcon"
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left|bottom|center"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom|center"
             android:layout_weight="1"
-            android:src="@drawable/ragweed" />
+            android:gravity="center_vertical|center|center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ragweedIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/ragweed"
+                android:src="@drawable/ragweed" />
+
+            <TextView
+                android:id="@+id/ragweedDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:gravity="center_vertical|center|center_horizontal"
+                android:text="@string/ragweed"
+                android:textColor="@color/colorAccent"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="4"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <TextView
@@ -656,7 +761,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout
@@ -703,7 +808,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="bottom|center"
             android:layout_weight="2"
-            android:gravity="center_vertical|center|center_horizontal"
+            android:gravity="bottom|center|center_horizontal"
             android:orientation="vertical">
 
             <LinearLayout

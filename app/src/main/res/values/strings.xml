@@ -1,80 +1,42 @@
 <resources>
-    <string name="app_name">PollenAlert</string>
-    <!-- Activities titles -->
-    <string name="title_activity_test">TestActivity</string>
-    <string name="title_activity_forecast">Pollen forecast</string>
-    <!-- End activities titles -->
 
-    <!-- row_pollen_day_period -->
-    <string name="counterDefault">0.0</string>
-    <string name="levelDefault">very_low</string>
-    <!-- End row_pollen_day_period -->
+    <string name="app_name">PollenAlert</string>
+
+    <string name="app_label">PollenAlert</string>
+
+    <!-- Activities titles -->
+    <string name="title_activity_forecast">Pollen forecast</string>
+    <string name="title_activity_settings">Settings</string>
+    <!-- End activities titles -->
 
     <!-- Actions -->
     <string name="action_settings">Settings</string>
     <!-- End actions -->
 
-    <!-- others -->
-    <string name="minimum">Minimum</string>
-    <string name="abbr_minimum">Min.</string>
-    <string name="average">Average</string>
-    <string name="abbr_average">Avg.</string>
-    <string name="maximum">Maximum</string>
-    <string name="abbr_maximum">Max.</string>
-
-    <string name="woeid">WOEID</string>
+    <!-- Forecast activity -->
     <string name="creationTime">Creation time</string>
-    <string name="interval">Interval</string>
-    <string name="active">Active</string>
-
     <string name="forecastCreationTime">Forecast creation time</string>
-
-    <string name="colonPunctuationMark">": "</string>
-
-    <string name="time">Time</string>
+    <string name="counterDefault">0.0</string>
+    <string name="levelDefault">very_low</string>
     <string name="timestamp">Timestamp</string>
+    <!-- End forecast activity -->
 
-    <string name="blankString">-</string>
-    <string name="blankSpace">" "</string>
-    <string name="bracketOpen">" ("</string>
-    <string name="bracketClose">") "</string>
+    <!-- Preferences -->
+    <string name="pref_searching_settings_title">Searching settings</string>
+    <string name="pref_forecast_by_location_title">Get forecast by location</string>
+    <string name="pref_woeid_title">WOEID</string>
 
-    <string name="today">Today</string>
-    <string name="tomorrow">Tomorrow</string>
+    <string name="pref_pollen_details_title">Pollen details</string>
+    <string name="pref_combined_title">Combined pollen</string>
+    <string name="pref_olive_title">Olive pollen</string>
+    <string name="pref_grass_title">Grass pollen</string>
+    <string name="pref_birch_title">Birch pollen</string>
+    <string name="pref_ragweed_title">Ragweed pollen</string>
 
-    <string name="arrowUp">▲</string>
-    <string name="arrowDown">▼</string>
-    <string name="sadFace">:(</string>
+    <string name="pref_others_title">Others</string>
+    <string name="pref_show_notifications_title">Show notifications</string>
+    <string name="pref_sync_frequency_title">Forecast sync frequency</string>
 
-    <string-array name="daysOfTheWeek">
-        <item>NotADay</item>
-        <!-- Position 0 -->
-        <item>Sunday</item>
-        <item>Monday</item>
-        <item>Tuesday</item>
-        <item>Wednesday</item>
-        <item>Thursday</item>
-        <item>Friday</item>
-        <item>Saturday</item>
-    </string-array>
-
-    <string-array name="months">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>Dicember</item>
-    </string-array>
-    <string name="title_activity_settings">Settings</string>
-
-    <!-- Strings related to Settings -->
     <string-array name="pref_sync_frequency_titles">
         <item>15 minutes</item>
         <item>30 minutes</item>
@@ -91,25 +53,86 @@
         <item>360</item>
         <item>-1</item>
     </string-array>
-    <string name="pref_forecast_by_location_title">Get forecast by location</string>
-    <string name="pref_woeid_title">WOEID</string>
-    <string name="pref_location_search_title">Forecast location</string>
-    <string name="pref_combined_title">Combined pollen</string>
-    <string name="pref_olive_title">Olive pollen</string>
-    <string name="pref_grass_title">Grass pollen</string>
-    <string name="pref_birch_title">Birch pollen</string>
-    <string name="pref_ragweed_title">Ragweed pollen</string>
-    <string name="pref_show_notifications_title">Show notifications</string>
-    <string name="pref_sync_frequency_title">Forecast sync frequency</string>
-    <string name="pref_searching_settings_title">Searching settings</string>
-    <string name="pref_pollen_details_title">Pollen details</string>
-    <string name="pref_others_title">Others</string>
-    <string name="app_label">PollenAlert</string>
+    <!-- End preferences -->
 
-    <!-- End strings related to Settings -->
+    <!-- Preferences key -->
+    <string name="prefKey_forecast_by_location">key_forecast_by_location</string>
 
-    <string name="search_hint">Enter location</string>
-    <string name="pref_woeid">pref_woeid</string>
+    <string name="prefKey_woeid">key_woeid</string>
+    <string name="prefKey_woeid_default">-1</string>
+
+    <string name="prefKey_combined">key_combined</string>
+    <string name="prefKey_olive">key_olive</string>
+    <string name="prefKey_grass">key_grass</string>
+    <string name="prefKey_birch">key_birch</string>
+    <string name="prefKey_ragweed">key_ragweed</string>
+
+    <string name="prefKey_notifications">key_notifications</string>
+    <string name="prefKey_sync_frequency">key_sync_frequency</string>
+    <!-- End preferences key -->
+
+    <!-- Shared strings -->
+    <string name="combined">Combined</string>
+    <string name="olive">Olive</string>
+    <string name="grass">Grass</string>
+    <string name="birch">Birch</string>
+    <string name="ragweed">Ragweed</string>
+    <string-array name="daysOfTheWeek">
+        <item>NotADay</item>
+        <item>Sunday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+    </string-array>
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>Dicember</item>
+    </string-array>
+    <string name="minimum">Minimum</string>
+    <string name="abbr_minimum">Min.</string>
+    <string name="average">Average</string>
+    <string name="abbr_average">Avg.</string>
+    <string name="maximum">Maximum</string>
+    <string name="abbr_maximum">Max.</string>
+    <string name="woeid">WOEID</string>
+    <string name="interval">Interval</string>
+    <string name="active">Active</string>
+    <string name="time">Time</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
     <string name="myCurrentPosition">My current position</string>
+    <string name="search">Search</string>
+    <!-- End shared strings -->
+
+    <!-- Messages -->
     <string name="msg_combinedPollenCompulsory">Combined pollen must be checked at least</string>
+    <string name="msg_locationNotFound">Location not found</string>
+    <string name="msg_search_hint">Enter location...</string>
+    <!-- End messages -->
+
+    <!-- Punctuation and ASCII-->
+    <string name="colonPunctuationMark">": "</string>
+    <string name="blankString">-</string>
+    <string name="blankSpace">" "</string>
+    <string name="bracketOpen">" ("</string>
+    <string name="bracketClose">") "</string>
+    <string name="arrowUp">▲</string>
+    <string name="arrowDown">▼</string>
+    <string name="sadFace">:(</string>
+    <string name="prefKey_notifications_default">true</string>
+    <!-- End punctuation -->
+
 </resources>

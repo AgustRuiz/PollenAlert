@@ -31,7 +31,7 @@ public class ForecastPresenter implements Presenter {
     @Override
     public void updateForecast(Context context) {
         String woeid = PreferenceManager.getDefaultSharedPreferences(context)
-                .getString(context.getResources().getString(R.string.pref_woeid), null);
+                .getString(context.getResources().getString(R.string.prefKey_woeid), null);
         if (woeid != null) {
             PollencheckApiClient.GetPollenForecast(woeid, this);
         } else {

@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Bind(R.id.btnLaunchForecastActivity)
     Button btnLaunchForecastActivity;
-
     @Bind(R.id.btnLaunchSearchActivity)
     Button btnLaunchSearchActivity;
 
