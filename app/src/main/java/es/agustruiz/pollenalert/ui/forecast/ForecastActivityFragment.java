@@ -109,6 +109,7 @@ public class ForecastActivityFragment extends Fragment {
         super.onResume();
         this.refreshForecast();
         this.receiveSearchLocation(new ArrayList<Location>());
+        this.showProgressBar();
     }
 
     @Override

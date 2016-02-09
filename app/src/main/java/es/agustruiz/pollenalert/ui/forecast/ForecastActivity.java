@@ -34,8 +34,6 @@ public class ForecastActivity extends AppCompatActivity {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
-    @Bind(R.id.refresh)
-    FloatingActionButton mRefresh;
 
     //@Bind(R.id.action_search)
     SearchView searchView;
@@ -115,7 +113,7 @@ public class ForecastActivity extends AppCompatActivity {
                 return true;
             }
         });
-        
+
         return true;
     }
 
@@ -167,21 +165,6 @@ public class ForecastActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
-
-        this.mRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    forecastFragment.refreshForecast();
-                    /*Snackbar.make(view, "Here I am!", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();/**/
-                } catch (Exception e) {
-                    forecastFragment.hideProgressBar();
-                    forecastFragment.hideMainView();
-                    forecastFragment.showErrorView("Can't refresh forecast!");
-                }
-            }
-        });
 
         this.activity = this;
     }
