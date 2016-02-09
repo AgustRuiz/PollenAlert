@@ -30,7 +30,7 @@ public class NoScrollListView extends ListView
 
         int childHeight = getMeasuredHeight() - (getListPaddingTop() + getListPaddingBottom() +  getVerticalFadingEdgeLength() * 2);
 
-        int fullHeight = getListPaddingTop() + getListPaddingBottom() + childHeight*(getCount());
+        int fullHeight = getListPaddingTop() + getListPaddingBottom() + childHeight*(getCount()) + 5;
 
         setMeasuredDimension(getMeasuredWidth(), fullHeight);
     }
