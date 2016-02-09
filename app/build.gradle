@@ -22,7 +22,6 @@ android {
          * Windows default: C:\Users\<user>\.gradle\gradle.properties
          */
         it.buildConfigField 'String', 'MASHAPE_API_KEY', MyMashapeApiKey
-        it.buildConfigField 'String', 'YAHOO_API_KEY', MyYahooApiKey
     }
 }
 
