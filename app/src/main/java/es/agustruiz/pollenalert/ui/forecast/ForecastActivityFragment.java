@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -44,7 +45,7 @@ public class ForecastActivityFragment extends Fragment {
     ProgressBar progressBar;
 
     @Bind(R.id.mainView)
-    View mainView;
+    ScrollView mainView;
 
     @Bind(R.id.locationNameValue)
     TextView locationNameValue;
@@ -107,9 +108,13 @@ public class ForecastActivityFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        this.refreshForecast();
-        this.receiveSearchLocation(new ArrayList<Location>());
-        this.showProgressBar();
+        if(this.forecastDailyFacade==null) {
+            this.refreshForecast();
+            this.receiveSearchLocation(new ArrayList<Location>());
+            this.showProgressBar();
+        }else{
+            this.scrollToTop();
+        }
     }
 
     @Override
@@ -161,7 +166,13 @@ public class ForecastActivityFragment extends Fragment {
         }
         this.lvDailyPeriodState = this.lvDailyPeriod.onSaveInstanceState();
         this.lvDailyPeriod.setAdapter(dailyPeriodAdapter);
+        this.scrollToTop();
+
         this.lvDailyPeriod.onRestoreInstanceState(this.lvDailyPeriodState);
+    }
+
+    private void scrollToTop() {
+        this.mainView.fullScroll(ScrollView.FOCUS_DOWN);
     }
 
     public void receiveForecastData(ForecastDailyFacade forecast) {
@@ -190,9 +201,9 @@ public class ForecastActivityFragment extends Fragment {
     }
 
     public void refreshForecast() {
-        this.showProgressBar();
         this.hideMainView();
         this.hideErrorView();
+        this.showProgressBar();
         this.presenter.updateForecast(this.context);
     }
 
@@ -266,7 +277,6 @@ public class ForecastActivityFragment extends Fragment {
         this.searchLocationAdapter = new LocationAdapter(this.mSearchListView.getContext(),
                 R.layout.row_location, locationArray);
         this.mSearchListView.setAdapter(searchLocationAdapter);
-
         this.hideProgressBar();
 
         // OnClick listener
