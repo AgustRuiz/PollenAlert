@@ -16,6 +16,7 @@ import android.widget.Button;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
+import es.agustruiz.pollenalert.ui.about.AboutActivity;
 import es.agustruiz.pollenalert.ui.search.SearchActivity;
 import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivity;
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+            case R.id.action_about:
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                 return true;
         }
         return false;

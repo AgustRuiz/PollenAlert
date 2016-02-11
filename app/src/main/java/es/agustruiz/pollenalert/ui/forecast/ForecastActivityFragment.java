@@ -67,7 +67,6 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.mSearchListView)
     ListView mSearchListView;
     LocationAdapter searchLocationAdapter = null;
-    Parcelable searchLocationState;
 
     @Bind(R.id.errorView)
     View errorView;
@@ -98,29 +97,27 @@ public class ForecastActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
         this.context = getActivity().getApplicationContext();
-        if (this.isOk) this.showMainView();
-        else this.hideMainView();
-        if (this.isError) this.showErrorView();
-        else this.hideErrorView();
-        return view;
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if(this.forecastDailyFacade==null) {
-            this.refreshForecast();
-            this.receiveSearchLocation(new ArrayList<Location>());
-            this.showProgressBar();
-        }else{
-            this.scrollToTop();
+        if (this.isOk) {
+            this.showMainView();
         }
+        else{
+            this.hideMainView();
+        }
+        if (this.isError){
+            this.showErrorView();
+        }
+        else {
+            this.hideErrorView();
+        }
+        return view;
     }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         if (savedInstanceState != null) {
+            this.hideProgressBar();
+
             this.locationNameValue.setText(savedInstanceState.getString("locationNameValue"));
             this.locationRegionValue.setText(savedInstanceState.getString("locationRegionValue"));
             this.locationCountryValue.setText(savedInstanceState.getString("locationCountryValue"));
@@ -131,13 +128,20 @@ public class ForecastActivityFragment extends Fragment {
                 this.forecastDailyFacade = (ForecastDailyFacade) savedInstanceState
                         .getSerializable("forecastDailyFacade");
                 this.populateLvDailyPeriod(this.forecastDailyFacade);
-            } catch (Exception ignored) {
-            }
+            } catch (Exception ignored) {}
 
             this.isOk = savedInstanceState.getBoolean("isOk");
             this.isError = savedInstanceState.getBoolean("isError");
-            if (this.isOk) this.showMainView();
-            else if (this.isError) this.showErrorView();
+            if (this.isOk){
+                this.showMainView();
+            }
+            else if (this.isError){
+                this.showErrorView();
+            }
+        }else{
+            this.refreshForecast();
+            this.receiveSearchLocation(new ArrayList<Location>());
+            this.showProgressBar();
         }
     }
 
@@ -150,7 +154,7 @@ public class ForecastActivityFragment extends Fragment {
         outState.putString("creationTimeValue", this.creationTimeValue.getText().toString());
         outState.putString("errorText", this.errorText.getText().toString());
 
-        outState.putSerializable("forecastsDailyFacade", this.forecastDailyFacade);
+        outState.putSerializable("forecastDailyFacade", this.forecastDailyFacade);
 
         outState.putBoolean("isOk", this.isOk);
         outState.putBoolean("isError", this.isError);
@@ -166,13 +170,11 @@ public class ForecastActivityFragment extends Fragment {
         }
         this.lvDailyPeriodState = this.lvDailyPeriod.onSaveInstanceState();
         this.lvDailyPeriod.setAdapter(dailyPeriodAdapter);
-        this.scrollToTop();
-
         this.lvDailyPeriod.onRestoreInstanceState(this.lvDailyPeriodState);
     }
 
     private void scrollToTop() {
-        this.mainView.fullScroll(ScrollView.FOCUS_DOWN);
+        this.mainView.fullScroll(ScrollView.FOCUS_UP);
     }
 
     public void receiveForecastData(ForecastDailyFacade forecast) {
@@ -193,8 +195,12 @@ public class ForecastActivityFragment extends Fragment {
             this.creationTimeValue.setText("???");
         }
 
-        this.populateLvDailyPeriod(forecast);
         this.forecastDailyFacade = forecast;
+        this.populateLvDailyPeriod(this.forecastDailyFacade);
+        this.scrollToTop();
+        this.scrollToTop();
+        this.scrollToTop();
+        this.scrollToTop();
 
         this.isOk = true;
         this.isError = false;

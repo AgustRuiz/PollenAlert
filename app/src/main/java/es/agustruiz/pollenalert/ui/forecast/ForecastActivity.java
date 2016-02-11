@@ -26,6 +26,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import es.agustruiz.pollenalert.R;
 import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
+import es.agustruiz.pollenalert.ui.about.AboutActivity;
 import es.agustruiz.pollenalert.ui.settings.SettingsActivity;
 
 public class ForecastActivity extends AppCompatActivity {
@@ -129,6 +130,9 @@ public class ForecastActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_settings:
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+                return true;
+            case R.id.action_about:
+                startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                 return true;
         }
         return false;

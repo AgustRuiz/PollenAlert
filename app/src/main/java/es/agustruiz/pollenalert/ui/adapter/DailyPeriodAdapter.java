@@ -26,7 +26,6 @@ import es.agustruiz.pollenalert.domain.pollencheck.forecast.PollenDayPeriod;
 
 public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
 
-
     Context context;
     int layoutResourceId;
     DailyPeriod data[] = null;
@@ -69,11 +68,11 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getCombined();
             holder.combinedIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.combinedAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
-            holder.combinedAvgLevel.setText(pollenDayPeriod.getAvgLevel());
+            holder.combinedAvgLevel.setText(this.getPollenLevelString(pollenDayPeriod.getAvgLevel()));
             holder.combinedMaxCounter.setText(pollenDayPeriod.getMaxCounter().toString());
-            holder.combinedMaxLevel.setText(pollenDayPeriod.getMaxLevel());
+            holder.combinedMaxLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMaxLevel()));
             holder.combinedMinCounter.setText(pollenDayPeriod.getMinCounter().toString());
-            holder.combinedMinLevel.setText(pollenDayPeriod.getMinLevel());
+            holder.combinedMinLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMinLevel()));
         }else{
             holder.combinedView.setVisibility(View.GONE);
         }
@@ -82,11 +81,11 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getOlive();
             holder.oliveIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.oliveAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
-            holder.oliveAvgLevel.setText(pollenDayPeriod.getAvgLevel());
+            holder.oliveAvgLevel.setText(this.getPollenLevelString(pollenDayPeriod.getAvgLevel()));
             holder.oliveMaxCounter.setText(pollenDayPeriod.getMaxCounter().toString());
-            holder.oliveMaxLevel.setText(pollenDayPeriod.getMaxLevel());
+            holder.oliveMaxLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMaxLevel()));
             holder.oliveMinCounter.setText(pollenDayPeriod.getMinCounter().toString());
-            holder.oliveMinLevel.setText(pollenDayPeriod.getMinLevel());
+            holder.oliveMinLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMinLevel()));
         }else{
             holder.oliveView.setVisibility(View.GONE);
         }
@@ -95,11 +94,11 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getGrass();
             holder.grassIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.grassAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
-            holder.grassAvgLevel.setText(pollenDayPeriod.getAvgLevel());
+            holder.grassAvgLevel.setText(this.getPollenLevelString(pollenDayPeriod.getAvgLevel()));
             holder.grassMaxCounter.setText(pollenDayPeriod.getMaxCounter().toString());
-            holder.grassMaxLevel.setText(pollenDayPeriod.getMaxLevel());
+            holder.grassMaxLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMaxLevel()));
             holder.grassMinCounter.setText(pollenDayPeriod.getMinCounter().toString());
-            holder.grassMinLevel.setText(pollenDayPeriod.getMinLevel());
+            holder.grassMinLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMinLevel()));
         }else{
             holder.grassView.setVisibility(View.GONE);
         }
@@ -108,11 +107,11 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getBirch();
             holder.birchIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.birchAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
-            holder.birchAvgLevel.setText(pollenDayPeriod.getAvgLevel());
+            holder.birchAvgLevel.setText(this.getPollenLevelString(pollenDayPeriod.getAvgLevel()));
             holder.birchMaxCounter.setText(pollenDayPeriod.getMaxCounter().toString());
-            holder.birchMaxLevel.setText(pollenDayPeriod.getMaxLevel());
+            holder.birchMaxLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMaxLevel()));
             holder.birchMinCounter.setText(pollenDayPeriod.getMinCounter().toString());
-            holder.birchMinLevel.setText(pollenDayPeriod.getMinLevel());
+            holder.birchMinLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMinLevel()));
         }else{
             holder.birchView.setVisibility(View.GONE);
         }
@@ -121,11 +120,11 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getRagweed();
             holder.ragweedIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.ragweedAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());
-            holder.ragweedAvgLevel.setText(pollenDayPeriod.getAvgLevel());
+            holder.ragweedAvgLevel.setText(this.getPollenLevelString(pollenDayPeriod.getAvgLevel()));
             holder.ragweedMaxCounter.setText(pollenDayPeriod.getMaxCounter().toString());
-            holder.ragweedMaxLevel.setText(pollenDayPeriod.getMaxLevel());
+            holder.ragweedMaxLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMaxLevel()));
             holder.ragweedMinCounter.setText(pollenDayPeriod.getMinCounter().toString());
-            holder.ragweedMinLevel.setText(pollenDayPeriod.getMinLevel());
+            holder.ragweedMinLevel.setText(this.getPollenLevelString(pollenDayPeriod.getMinLevel()));
         }else{
             holder.ragweedView.setVisibility(View.GONE);
         }
@@ -189,15 +188,32 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
 
     private int getColorFilter(String level) {
         switch (level) {
-            case Constants.HIGH_LEVEL:
+            case Constants.LEVEL_HIGH:
                 return getContext().getResources().getColor(R.color.ColorHigh);
-            case Constants.MEDIUM_LEVEL:
+            case Constants.LEVEL_MEDIUM:
                 return getContext().getResources().getColor(R.color.ColorMedium);
-            case Constants.LOW_LEVEL:
+            case Constants.LEVEL_LOW:
                 return getContext().getResources().getColor(R.color.ColorLow);
-            case Constants.VERY_LOW_LEVEL:
+            case Constants.LEVEL_VERY_LOW:
                 return getContext().getResources().getColor(R.color.ColorVeryLow);
+            default:
+                return getContext().getResources().getColor(R.color.colorAccent);
         }
-        return getContext().getResources().getColor(R.color.colorAccent);
+
+    }
+
+    private String getPollenLevelString(String level){
+        switch (level) {
+            case Constants.LEVEL_HIGH:
+                return getContext().getResources().getString(R.string.high);
+            case Constants.LEVEL_MEDIUM:
+                return getContext().getResources().getString(R.string.medium);
+            case Constants.LEVEL_LOW:
+                return getContext().getResources().getString(R.string.low);
+            case Constants.LEVEL_VERY_LOW:
+                return getContext().getResources().getString(R.string.very_low);
+            default:
+                return getContext().getResources().getString(R.string.unknown);
+        }
     }
 }
