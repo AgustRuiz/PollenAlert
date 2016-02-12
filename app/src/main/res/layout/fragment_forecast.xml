@@ -68,7 +68,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
-                android:clickable="false" />
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:listSelector="@android:color/transparent"
+                android:cacheColorHint="@android:color/transparent" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -159,12 +163,7 @@
             android:id="@+id/mSearchListView"
             android:background="@color/background_floating_material_light"
             android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:clickable="false"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            android:listSelector="@android:color/transparent"
-            android:cacheColorHint="@android:color/transparent" />
+            android:layout_marginRight="12dp" />
     </FrameLayout>
 
     <ProgressBar
