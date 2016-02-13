@@ -6,10 +6,14 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.api.pollencheck.PollencheckApiClient;
+import es.agustruiz.pollenalert.network.gps.ExceptionNoAddressFound;
+import es.agustruiz.pollenalert.network.pollencheck.PollencheckApiClient;
+import es.agustruiz.pollenalert.network.gps.AndroidGPS;
+import es.agustruiz.pollenalert.network.gps.ExceptionNoLocationProviderFound;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivityFragment;
@@ -73,7 +77,22 @@ public class ForecastPresenter implements Presenter {
 
         Log.v("[AGUST]", "getLocationWoeid()");
 
-        Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+        try{
+            this.fragment.showProgressBar();
+            android.location.Location location = AndroidGPS.getLocation(context);
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
+            String locationString = AndroidGPS.reverseGeocoding(context, latitude, longitude);
+            this.queryLocations(locationString);
+        }catch (ExceptionNoLocationProviderFound e){
+            this.fragment.hideProgressBar();
+            Toast.makeText(context, "No location provider found in this device", Toast.LENGTH_LONG).show();
+        } catch (ExceptionNoAddressFound exceptionNoAddressFound) {
+            this.fragment.hideProgressBar();
+            Toast.makeText(context, "Location not found", Toast.LENGTH_LONG).show();
+        } catch (IOException e) {
+            this.errorUpdateViewForecast("No Internet connection");
+        }
 
     }
 }

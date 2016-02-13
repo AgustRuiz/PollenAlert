@@ -1,4 +1,4 @@
-package es.agustruiz.pollenalert.api.pollencheck;
+package es.agustruiz.pollenalert.network.pollencheck;
 
 import java.util.List;
 

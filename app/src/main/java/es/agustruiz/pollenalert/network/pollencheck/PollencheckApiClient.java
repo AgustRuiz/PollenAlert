@@ -1,6 +1,4 @@
-package es.agustruiz.pollenalert.api.pollencheck;
-
-import android.util.Log;
+package es.agustruiz.pollenalert.network.pollencheck;
 
 import java.util.List;
 
