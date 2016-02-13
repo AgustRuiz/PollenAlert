@@ -56,8 +56,7 @@
         </activity>
         <activity
             android:name=".ui.about.AboutActivity"
-            android:label="@string/title_activity_about">
-        </activity>
+            android:label="@string/title_activity_about" />
     </application>
 
 </manifest>

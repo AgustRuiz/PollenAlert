@@ -19,7 +19,6 @@ public interface PollencheckApiInterface {
             Callback<ForecastDailyFacade> response
     );
 
-    // TODO Create Callback type
     @GET("/locations")
     void getLocationByName(
             @Query("q") String query,

@@ -297,7 +297,8 @@ public class ForecastActivityFragment extends Fragment {
                         // Nothing
                         break;
                     case LocationAdapter.TAG_GEOPOSITION:
-                        Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+                        presenter.getLocationWoeid(context);
                         break;
                     default:
                         PreferenceManager

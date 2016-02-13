@@ -1,7 +1,0 @@
-package es.agustruiz.pollenalert.api.yahoo.testOAuth;
-
-/**
- * Created by agust on 11/02/2016.
- */
-public class AccessToken {
-}

@@ -18,4 +18,6 @@ public interface Presenter {
     void queryLocations(String query);
 
     void updateViewLocations(List<Location> locations);
+
+    void getLocationWoeid(Context context);
 }

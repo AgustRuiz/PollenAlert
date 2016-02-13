@@ -3,6 +3,7 @@ package es.agustruiz.pollenalert.presenter;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.Toast;
 
 import java.util.List;
@@ -62,5 +63,17 @@ public class ForecastPresenter implements Presenter {
     @Override
     public void updateViewLocations(List<Location> locations) {
         this.fragment.receiveSearchLocation(locations);
+    }
+
+    @Override
+    public void getLocationWoeid(Context context) {
+        // TODO not hardcoded!
+        //String location = "37.7858081+-3.7746269";
+        //YahooApiClient.GetWoeidByLocation(location, this);
+
+        Log.v("[AGUST]", "getLocationWoeid()");
+
+        Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
+
     }
 }
