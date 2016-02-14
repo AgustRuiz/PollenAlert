@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Activities titles -->
+    <string name="title_activity_forecast">Pronóstico de polen</string>
+    <string name="title_activity_settings">Opciones</string>
+    <string name="title_activity_about">Acerca de PollenAlert</string>
+    <!-- End activities titles -->
+
+    <!-- Actions -->
+    <string name="action_refreshForecast">Recargar pronóstico</string>
+    <string name="action_settings">Opciones…</string>
+    <string name="action_about">Acerca de esta app…</string>
+    <!-- End actions -->
+
+    <!-- Forecast activity -->
+    <string name="creationTime">Fecha de creación</string>
+    <string name="forecastCreationTime">Hora de pronóstico</string>
+    <!-- End forecast activity -->
+
+    <!-- Preferences -->
+    <string name="pref_searching_settings_title">Opciones de busqueda</string>
+    <string name="pref_forecast_by_location_title">Obtener pronóstico por localización</string>
+
+    <string name="pref_pollen_details_title">Detalles de polen</string>
+    <string name="pref_combined_title">Polen combinado</string>
+    <string name="pref_olive_title">Polen de olivo</string>
+    <string name="pref_grass_title">Polen de gramíneas</string>
+    <string name="pref_birch_title">Polen de abedul</string>
+    <string name="pref_ragweed_title">Polen de ambrosía</string>
+
+    <string name="pref_others_title">Otros</string>
+    <string name="pref_show_notifications_title">Mostrar notificaciones</string>
+    <string name="pref_sync_frequency_title">Frecuencia de sincronización de pronóstico</string>
+    <!-- End preferences -->
+
+    <!-- About strings -->
+    <string name="about_icon_description">Icono PollenAlert</string>
+    <string name="about_team">Equipo</string>
+    <string name="about_developer_label">Desarrollador principal\n/Diseñador gráfico</string>
+    <string name="about_website_label">Sitio web</string>
+    <string name="about_pollencheck_label">Pollencheck</string>
+    <string name="about_pollencheck_value">Proveedor de pronósticos de polen en Europa.</string>
+    <string name="about_thanks">Gracias</string>
+    <!-- End about string -->
+
+    <!-- Shared strings -->
+    <string name="combined">Combinado</string>
+    <string name="olive">Olivo</string>
+    <string name="grass">Gramíneas</string>
+    <string name="birch">Abedul</string>
+    <string name="ragweed">Ambrosía</string>
+    <string-array name="daysOfTheWeek">
+        <item>NoEsUnDía</item>
+        <item>Domingo</item>
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sábado</item>
+    </string-array>
+    <string-array name="months">
+        <item>Enero</item>
+        <item>Febrero</item>
+        <item>Marzo</item>
+        <item>Abril</item>
+        <item>Mayo</item>
+        <item>Junio</item>
+        <item>Julio</item>
+        <item>Agosto</item>
+        <item>Septiembre</item>
+        <item>Octubre</item>
+        <item>Noviembre</item>
+        <item>Diciembre</item>
+    </string-array>
+    <string name="minimum">Mínima</string>
+    <string name="abbr_minimum">Min.</string>
+    <string name="average">Media</string>
+    <string name="abbr_average">Med.</string>
+    <string name="maximum">Máxima</string>
+    <string name="abbr_maximum">Max.</string>
+    <string name="interval">Intervalo</string>
+    <string name="active">Activo</string>
+    <string name="time">Hora</string>
+    <string name="today">Hoy</string>
+    <string name="tomorrow">Mañana</string>
+    <string name="myCurrentPosition">Mi posición actual</string>
+    <string name="search">Buscar</string>
+    <string name="unknown">Desconocido</string>
+    <string name="very_low">Muy bajo</string>
+    <string name="low">Bajo</string>
+    <string name="medium">Medio</string>
+    <string name="high">Alto</string>
+    <string name="version">Version</string>
+    <string name="poweredByPollencheck">Powered by PollenCheck</string>
+    <!-- End shared strings -->
+
+    <!-- Messages -->
+    <string name="msg_combinedPollenCompulsory">Al menos, el polen combinado debe ser marcado</string>
+    <string name="msg_locationNotFound">Localización no encontrada.</string>
+    <string name="msg_search_hint">Introduce la localización…</string>
+    <string name="msg_locationNotEspecified">No se ha especificado una localización.\nUsa el buscador del menú superior.</string>
+    <string name="msg_noLocationProviderFound">No se ha encontrado un proveedor de localización.\nPor favor, activa el GPS.</string>
+    <string name="msg_noInternet">No hay conexión a internet.\nPor favor, habilita una conexión válida.</string>
+    <string name="msg_unexpectedError">Un error inesperado ha ocurrido.</string>
+    <string name="msg_internalServerError">Error interno en el servidor.</string>
+    <string name="msg_unauthorizedError">No autorizado.</string>
+    <string name="msg_cityRecorded">La ciudad \"%s\" ha sido guardada. Desde mañana, la predicción de polen estará disponible para esta ciudad todos los días. Perdón por las molestias.</string>
+    <string name="noResults">No hay resultados…</string>
+    <string name="btn_refreshForecast">Recargar pronóstico</string>
+    <!-- End messages -->
+
+    <!-- Punctuation and ASCII-->
+    <string name="simpleDateTimeFormat">HH:mm, dd/MM/yyy</string>
+    <!-- End punctuation -->
+
+</resources>

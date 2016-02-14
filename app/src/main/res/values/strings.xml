@@ -1,7 +1,7 @@
 <resources>
 
-    <string name="app_name">PollenAlert</string>
-    <string name="app_label">PollenAlert</string>
+    <string name="app_name" translatable="false">PollenAlert</string>
+    <string name="app_label" translatable="false">PollenAlert</string>
     <string name="app_version">1.0</string>
 
     <!-- Activities titles -->
@@ -19,15 +19,15 @@
     <!-- Forecast activity -->
     <string name="creationTime">Creation time</string>
     <string name="forecastCreationTime">Forecast creation time</string>
-    <string name="counterDefault">0.0</string>
-    <string name="levelDefault">very_low</string>
-    <string name="timestamp">Timestamp</string>
+    <string name="counterDefault" translatable="false">0.0</string>
+    <string name="levelDefault" translatable="false">very_low</string>
+    <string name="timestamp" translatable="false">Timestamp</string>
     <!-- End forecast activity -->
 
     <!-- Preferences -->
     <string name="pref_searching_settings_title">Searching settings</string>
     <string name="pref_forecast_by_location_title">Get forecast by location</string>
-    <string name="pref_woeid_title">WOEID</string>
+    <string name="pref_woeid_title" translatable="false">WOEID</string>
 
     <string name="pref_pollen_details_title">Pollen details</string>
     <string name="pref_combined_title">Combined pollen</string>
@@ -59,32 +59,32 @@
     <!-- End preferences -->
 
     <!-- Preferences key -->
-    <string name="prefKey_forecast_by_location">key_forecast_by_location</string>
+    <string name="prefKey_forecast_by_location" translatable="false">key_forecast_by_location</string>
 
-    <string name="prefKey_woeid">key_woeid</string>
-    <string name="prefKey_woeid_default">-1</string>
+    <string name="prefKey_woeid" translatable="false">key_woeid</string>
+    <string name="prefKey_woeid_default" translatable="false">-1</string>
 
-    <string name="prefKey_combined">key_combined</string>
-    <string name="prefKey_olive">key_olive</string>
-    <string name="prefKey_grass">key_grass</string>
-    <string name="prefKey_birch">key_birch</string>
-    <string name="prefKey_ragweed">key_ragweed</string>
+    <string name="prefKey_combined" translatable="false">key_combined</string>
+    <string name="prefKey_olive" translatable="false">key_olive</string>
+    <string name="prefKey_grass" translatable="false">key_grass</string>
+    <string name="prefKey_birch" translatable="false">key_birch</string>
+    <string name="prefKey_ragweed" translatable="false">key_ragweed</string>
 
-    <string name="prefKey_notifications">key_notifications</string>
-    <string name="prefKey_sync_frequency">key_sync_frequency</string>
+    <string name="prefKey_notifications" translatable="false">key_notifications</string>
+    <string name="prefKey_sync_frequency" translatable="false">key_sync_frequency</string>
     <!-- End preferences key -->
 
     <!-- About strings -->
     <string name="about_icon_description">PollenAlert icon</string>
     <string name="about_team">Team</string>
     <string name="about_developer_label">Lead developer\n/Graphic designer</string>
-    <string name="about_developer_value">Agustín Ruiz Linares</string>
-    <string name="about_developer_email">correo@agustruiz.es</string>
+    <string name="about_developer_value" translatable="false">Agustín Ruiz Linares</string>
+    <string name="about_developer_email" translatable="false">correo@agustruiz.es</string>
     <string name="about_website_label">Website</string>
-    <string name="about_website_value">www.agustruiz.es</string>
+    <string name="about_website_value" translatable="false">www.agustruiz.es</string>
     <string name="about_pollencheck_label">Pollencheck</string>
     <string name="about_pollencheck_value">Provider of pollen forecasts in Europe.</string>
-    <string name="about_pollencheck_web">www.pollencheck.eu</string>
+    <string name="about_pollencheck_web" translatable="false">www.pollencheck.eu</string>
     <string name="about_thanks">Thanks</string>
     <!-- End about string -->
 
@@ -124,7 +124,7 @@
     <string name="abbr_average">Avg.</string>
     <string name="maximum">Maximum</string>
     <string name="abbr_maximum">Max.</string>
-    <string name="woeid">WOEID</string>
+    <string name="woeid" translatable="false">WOEID</string>
     <string name="interval">Interval</string>
     <string name="active">Active</string>
     <string name="time">Time</string>
@@ -157,16 +157,16 @@
     <!-- End messages -->
 
     <!-- Punctuation and ASCII-->
-    <string name="colonPunctuationMark">": "</string>
-    <string name="blankString">-</string>
-    <string name="blankSpace">" "</string>
-    <string name="bracketOpen">" ("</string>
-    <string name="bracketClose">") "</string>
-    <string name="arrowUp">▲</string>
-    <string name="arrowDown">▼</string>
-    <string name="sadFace">:(</string>
-    <string name="prefKey_notifications_default">true</string>
-    <string name="dateTimeFormatFromPollenCheck">yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'</string>
+    <string name="colonPunctuationMark" translatable="false">": "</string>
+    <string name="blankString" translatable="false">-</string>
+    <string name="blankSpace" translatable="false">" "</string>
+    <string name="bracketOpen" translatable="false">" ("</string>
+    <string name="bracketClose" translatable="false">") "</string>
+    <string name="arrowUp" translatable="false">▲</string>
+    <string name="arrowDown" translatable="false">▼</string>
+    <string name="sadFace" translatable="false">:(</string>
+    <string name="prefKey_notifications_default" translatable="false">true</string>
+    <string name="dateTimeFormatFromPollenCheck" translatable="false">yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'</string>
     <string name="simpleDateTimeFormat">HH:mm, MM/dd/yyy</string>
     <!-- End punctuation -->
 
