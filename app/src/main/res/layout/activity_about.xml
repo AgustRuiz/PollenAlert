@@ -3,218 +3,222 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:padding="0sp"
     tools:context=".ui.about.AboutActivity">
 
-    <LinearLayout
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/imageIcon"
-            android:layout_width="@dimen/about_icon"
-            android:layout_height="@dimen/about_icon"
-            android:layout_gravity="center"
-            android:contentDescription="@string/about_icon_description"
-            android:src="@drawable/pollen_alert_icon" />
-
-        <TextView
-            android:id="@+id/tvAppName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/app_name"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/about_Name" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/llVersion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageIcon"
+                android:layout_width="@dimen/about_icon"
+                android:layout_height="@dimen/about_icon"
+                android:layout_gravity="center"
+                android:contentDescription="@string/about_icon_description"
+                android:src="@drawable/pollen_alert_icon" />
 
             <TextView
-                android:id="@+id/tvVersionLabel"
+                android:id="@+id/tvAppName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/version"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
+                android:text="@string/app_name"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/about_Name" />
+
+            <LinearLayout
+                android:id="@+id/llVersion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvVersionLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/version"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                <TextView
+                    android:id="@+id/tvSpace"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/colonPunctuationMark"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:id="@+id/tvVersionValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/app_version"
+                    android:textAppearance="?android:attr/textAppearanceSmall" />
+
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/tvSpace"
+                android:id="@+id/tvTeamLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="@string/colonPunctuationMark"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:text="@string/about_team"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/about_section_titles" />
 
-            <TextView
-                android:id="@+id/tvVersionValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="@string/app_version"
-                android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvTeamLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/about_team"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="@dimen/about_section_titles" />
-
-        <TableLayout
-            android:id="@+id/tblTeam"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <TableRow
+            <TableLayout
+                android:id="@+id/tblTeam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/tvDeveloperLabel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/about_margin"
-                    android:text="@string/about_developer_label"
-                    android:textAlignment="viewEnd"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/llDeveloperValue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/about_margin"
-                    android:orientation="vertical">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/tvDeveloperValue"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvDeveloperLabel"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="@string/about_developer_value"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-                    <TextView
-                        android:id="@+id/tvDeveloperEmail"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:autoLink="email"
-                        android:clickable="true"
-                        android:linksClickable="false"
-                        android:text="@string/about_developer_email"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textIsSelectable="false" />
-
-                </LinearLayout>
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/tvWebsiteLabel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/about_margin"
-                    android:text="@string/about_website_label"
-                    android:textAlignment="viewEnd"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textStyle="bold"
-                    android:layout_gravity="right" />
-
-                <TextView
-                    android:id="@+id/tvWebsiteValue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:autoLink="web"
-                    android:clickable="true"
-                    android:text="@string/about_website_value"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:layout_gravity="right" />
-
-            </TableRow>
-
-        </TableLayout>
-
-        <TextView
-            android:id="@+id/tvThanksLabel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/about_thanks"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textSize="@dimen/about_section_titles" />
-
-        <TableLayout
-            android:id="@+id/tblThanks"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent">
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:id="@+id/tvPollencheckLabel"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/about_margin"
-                    android:text="@string/about_pollencheck_label"
-                    android:textAlignment="viewEnd"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:id="@+id/llPollencheckValue"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:layout_margin="@dimen/about_margin"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tvPollencheckValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/about_margin"
                         android:layout_weight="1"
-                        android:text="@string/about_pollencheck_value"
-                        android:textAppearance="?android:attr/textAppearanceSmall" />
+                        android:text="@string/about_developer_label"
+                        android:textAlignment="viewEnd"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/llDeveloperValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/about_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvDeveloperValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/about_developer_value"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/tvDeveloperEmail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:autoLink="email"
+                            android:clickable="true"
+                            android:linksClickable="false"
+                            android:text="@string/about_developer_email"
+                            android:textAppearance="?android:attr/textAppearanceSmall"
+                            android:textIsSelectable="false" />
+
+                    </LinearLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/tvPollencheckWeb"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvWebsiteLabel"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_margin="@dimen/about_margin"
+                        android:layout_weight="1"
+                        android:text="@string/about_website_label"
+                        android:textAlignment="viewEnd"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvWebsiteValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         android:layout_weight="1"
                         android:autoLink="web"
                         android:clickable="true"
-                        android:text="@string/about_pollencheck_web"
+                        android:text="@string/about_website_value"
                         android:textAppearance="?android:attr/textAppearanceSmall" />
-                </LinearLayout>
 
-            </TableRow>
+                </TableRow>
 
-        </TableLayout>
+            </TableLayout>
 
-    </LinearLayout>
+            <TextView
+                android:id="@+id/tvThanksLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/about_thanks"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="@dimen/about_section_titles" />
+
+            <TableLayout
+                android:id="@+id/tblThanks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvPollencheckLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/about_margin"
+                        android:layout_weight="1"
+                        android:text="@string/about_pollencheck_label"
+                        android:textAlignment="viewEnd"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:id="@+id/llPollencheckValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/about_margin"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tvPollencheckValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/about_pollencheck_value"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+                        <TextView
+                            android:id="@+id/tvPollencheckWeb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:autoLink="web"
+                            android:clickable="true"
+                            android:text="@string/about_pollencheck_web"
+                            android:textAppearance="?android:attr/textAppearanceSmall" />
+                    </LinearLayout>
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>
