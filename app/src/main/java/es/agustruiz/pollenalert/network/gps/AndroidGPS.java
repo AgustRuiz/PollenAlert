@@ -30,27 +30,31 @@ public class AndroidGPS {
             throw new ExceptionNoLocationProviderFound();
         } else {
             locationManager.requestSingleUpdate(bestProviders.get(0), new LocationListener() {
-                @Override
-                public void onLocationChanged(Location location) {
+                    @Override
+                    public void onLocationChanged(Location location) {
 
-                }
+                    }
 
-                @Override
-                public void onStatusChanged(String provider, int status, Bundle extras) {
+                    @Override
+                    public void onStatusChanged(String provider, int status, Bundle extras) {
 
-                }
+                    }
 
-                @Override
-                public void onProviderEnabled(String provider) {
+                    @Override
+                    public void onProviderEnabled(String provider) {
 
-                }
+                    }
 
-                @Override
-                public void onProviderDisabled(String provider) {
+                    @Override
+                    public void onProviderDisabled(String provider) {
 
-                }
-            }, null);
-            return locationManager.getLastKnownLocation(bestProviders.get(0));
+                    }
+                }, null);
+            Location location =locationManager.getLastKnownLocation(bestProviders.get(0));
+            if(location!=null)
+                return location;
+            else
+                throw new ExceptionNoLocationProviderFound();
         }
     }
 

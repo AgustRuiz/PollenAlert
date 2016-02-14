@@ -145,6 +145,12 @@
                 android:textAlignment="center"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refresh forecast"
+                android:id="@+id/btnRefreshForecast" />
+
         </LinearLayout>
 
     </FrameLayout>

@@ -6,6 +6,7 @@ import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
 import retrofit.Callback;
 import retrofit.http.GET;
+import retrofit.http.PUT;
 import retrofit.http.Path;
 import retrofit.http.Query;
 
@@ -23,5 +24,11 @@ public interface PollencheckApiInterface {
     void getLocationByName(
             @Query("q") String query,
             Callback<List<Location>> response
+    );
+
+    @PUT("/locations/{woeid}")
+    void putLocation(
+            @Path("woeid") String woeid,
+            Callback<Location> response
     );
 }

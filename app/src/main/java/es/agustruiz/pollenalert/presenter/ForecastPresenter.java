@@ -1,22 +1,21 @@
 package es.agustruiz.pollenalert.presenter;
 
-
 import android.content.Context;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.List;
 
 import es.agustruiz.pollenalert.R;
-import es.agustruiz.pollenalert.network.gps.ExceptionNoAddressFound;
-import es.agustruiz.pollenalert.network.pollencheck.PollencheckApiClient;
-import es.agustruiz.pollenalert.network.gps.AndroidGPS;
-import es.agustruiz.pollenalert.network.gps.ExceptionNoLocationProviderFound;
 import es.agustruiz.pollenalert.domain.pollencheck.forecast.ForecastDailyFacade;
 import es.agustruiz.pollenalert.domain.pollencheck.location.Location;
+import es.agustruiz.pollenalert.network.gps.AndroidGPS;
+import es.agustruiz.pollenalert.network.gps.ExceptionNoAddressFound;
+import es.agustruiz.pollenalert.network.gps.ExceptionNoLocationProviderFound;
+import es.agustruiz.pollenalert.network.pollencheck.PollencheckApiClient;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivityFragment;
+import es.agustruiz.pollenalert.ui.search.SearchActivity;
 
 public class ForecastPresenter implements Presenter {
 
@@ -38,10 +37,9 @@ public class ForecastPresenter implements Presenter {
         String woeid = PreferenceManager.getDefaultSharedPreferences(context)
                 .getString(context.getResources().getString(R.string.prefKey_woeid), null);
         if (woeid != null) {
-            PollencheckApiClient.GetPollenForecast(woeid, this);
+            PollencheckApiClient.GetPollenForecast(context, woeid, this);
         } else {
-            // TODO Change message
-            this.errorUpdateViewForecast("Erró");
+            this.errorUpdateViewForecast(context.getString(R.string.msg_locationNotEspecified));
         }
     }
 
@@ -54,9 +52,9 @@ public class ForecastPresenter implements Presenter {
 
     @Override
     public void errorUpdateViewForecast(String messageError) {
-        this.fragment.hideProgressBar();
         this.fragment.hideMainView();
-        this.fragment.showErrorView("Error: " + messageError);
+        this.fragment.showErrorView(messageError);
+        this.fragment.hideProgressBar();
     }
 
     @Override
@@ -70,13 +68,7 @@ public class ForecastPresenter implements Presenter {
     }
 
     @Override
-    public void getLocationWoeid(Context context) {
-        // TODO not hardcoded!
-        //String location = "37.7858081+-3.7746269";
-        //YahooApiClient.GetWoeidByLocation(location, this);
-
-        Log.v("[AGUST]", "getLocationWoeid()");
-
+    public void getLocationByGeoposition(Context context) {
         try{
             this.fragment.showProgressBar();
             android.location.Location location = AndroidGPS.getLocation(context);
@@ -86,13 +78,23 @@ public class ForecastPresenter implements Presenter {
             this.queryLocations(locationString);
         }catch (ExceptionNoLocationProviderFound e){
             this.fragment.hideProgressBar();
-            Toast.makeText(context, "No location provider found in this device", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.msg_noLocationProviderFound, Toast.LENGTH_LONG).show();
         } catch (ExceptionNoAddressFound exceptionNoAddressFound) {
             this.fragment.hideProgressBar();
-            Toast.makeText(context, "Location not found", Toast.LENGTH_LONG).show();
+            Toast.makeText(context, R.string.msg_locationNotFound, Toast.LENGTH_LONG).show();
         } catch (IOException e) {
-            this.errorUpdateViewForecast("No Internet connection");
+            this.errorUpdateViewForecast(context.getString(R.string.msg_noInternet));
         }
 
+    }
+
+    @Override
+    public void locationRegisteredSuccess(Context context, Location location) {
+        this.errorUpdateViewForecast(String.format(context.getString(R.string.msg_locationNotFound) + "\n" + context.getString(R.string.msg_cityRecorded), location.getName()));
+    }
+
+    @Override
+    public void locationRegisteredError(Context context) {
+        this.errorUpdateViewForecast(context.getString(R.string.msg_unexpectedError));
     }
 }

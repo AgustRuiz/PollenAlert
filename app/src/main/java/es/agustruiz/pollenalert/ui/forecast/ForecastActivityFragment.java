@@ -1,12 +1,10 @@
 package es.agustruiz.pollenalert.ui.forecast;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +75,9 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.errorText)
     TextView errorText;
 
+    @Bind(R.id.btnRefreshForecast)
+    TextView btnRefreshForecast;
+
     private Context context;
     private ForecastPresenter presenter;
 
@@ -97,6 +98,12 @@ public class ForecastActivityFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
         this.context = getActivity().getApplicationContext();
+        this.btnRefreshForecast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                refreshForecast();
+            }
+        });
         if (this.isOk) {
             this.showMainView();
         }
@@ -185,11 +192,11 @@ public class ForecastActivityFragment extends Fragment {
 
         try {
             Calendar cal = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+            SimpleDateFormat sdf = new SimpleDateFormat(context.getString(R.string.dateTimeFormatFromPollenCheck));
             cal.setTime(sdf.parse(forecast.getCreationTime()));
             sdf.setCalendar(cal);
             Date creationDate = cal.getTime();
-            SimpleDateFormat formatter = new SimpleDateFormat("HH:mm, MM/dd/yyy");
+            SimpleDateFormat formatter = new SimpleDateFormat(context.getString(R.string.simpleDateTimeFormat));
             this.creationTimeValue.setText(formatter.format(creationDate));
         } catch (ParseException e) {
             this.creationTimeValue.setText("???");
@@ -197,9 +204,6 @@ public class ForecastActivityFragment extends Fragment {
 
         this.forecastDailyFacade = forecast;
         this.populateLvDailyPeriod(this.forecastDailyFacade);
-        this.scrollToTop();
-        this.scrollToTop();
-        this.scrollToTop();
         this.scrollToTop();
 
         this.isOk = true;
@@ -271,7 +275,6 @@ public class ForecastActivityFragment extends Fragment {
         location.add(0, myPositionLocation);
 
         if (location.size() == 1) {
-            // TODO make sort of geoposition but with "zero results"
             Location noLocationFound = new Location();
             noLocationFound.setIcon(LocationAdapter.ICON_NOT_FOUND);
             noLocationFound.setLocationNotFound(true);
@@ -289,7 +292,6 @@ public class ForecastActivityFragment extends Fragment {
         this.mSearchListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //String woeid = location.get(position).getWoeid();
                 String woeid = ((TextView) view.findViewById(R.id.mWoeidTextView))
                         .getText().toString();
                 switch (woeid) {
@@ -297,8 +299,7 @@ public class ForecastActivityFragment extends Fragment {
                         // Nothing
                         break;
                     case LocationAdapter.TAG_GEOPOSITION:
-                        //Toast.makeText(context, "Not implemented yet", Toast.LENGTH_SHORT).show();
-                        presenter.getLocationWoeid(context);
+                        presenter.getLocationByGeoposition(context);
                         break;
                     default:
                         PreferenceManager

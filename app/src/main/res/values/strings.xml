@@ -126,9 +126,17 @@
 
     <!-- Messages -->
     <string name="msg_combinedPollenCompulsory">Combined pollen must be checked at least</string>
-    <string name="msg_locationNotFound">Location not found</string>
-    <string name="msg_search_hint">Enter location...</string>
-    <string name="noResults">No results...</string>
+    <string name="msg_locationNotFound">Location not found.</string>
+    <string name="msg_search_hint">Enter location…</string>
+    <string name="msg_locationNotEspecified">Location not especified.\nUse the search box from the action bar.</string>
+    <string name="msg_noLocationProviderFound">No location provider found in this device.\nPlease, enable location in settings.</string>
+    <string name="msg_noInternet">No Internet connection.\nPlease, enable an Internet connection.</string>
+    <string name="msg_unexpectedError">An unexpected error has occurred.</string>
+    <string name="msg_internalServerError">Internal server error.</string>
+    <string name="msg_unauthorizedError">Unauthorized.</string>
+    <string name="msg_cityRecorded">The city \"%s\" has been recorded. From tomorrow, the pollen forecast available for this city every day. Sorry for the inconvenience.</string>
+    <string name="noResults">No results…</string>
+    <string name="btn_refreshForecast">Refresh forecast</string>
     <!-- End messages -->
 
     <!-- Punctuation and ASCII-->
@@ -141,6 +149,8 @@
     <string name="arrowDown">▼</string>
     <string name="sadFace">:(</string>
     <string name="prefKey_notifications_default">true</string>
+    <string name="dateTimeFormatFromPollenCheck">yyyy-MM-dd\'T\'HH:mm:ss.SSS\'Z\'</string>
+    <string name="simpleDateTimeFormat">HH:mm, MM/dd/yyy</string>
     <!-- End punctuation -->
 
 </resources>

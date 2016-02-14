@@ -19,5 +19,9 @@ public interface Presenter {
 
     void updateViewLocations(List<Location> locations);
 
-    void getLocationWoeid(Context context);
+    void getLocationByGeoposition(Context context);
+
+    void locationRegisteredSuccess(Context context, Location location);
+
+    void locationRegisteredError(Context context);
 }
