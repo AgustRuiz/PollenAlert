@@ -153,7 +153,6 @@
     <string name="msg_unauthorizedError">Unauthorized.</string>
     <string name="msg_cityRecorded">The city \"%s\" has been recorded. From tomorrow, the pollen forecast available for this city every day. Sorry for the inconvenience.</string>
     <string name="noResults">No results…</string>
-    <string name="btn_refreshForecast">Refresh forecast</string>
     <!-- End messages -->
 
     <!-- Punctuation and ASCII-->

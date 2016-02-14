@@ -159,7 +159,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Refresh forecast"
+                android:text="@string/btn_refreshForecast"
                 android:id="@+id/btnRefreshForecast" />
 
         </LinearLayout>
