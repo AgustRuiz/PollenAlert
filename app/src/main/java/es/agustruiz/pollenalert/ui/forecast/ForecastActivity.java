@@ -161,10 +161,6 @@ public class ForecastActivity extends AppCompatActivity {
 
     private void initialize() {
         setSupportActionBar(this.toolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
-
         this.activity = this;
     }
 }
