@@ -1,13 +1,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <PreferenceCategory android:title="@string/pref_searching_settings_title">
+    <!--PreferenceCategory android:title="@string/pref_searching_settings_title">
 
         <SwitchPreference
             android:defaultValue="true"
             android:key="@string/prefKey_forecast_by_location"
             android:title="@string/pref_forecast_by_location_title" />
 
-        <!--es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
+        <es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
             android:defaultValue="@string/prefKey_woeid_default"
             android:inputType="number"
             android:key="@string/prefKey_woeid"
@@ -15,9 +15,9 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_woeid_title"
-            android:summary="%s"/-->
+            android:summary="%s"/>
 
-        <!--es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
+        <es.agustruiz.pollenalert.ui.customViews.FriendlyEditTextPreference
             android:defaultValue="@string/prefKey_location_search_default"
             android:inputType="text"
             android:key="@string/prefKey_location_search"
@@ -25,9 +25,9 @@
             android:selectAllOnFocus="true"
             android:singleLine="true"
             android:title="@string/pref_location_search_title"
-            android:summary="%s"/-->
+            android:summary="%s"/>
 
-    </PreferenceCategory>
+    </PreferenceCategory-->
 
     <PreferenceCategory android:title="@string/pref_pollen_details_title">
 
@@ -58,7 +58,7 @@
 
     </PreferenceCategory>
 
-    <PreferenceCategory
+    <!--PreferenceCategory
         android:title="@string/pref_others_title">
 
         <ListPreference
@@ -76,7 +76,6 @@
             android:defaultValue="@string/prefKey_notifications_default"
             android:title="@string/pref_show_notifications_title" />
 
-    </PreferenceCategory>
-
+    </PreferenceCategory-->
 
 </PreferenceScreen>
