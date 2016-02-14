@@ -1,6 +1,8 @@
 package es.agustruiz.pollenalert.ui.forecast;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -78,6 +80,9 @@ public class ForecastActivityFragment extends Fragment {
     @Bind(R.id.btnRefreshForecast)
     TextView btnRefreshForecast;
 
+    @Bind(R.id.tvPoweredByPollencheck)
+    TextView tvPoweredByPollencheck;
+
     private Context context;
     private ForecastPresenter presenter;
 
@@ -102,6 +107,14 @@ public class ForecastActivityFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 refreshForecast();
+            }
+        });
+        this.tvPoweredByPollencheck.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse("http://"+getString(R.string.about_pollencheck_web)));
+                startActivity(intent);
             }
         });
         if (this.isOk) {

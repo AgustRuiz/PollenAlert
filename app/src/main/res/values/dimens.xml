@@ -7,4 +7,9 @@
     <dimen name="row_location_height">60dp</dimen>
     <dimen name="row_location_icon">40dp</dimen>
     <dimen name="row_location_icon_padding">10dp</dimen>
+
+    <dimen name="about_margin">4sp</dimen>
+    <dimen name="about_Name">32sp</dimen>
+    <dimen name="about_icon">100sp</dimen>
+    <dimen name="about_section_titles">20sp</dimen>
 </resources>

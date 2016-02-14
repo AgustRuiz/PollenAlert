@@ -1,8 +1,8 @@
 <resources>
 
     <string name="app_name">PollenAlert</string>
-
     <string name="app_label">PollenAlert</string>
+    <string name="app_version">1.0</string>
 
     <!-- Activities titles -->
     <string name="title_activity_forecast">Pollen forecast</string>
@@ -74,6 +74,20 @@
     <string name="prefKey_sync_frequency">key_sync_frequency</string>
     <!-- End preferences key -->
 
+    <!-- About strings -->
+    <string name="about_icon_description">PollenAlert icon</string>
+    <string name="about_team">Team</string>
+    <string name="about_developer_label">Lead developer\n/Graphic designer</string>
+    <string name="about_developer_value">Agustín Ruiz Linares</string>
+    <string name="about_developer_email">correo@agustruiz.es</string>
+    <string name="about_website_label">Website</string>
+    <string name="about_website_value">www.agustruiz.es</string>
+    <string name="about_pollencheck_label">Pollencheck</string>
+    <string name="about_pollencheck_value">Provider of pollen forecasts in Europe.</string>
+    <string name="about_pollencheck_web">www.pollencheck.eu</string>
+    <string name="about_thanks">Thanks</string>
+    <!-- End about string -->
+
     <!-- Shared strings -->
     <string name="combined">Combined</string>
     <string name="olive">Olive</string>
@@ -123,6 +137,8 @@
     <string name="low">Low</string>
     <string name="medium">Medium</string>
     <string name="high">High</string>
+    <string name="version">Version</string>
+    <string name="poweredByPollencheck">Powered by PollenCheck</string>
     <!-- End shared strings -->
 
     <!-- Messages -->
