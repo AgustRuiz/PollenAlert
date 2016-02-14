@@ -64,7 +64,7 @@ public class DailyPeriodAdapter extends ArrayAdapter<DailyPeriod> {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         Resources resources = context.getResources();
 
-        if(preferences.getBoolean(resources.getString(R.string.prefKey_combined), false)){
+        if(preferences.getBoolean(resources.getString(R.string.prefKey_combined), true)){
             PollenDayPeriod pollenDayPeriod = dailyPeriod.getCombined();
             holder.combinedIcon.setColorFilter(getColorFilter(pollenDayPeriod.getAvgLevel()));
             holder.combinedAvgCounter.setText(pollenDayPeriod.getAvgCounter().toString());

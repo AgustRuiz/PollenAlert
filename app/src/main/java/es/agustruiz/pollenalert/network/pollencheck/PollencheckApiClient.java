@@ -75,14 +75,6 @@ public class PollencheckApiClient {
         });
     }
 
-
-
-
-
-
-
-
-
     public static void RegisterLocation(final Context context, String woeid, final Presenter presenter) {
         PrepareService();
         service.putLocation(woeid, new Callback<Location>() {
@@ -98,11 +90,6 @@ public class PollencheckApiClient {
             }
         });
     }
-
-
-
-
-
 
     private static void PrepareService() {
         if(service == null){

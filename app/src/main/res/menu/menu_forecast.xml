@@ -5,12 +5,18 @@
 
     <item
         android:id="@+id/action_search"
-        android:title="@string/search"
+        android:title="@string/msg_search_hint"
         android:hint="@string/msg_search_hint"
         android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
         app:showAsAction="collapseActionView|ifRoom"
         app:actionViewClass="android.support.v7.widget.SearchView"
         />
+
+    <item
+        android:id="@+id/action_refresh_forecast"
+        android:orderInCategory="100"
+        android:title="@string/action_refreshForecast"
+        app:showAsAction="collapseActionView" />
 
     <item
         android:id="@+id/action_settings"

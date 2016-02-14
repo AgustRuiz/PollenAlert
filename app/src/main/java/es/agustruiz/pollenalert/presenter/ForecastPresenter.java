@@ -15,7 +15,6 @@ import es.agustruiz.pollenalert.network.gps.ExceptionNoAddressFound;
 import es.agustruiz.pollenalert.network.gps.ExceptionNoLocationProviderFound;
 import es.agustruiz.pollenalert.network.pollencheck.PollencheckApiClient;
 import es.agustruiz.pollenalert.ui.forecast.ForecastActivityFragment;
-import es.agustruiz.pollenalert.ui.search.SearchActivity;
 
 public class ForecastPresenter implements Presenter {
 
